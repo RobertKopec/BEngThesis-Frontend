@@ -1,4 +1,9 @@
-<input
-  [ngClass]="class"
-  [type]="type"
-  [placeholder]="placeholder">
+<div class="d-flex">
+  <input
+    class="form-control input"
+    [ngClass]="classes"
+    [type]="type"
+    [placeholder]="placeholder"
+    [(ngModel)]="value">
+</div>
+

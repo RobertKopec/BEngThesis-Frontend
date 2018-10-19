@@ -1,0 +1,18 @@
+@import "../../../constants";
+
+.select{
+  margin: $margin-select-nav;
+}
+
+.select-shop{
+  border-color: $yellow;
+
+  &:focus{
+    box-shadow: 0 0 0.3rem 0.2rem $orange;
+    transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+}
+
+option:first-child{
+  display: none;
+}

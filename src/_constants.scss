@@ -1,11 +1,27 @@
+//$box-shadow-light: 0 2px 5px 2px rgba(0, 0, 0, .1);
+$margin-right: 0.5vw;
+
+//nav-button
+$width-button-nav: 100%;
+$height-button-nav: 100%;
+$border-radius: 0.2rem;
+$padding-button-nav: 0.45vh 0.2vw;
+
+//nav-select
+$margin-select-nav: 0 0.5vw;
+
+//nav-input
+$margin-input-nav: 0 0.5vw;
+
+//nav
+$padding-nav: 3vh 0.75vw;
+$margin-nav: 1.5vh 0;
+
+//colors
+// orange #fa983a
+// yellow #FFC312 #f6b93b #ffb142
 $black: #000;
 $white: #fff;
-
-$radius: 5px;
-$box-shadow-light: 0 2px 5px 2px rgba(0, 0, 0, .1);
-
-$padding: 5px;
-$margin-10: 10px;
-
-$width-50: 50px;
-$height-50: 50px
+$gray: #E0E0E0;
+$yellow: #FFC312;
+$orange: rgba(250, 152, 58, .9);

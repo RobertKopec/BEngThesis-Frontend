@@ -1,0 +1,19 @@
+@import "../../../constants";
+
+.lg{
+  width: 15vw
+}
+
+.input{
+  margin: $margin-input-nav;
+}
+
+.input-shop{
+  border-color: $yellow;
+
+  &:focus{
+    box-shadow: 0 0 0.3rem 0.2rem $orange;
+    transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+}
+
