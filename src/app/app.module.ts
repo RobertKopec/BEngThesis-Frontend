@@ -8,13 +8,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectComponent } from './components/select/select.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library} from '@fortawesome/fontawesome-svg-core';
 // tslint:disable-next-line:max-line-length
-import { faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch);
+import {faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faChild, faSpa, faPaw, faLaptop, faVolleyballBall} from '@fortawesome/free-solid-svg-icons';
+import {faImages, faStar} from '@fortawesome/free-regular-svg-icons';
+// tslint:disable-next-line:max-line-length
+library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall);
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAl
     NavbarComponent,
     ButtonComponent,
     InputComponent,
-    SelectComponent
+    SelectComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

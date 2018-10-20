@@ -1,11 +1,24 @@
-//$box-shadow-light: 0 2px 5px 2px rgba(0, 0, 0, .1);
-$margin-right: 0.5vw;
+$transition-time: 0.2s;
 
-//nav-button
-$width-button-nav: 100%;
-$height-button-nav: 100%;
-$border-radius: 0.2rem;
+//section
+$padding-section: 0.5vh 0;
+
+//content
+$padding-content: 0 7%;
+
+//img
+$margin-img: 2vh 0;
+$padding-img: 3vh 0.75vw;
+$border-radius-img: 0.2rem;
+
+//button
+$width-button: 100%;
+$height-button: 100%;
+
+//button-shop
 $padding-button-nav: 0.45vh 0.2vw;
+$border-radius-shop: 0.2rem;
+$margin-button-nav: 0 0.5vw 0 0;
 
 //nav-select
 $margin-select-nav: 0 0.5vw;
@@ -14,14 +27,30 @@ $margin-select-nav: 0 0.5vw;
 $margin-input-nav: 0 0.5vw;
 
 //nav
-$padding-nav: 3vh 0.75vw;
-$margin-nav: 1.5vh 0;
+$padding-nav: 3vh 7vw;
+
+//categories
+$border-radius-category: 0.2rem;
+$border-size-category: 0.3rem;
+$width-panel-categories: 100%;
+$padding-button-category: 0.5rem;
+$width-button-category: 8vw;
 
 //colors
 // orange #fa983a
 // yellow #FFC312 #f6b93b #ffb142
 $black: #000;
 $white: #fff;
+$gray-light: #EEEEEE;
 $gray: #E0E0E0;
-$yellow: #FFC312;
+$gray-dark: #616161;
+$red: rgba(234, 32, 39, .9);
 $orange: rgba(250, 152, 58, .9);
+$yellow: rgba(255, 195, 18, .9);
+$green-light: rgba(196, 229, 56, .9);
+$green: rgba(163, 203, 56, .9);
+$blue-light: rgba(18, 203, 196, .9);
+$blue: rgba(18, 137, 167, .9);
+$violet: rgba(87, 88, 187, .9);
+$purple: rgba(153, 128, 250, .9);
+$magenta: rgba(111, 30, 81, .9);

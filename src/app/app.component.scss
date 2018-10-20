@@ -1,1 +1,19 @@
+@import "../constants";
+
+.content{
+  padding: $padding-content;
+  background: $gray-light;
+}
+
+.img{
+  background: $white;
+  margin: $margin-img;
+  padding: $padding-img;
+  border-radius: $border-radius-img;
+}
+
+section{
+  background: $gray-light;
+  padding: $padding-section;
+}
 

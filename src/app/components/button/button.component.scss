@@ -1,16 +1,14 @@
 @import "../../../constants";
 
   .button {
-    border: transparent;
-    border-radius: $border-radius;
-    background: transparent;
     cursor: pointer;
+    width: $width-button;
+    height: $height-button;
     position: relative;
-    margin-right: $margin-right;
-    padding: $padding-button-nav;
-    width: $width-button-nav;
-    height: $height-button-nav;
-
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     &:focus {
       outline: none;
@@ -19,10 +17,117 @@
 
   .button-shop{
     color: $yellow;
+    border: transparent;
+    border-radius: $border-radius-shop;
+    margin: $margin-button-nav;
+    padding: $padding-button-nav;
 
     &:hover{
       box-shadow: 0 0 0.3rem 0.2rem $orange;
       color: $orange;
-      transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      transition: color $transition-time ease-in-out, box-shadow $transition-time ease-in-out;
     }
   }
+
+.button-category{
+  width: $width-button-category;
+  padding: $padding-button-category;
+  background: $white !important;
+  border-width: $border-size-category;
+  border-style: solid none;
+  border-radius: $border-radius-category;
+  color: $gray-dark;
+  border-color: #FFC312;
+}
+
+.button-red{
+  border-color: $red;
+
+  &:hover{
+    color: $red;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-orange{
+  border-color: $orange;
+
+  &:hover{
+    color: $orange;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-yellow{
+  border-color: $yellow;
+
+  &:hover{
+    color: $yellow;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-green-light{
+  border-color: $green-light;
+
+  &:hover{
+    color: $green-light;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-green{
+  border-color: $green;
+
+  &:hover{
+    color: $green;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-blue-light{
+  border-color: $blue-light;
+
+  &:hover{
+    color: $blue-light;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-blue{
+  border-color: $blue;
+
+  &:hover{
+    color: $blue;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-violet{
+  border-color: $violet;
+
+  &:hover{
+    color: $violet;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-purple{
+  border-color: $purple;
+
+  &:hover{
+    color: $purple;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+.button-magenta{
+  border-color: $magenta;
+
+  &:hover{
+    color: $magenta;
+    transition: color $transition-time ease-in-out;
+  }
+}
+
+

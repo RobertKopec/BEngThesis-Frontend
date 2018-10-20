@@ -11,19 +11,19 @@
       <app-button
         [classes]="'button-shop'"
         [iconNameArray]="['fas', 'th']"
-        iconSize="2x">
-      </app-button>
+        [iconSize]="'2x'"
+      ></app-button>
 
       <app-button
         [classes]="'button-shop'"
         [iconNameArray]="['fas', 'th-list']"
-        iconSize="2x">
-      </app-button>
+        [iconSize]="'2x'"
+      ></app-button>
 
       <app-button
         [classes]="'button-shop'"
         [iconNameArray]="['fas', 'map-marked-alt']"
-        iconSize="2x"
+        [iconSize]="'2x'"
       ></app-button>
 
     </div>
@@ -31,7 +31,7 @@
     <app-button
       [classes]="'button-shop'"
       [iconNameArray]="['fas', 'plus']"
-      iconSize="2x"
+      [iconSize]="'2x'"
     ></app-button>
 
     <div class="d-inline-flex">
@@ -45,16 +45,23 @@
         <app-select
           [classes]="'select-shop'"
           [options]="[
-            {text: 'Kategorie'},
+            {text: 'Wybierz kategorię'},
             {text: 'Elektronika', value: 'electronics'},
-            {text: 'Antyki i sztuka', value: 'art'},
-            {text: 'Zwierzęta', value: 'animals'}]"
+            {text: 'Sztuka i zbiory', value: 'art'},
+            {text: 'Zwierzęta', value: 'animals'},
+            {text: 'Dom i ogród', value: 'home'},
+            {text: 'Moda', value: 'fashion'},
+            {text: 'Dzieci', value: 'children'},
+            {text: 'Zdrowie i uroda', value: 'health'},
+            {text: 'Kultura i rozrywka', value: 'culture'},
+            {text: 'Sport i hobby', value: 'sport'},
+            {text: 'Mtoryzacja', value: 'moto'}]"
         ></app-select>
 
           <app-button
             [classes]="'button-shop'"
             [iconNameArray]="['fas', 'search']"
-            iconSize="2x"
+            [iconSize]="'2x'"
           ></app-button>
 
     </div>
@@ -62,27 +69,27 @@
     <app-button
       [classes]="'button-shop'"
       [iconNameArray]="['fas', 'filter']"
-      iconSize="2x"
+      [iconSize]="'2x'"
     ></app-button>
 
     <div class="d-inline-flex">
 
       <app-button
         [classes]="'button-shop'"
-        [iconNameArray]="['fas', 'star']"
-        iconSize="2x"
+        [iconNameArray]="['far', 'star']"
+        [iconSize]="'2x'"
       ></app-button>
 
       <app-button
         [classes]="'button-shop'"
         [iconNameArray]="['fas', 'sign-in-alt']"
-        iconSize="2x"
+        [iconSize]="'2x'"
       ></app-button>
 
       <app-button
         [classes]="'button-shop'"
         [iconNameArray]="['fas', 'sign-out-alt']"
-        iconSize="2x"
+        [iconSize]="'2x'"
       ></app-button>
 
     </div>
