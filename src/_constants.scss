@@ -1,5 +1,3 @@
-$transition-time: 0.2s;
-
 //section
 $padding-section: 0.5vh 0;
 
@@ -12,18 +10,17 @@ $padding-img: 3vh 0.75vw;
 $border-radius-img: 0.2rem;
 
 //button
-$width-button: 100%;
-$height-button: 100%;
+$transition-time-button: 0.2s;
 
 //button-shop
-$padding-button-nav: 0.45vh 0.2vw;
+$padding-button-nav: 0.5vh 0.3vw;
 $border-radius-shop: 0.2rem;
 $margin-button-nav: 0 0.5vw 0 0;
 
-//nav-select
+//select
 $margin-select-nav: 0 0.5vw;
 
-//nav-input
+//input
 $margin-input-nav: 0 0.5vw;
 
 //nav
@@ -35,6 +32,16 @@ $border-size-category: 0.3rem;
 $width-panel-categories: 100%;
 $padding-button-category: 0.5rem;
 $width-button-category: 8vw;
+
+//photo
+$width-img: 100%;
+$width-shop-img: 25%;
+$transition-time-img: 0.5s;
+
+//footer
+$padding-footer: 3vh 7vw;
+$width-hr: 36vw;
+$width-footer: 100%;
 
 //colors
 // orange #fa983a

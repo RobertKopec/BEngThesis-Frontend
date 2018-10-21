@@ -9,12 +9,16 @@ import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectComponent } from './components/select/select.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PhotoComponent } from './components/photo/photo.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library} from '@fortawesome/fontawesome-svg-core';
 // tslint:disable-next-line:max-line-length
 import {faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faChild, faSpa, faPaw, faLaptop, faVolleyballBall} from '@fortawesome/free-solid-svg-icons';
 import {faImages, faStar} from '@fortawesome/free-regular-svg-icons';
+
 // tslint:disable-next-line:max-line-length
 library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall);
 
@@ -25,7 +29,10 @@ library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAl
     ButtonComponent,
     InputComponent,
     SelectComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    FilterComponent,
+    FooterComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,

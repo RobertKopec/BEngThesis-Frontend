@@ -1,0 +1,31 @@
+@import "../../../constants";
+
+.shop-img-showcase{
+  background: $gray-light;
+  padding: 0;
+}
+
+.shop-img-showcase li{
+  display: block;
+  float: left;
+  width: $width-shop-img;
+}
+
+.shop-img{
+  margin: 0;
+  overflow: hidden;
+  background-color: $black;
+}
+
+.shop-img img{
+  opacity: 0.7;
+  width: $width-img;
+  height: auto;
+  transform: scale(1.15);
+  transition: transform $transition-time-img, opacity $transition-time-img;
+}
+
+.shop-img img:hover{
+  transform: scale(1.03);
+  opacity: 1;
+}

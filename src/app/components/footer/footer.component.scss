@@ -1,0 +1,30 @@
+@import "../../../constants";
+
+.footer-signature{
+  padding: $padding-footer;
+  width: $width-footer;
+  bottom: 0;
+  color: $gray-dark;
+}
+
+hr{
+  display: block;
+  width: $width-hr;
+  border-color: $yellow;
+
+  &.left{
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  &.right{
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+
+p{
+  margin: 0;
+}
+
+
