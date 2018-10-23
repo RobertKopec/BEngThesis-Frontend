@@ -1,0 +1,147 @@
+@import "constants";
+
+//general (input, select, button)
+$but-inp-sel-hover-box-shadow: 0 0 0.3rem 0.2rem $orange;
+$but-inp-sel-hover-transition: 0.2s ease-in-out;
+
+//app component
+
+  //section
+  $app-content-section-padding: 0.5vh 0;
+  $app-content-section-bg: $gray-light;
+
+  //.content
+  $app-content-content-padding: 0 7%;
+  $app-content-content-bg: $gray-light;
+
+  //.img
+  $app-content-img-margin: 11.7vh 0 0.85vh 0;
+  $app-content-img-padding: 3vh 0.75vw;
+  $app-content-img-bg: $white;
+  $app-content-img-border-radius: 0.2rem;
+
+//button
+
+  //.button
+  $button-button-border-radius: 0.2rem;
+  $button-button-bg: transparent;
+
+  //.button-shop &:hover (nav)
+  $button-button-shop-color: $yellow;
+  $button-button-shop-border: transparent;
+  $button-button-shop-border-margin: 0 0.5vw 0 0;
+  $button-button-shop-border-padding: 0.5vh 0.3vw;
+  $button-button-shop-hover-color: $orange;
+
+  //.button-category(categories)
+  $button-button-category-height: 100%;
+  $button-button-category-width: 8vw;
+  $button-button-category-padding: 0.5rem;
+  $button-button-category-bg: $white;
+  $button-button-category-border-style: solid none;
+  $button-button-category-border-width: 0.3rem;
+  $button-button-category-color: $gray-dark;
+
+
+  //.button-category-(color) (categories)
+  $button-button-category-red: $red;
+  $button-button-category-orange: $orange;
+  $button-button-category-yellow: $yellow;
+  $button-button-category-green-light: $green-light;
+  $button-button-category-green: $green;
+  $button-button-category-blue-light: $blue-light;
+  $button-button-category-blue: $blue;
+  $button-button-category-violet: $violet;
+  $button-button-category-purple: $purple;
+  $button-button-category-magenta: $magenta;
+
+//input
+
+  //.input-shop (nav)
+  $input-input-shop-border-color: $yellow;
+  $input-input-shop-margin: 0 0.5vw 0 0;
+
+  //.input-wider (nav)
+  $input-input-wider-width: 20vw;
+
+  //.input-narrow (filter)
+  $input-input-narrow-width: 3vw;
+
+  //.input-wide
+  $input-input-range-width: 15vw;
+
+//select
+
+  //.select
+  $select-select-margin: 0 0.5vw;
+
+  //.select-shop (nav)
+  $select-select-shop-border-color: $yellow;
+
+//navbar
+
+  //.nav-bar
+  $navbar-nav-bar-padding: 3vh 7vw;;
+  $navbar-nav-bar-bg: $white;
+
+  //.nav-row
+  $navbar-nav-row-width: 100%;
+
+  //hr
+  $navbar-hr-width: 100;
+  $navbar-hr-border-color: $yellow;
+
+//filter
+
+  //.filter-form
+  $filter-filter-form-width: 100%;
+
+  //hr
+  $filter-hr-width: 0.5vw;
+  $filter-hr-border-color: $yellow;
+  $filter-hr-margin: 0.5vw;
+
+//categories
+
+  //.panel-categories
+  $categories-panel-categories-width: 100%;
+
+//photo
+
+  //.photo-ul
+  $photo-photo-ul-margin: 0 0 1.35vh 0;
+  $photo-photo-ul-padding: 0;
+  $photo-photo-ul-bg: $gray-light;
+
+  //li
+  $photo-li-width: 25%;
+
+  //photo
+  $photo-photo-margin: 0;
+  $photo-photo-bg: $black;
+
+  //img
+  $photo-img-opacity: 0.7;
+  $photo-img-width: 100%;
+  $photo-img-transform: scale(1.15);
+  $photo-img-transition-time: 0.5s;
+  $photo-img-hover-transform: scale(1.03);
+  $photo-img-hover-opacity: 1;
+
+//footer
+
+  //.footer-signature
+  $footer-footer-signature-padding: 3vh 7vw;
+  $footer-footer-signature-width: 100%;
+  $footer-footer-signature-color: $gray-dark;
+
+  //hr &.left &.right
+  $footer-hr-width: 36vw;
+  $footer-hr-border-color: $yellow;
+  $footer-hr-left-margin-left: 0;
+  $footer-hr-left-margin-right: auto;
+  $footer-hr-right-margin-right: 0;
+  $footer-hr-right-margin-left: auto;
+
+  //p
+  $footer-p-margin: 0;

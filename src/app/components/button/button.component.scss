@@ -1,12 +1,9 @@
-@import "../../../constants";
+@import "../../../variables";
 
-  .button {
+  %button {
     cursor: pointer;
-    position: relative;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: $button-button-bg;
+    border-radius: $button-button-border-radius;
 
     &:focus {
       outline: none;
@@ -14,115 +11,55 @@
   }
 
   .button-shop{
-    color: $yellow;
-    border: transparent;
-    border-radius: $border-radius-shop;
-    margin: $margin-button-nav;
-    padding: $padding-button-nav;
+    @extend %button;
+
+    color: $button-button-shop-color;
+    border: $button-button-shop-border;
+    margin: $button-button-shop-border-margin;
+    padding: $button-button-shop-border-padding;
 
     &:hover{
-      box-shadow: 0 0 0.3rem 0.2rem $orange;
-      color: $orange;
-      transition: color $transition-time-button ease-in-out, box-shadow $transition-time-button ease-in-out;
+      box-shadow: $but-inp-sel-hover-box-shadow;
+      color: $button-button-shop-hover-color;
+      transition: color $but-inp-sel-hover-transition,
+      box-shadow $but-inp-sel-hover-transition ;
     }
   }
 
-.button-category{
-  width: $width-button-category;
-  padding: $padding-button-category;
-  background: $white !important;
-  border-width: $border-size-category;
-  border-style: solid none;
-  border-radius: $border-radius-category;
-  color: $gray-dark;
+%button-category {
+  display: flex;
+  flex-direction: column;
+  height: $button-button-category-height;
+  width: $button-button-category-width;
+  padding: $button-button-category-padding;
+  background: $button-button-category-bg !important;
+  border-width: $button-button-category-border-width;
+  border-style: $button-button-category-border-style;
+  color: $button-button-category-color;
 }
 
-.button-red{
-  border-color: $red;
+$buttonCategoriesConfig:
+'red' $button-button-category-red,
+'orange' $button-button-category-orange,
+'yellow' $button-button-category-yellow,
+'green-light' $button-button-category-green-light,
+'green' $button-button-category-green,
+'blue-light' $button-button-category-blue-light,
+'blue' $button-button-category-blue,
+'violet' $button-button-category-violet,
+'purple' $button-button-category-purple,
+'magenta' $button-button-category-magenta;
 
-  &:hover{
-    color: $red;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
+@each $tuple in $buttonCategoriesConfig {
+  .button-category-#{nth($tuple, 1)} {
+    @extend %button-category;
+    @extend %button;
 
-.button-orange{
-  border-color: $orange;
+    border-color: nth($tuple, 2);
 
-  &:hover{
-    color: $orange;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-yellow{
-  border-color: $yellow;
-
-  &:hover{
-    color: $yellow;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-green-light{
-  border-color: $green-light;
-
-  &:hover{
-    color: $green-light;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-green{
-  border-color: $green;
-
-  &:hover{
-    color: $green;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-blue-light{
-  border-color: $blue-light;
-
-  &:hover{
-    color: $blue-light;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-blue{
-  border-color: $blue;
-
-  &:hover{
-    color: $blue;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-violet{
-  border-color: $violet;
-
-  &:hover{
-    color: $violet;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-purple{
-  border-color: $purple;
-
-  &:hover{
-    color: $purple;
-    transition: color $transition-time-button ease-in-out;
-  }
-}
-
-.button-magenta{
-  border-color: $magenta;
-
-  &:hover{
-    color: $magenta;
-    transition: color $transition-time-button ease-in-out;
+    &:hover {
+      color: nth($tuple, 2);
+      transition: color $but-inp-sel-hover-transition;
+    }
   }
 }

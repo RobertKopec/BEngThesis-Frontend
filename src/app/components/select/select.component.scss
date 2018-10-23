@@ -1,15 +1,15 @@
-@import "../../../constants";
+@import "../../../variables";
 
 .select{
-  margin: $margin-select-nav;
+  margin: $select-select-margin;
 }
 
 .select-shop{
-  border-color: $yellow;
+  border-color: $select-select-shop-border-color;
 
   &:focus{
-    box-shadow: 0 0 0.3rem 0.2rem $orange;
-    transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: $but-inp-sel-hover-box-shadow;
+    transition: color $but-inp-sel-hover-transition, box-shadow $but-inp-sel-hover-transition;
   }
 }
 

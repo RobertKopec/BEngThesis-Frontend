@@ -1,30 +1,28 @@
-@import "../../../constants";
-
-.footer-signature{
-  padding: $padding-footer;
-  width: $width-footer;
-  bottom: 0;
-  color: $gray-dark;
-}
+@import "../../../variables";
 
 hr{
   display: block;
-  width: $width-hr;
-  border-color: $yellow;
+  width: $footer-hr-width;
+  border-color: $footer-hr-border-color;
 
   &.left{
-    margin-left: 0;
-    margin-right: auto;
+    margin-left: $footer-hr-left-margin-left;
+    margin-right: $footer-hr-left-margin-right;
   }
 
   &.right{
-    margin-right: 0;
-    margin-left: auto;
+    margin-right: $footer-hr-right-margin-right;
+    margin-left: $footer-hr-right-margin-left;
   }
 }
 
 p{
-  margin: 0;
+  margin: $footer-p-margin;
 }
 
-
+.footer-signature{
+  padding: $footer-footer-signature-padding;
+  width: $footer-footer-signature-width;
+  color: $footer-footer-signature-color;
+  bottom: 0;
+}

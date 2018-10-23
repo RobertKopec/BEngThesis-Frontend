@@ -1,0 +1,104 @@
+<form class="d-inline-flex justify-content-between filter-form">
+
+  <div class="form-check">
+
+    <p>Stan:</p>
+
+    <app-input
+    classes="form-check-input input-checkbox"
+    type="checkbox"
+    value="new"
+    id="stateNew"
+    ></app-input>
+    <label class="form-check-label" for="stateNew">Nowe</label>
+
+    <app-input
+      classes="form-check-input"
+      type="checkbox"
+      value="used"
+      id="stateUsed"
+    ></app-input>
+    <label class="form-check-label" for="stateUsed">Używane</label>
+
+    <app-input
+      classes="form-check-input"
+      type="checkbox"
+      value="broken"
+      id="stateBroken"
+    ></app-input>
+    <label class="form-check-label" for="stateBroken">Uszkodzone</label>
+
+  </div>
+
+  <div class="flex-column">
+
+    <p>Cena:</p>
+
+    <div class="d-inline-flex">
+
+      <app-input
+        [type]="'input'"
+        classes="input-shop form-control input-narrow"
+        placeholder="Od"
+      ></app-input>
+
+      <hr>
+
+      <app-input
+        [type]="'input'"
+        classes="input-shop form-control input-narrow"
+        placeholder="Do"
+      ></app-input>
+
+    </div>
+
+  </div>
+
+  <div class="form-check">
+
+    <p>Opcje dostawy:</p>
+
+    <app-input
+      classes="form-check-input"
+      type="checkbox"
+      value="deliveryYes"
+      id="deliveryYes"
+    ></app-input>
+    <label class="form-check-label" for="deliveryYes">Dostawa</label>
+
+    <app-input
+      classes="form-check-input"
+      type="checkbox"
+      value="deliveryNo"
+      id="deliveryNo"
+    ></app-input>
+    <label class="form-check-label" for="deliveryNo">Odbiór osobisty</label>
+
+  </div>
+
+  <div class="flex-column">
+
+    <p>Opcje lokalizacji:</p>
+
+    <app-input
+      [type]="'input'"
+      classes="input-shop form-control input-wide"
+      placeholder="Wpisz miasto . . ."
+    ></app-input>
+
+  </div>
+
+  <div class="flex-column">
+
+    <label for="cityRange">W promieniu:</label>
+    <app-input
+      [type]="'range'"
+      classes="form-control-range input-wide"
+      placeholder="Wpisz miasto . . ."
+      value="range"
+      id="cityRange"
+    ></app-input>
+
+  </div>
+
+</form>

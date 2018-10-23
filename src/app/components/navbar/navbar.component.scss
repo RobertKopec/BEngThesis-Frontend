@@ -1,5 +1,15 @@
-@import "../../../constants";
+@import "../../../variables";
 
-.nav-spacing{
-  padding: $padding-nav;
+.nav-bar{
+  padding: $navbar-nav-bar-padding;
+  background: $navbar-nav-bar-bg;
+}
+
+.nav-row{
+  width: $navbar-nav-row-width;
+}
+
+hr{
+  width: $navbar-hr-width;
+  border-color: $navbar-hr-border-color;
 }

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
+  navbarOpen = false;
+  filterOpen = false;
 
-  constructor() { }
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
-  ngOnInit() {
+  toggleFilter() {
+    this.filterOpen = !this.filterOpen;
   }
 
 }

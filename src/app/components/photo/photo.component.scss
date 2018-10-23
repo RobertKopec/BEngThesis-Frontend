@@ -1,31 +1,31 @@
-@import "../../../constants";
+@import "../../../variables";
 
-.shop-img-showcase{
-  background: $gray-light;
-  padding: 0;
+.photo-ul{
+  background: $photo-photo-ul-bg;
+  padding: $photo-photo-ul-padding;
+  margin: $photo-photo-ul-margin;
 }
 
-.shop-img-showcase li{
+li{
   display: block;
   float: left;
-  width: $width-shop-img;
+  width: $photo-li-width
 }
 
-.shop-img{
-  margin: 0;
+.photo{
   overflow: hidden;
-  background-color: $black;
+  margin: $photo-photo-margin;
+  background: $photo-photo-bg;
 }
 
-.shop-img img{
-  opacity: 0.7;
-  width: $width-img;
-  height: auto;
-  transform: scale(1.15);
-  transition: transform $transition-time-img, opacity $transition-time-img;
-}
+img {
+  opacity: $photo-img-opacity;
+  width: $photo-img-width;
+  transform: $photo-img-transform ;
+  transition: transform $photo-img-transition-time, opacity $photo-img-transition-time;
 
-.shop-img img:hover{
-  transform: scale(1.03);
-  opacity: 1;
+  &:hover {
+    transform: $photo-img-hover-transform;
+    opacity: $photo-img-hover-opacity;
+  }
 }

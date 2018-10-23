@@ -1,18 +1,27 @@
-@import "../../../constants";
-
-.lg{
-  width: 15vw
-}
-
-.input{
-  margin: $margin-input-nav;
-}
+@import "../../../variables";
 
 .input-shop{
-  border-color: $yellow;
+  border-color: $input-input-shop-border-color;
+  margin: $input-input-shop-margin;
 
   &:focus{
-    box-shadow: 0 0 0.3rem 0.2rem $orange;
-    transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: $but-inp-sel-hover-box-shadow;
+    transition: color $but-inp-sel-hover-transition, box-shadow $but-inp-sel-hover-transition;
   }
+}
+
+.input-wider{
+  width: $input-input-wider-width;
+}
+
+.input-narrow{
+  width: $input-input-narrow-width;
+}
+
+.input-checkbox{
+  outline: $yellow !important;
+}
+
+.input-wide{
+  width: $input-input-range-width;
 }

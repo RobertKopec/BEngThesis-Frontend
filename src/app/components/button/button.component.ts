@@ -6,9 +6,10 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-
   @Input() classes: string;
   @Input() text: string;
   @Input() iconNameArray: string;
   @Input() iconSize: string;
+  @Input() dataTarget: string;
+  @Input() dataToggle: string;
 }

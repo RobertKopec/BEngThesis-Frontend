@@ -16,11 +16,30 @@ import { PhotoComponent } from './components/photo/photo.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library} from '@fortawesome/fontawesome-svg-core';
 // tslint:disable-next-line:max-line-length
-import {faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faChild, faSpa, faPaw, faLaptop, faVolleyballBall} from '@fortawesome/free-solid-svg-icons';
+import {
+  faTh,
+  faThList,
+  faMapMarkedAlt,
+  faPlus,
+  faFilter,
+  faSignInAlt,
+  faSignOutAlt,
+  faSearch,
+  faGamepad,
+  faCar,
+  faHome,
+  faTshirt,
+  faChild,
+  faSpa,
+  faPaw,
+  faLaptop,
+  faVolleyballBall,
+  faBars
+} from '@fortawesome/free-solid-svg-icons';
 import {faImages, faStar} from '@fortawesome/free-regular-svg-icons';
 
 // tslint:disable-next-line:max-line-length
-library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall);
+library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars);
 
 @NgModule({
   declarations: [

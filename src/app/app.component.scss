@@ -1,18 +1,18 @@
-@import "../constants";
+@import "../variables";
+
+section{
+  padding: $app-content-section-padding;
+  background: $app-content-section-bg;
+}
 
 .content{
-  padding: $padding-content;
-  background: $gray-light;
+  padding: $app-content-content-padding;
+  background: $app-content-content-bg;
 }
 
 .img{
-  background: $white;
-  margin: $margin-img;
-  padding: $padding-img;
-  border-radius: $border-radius-img;
-}
-
-section{
-  background: $gray-light;
-  padding: $padding-section;
+  margin: $app-content-img-margin;
+  padding: $app-content-img-padding;
+  background: $app-content-img-bg;
+  border-radius: $app-content-img-border-radius;
 }
