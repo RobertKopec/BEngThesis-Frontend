@@ -42,7 +42,6 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   $button-button-category-border-width: 0.3rem;
   $button-button-category-color: $gray-dark;
 
-
   //.button-category-(color) (categories)
   $button-button-category-red: $red;
   $button-button-category-orange: $orange;
@@ -55,11 +54,16 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   $button-button-category-purple: $purple;
   $button-button-category-magenta: $magenta;
 
+  //.button-modal-close
+  $button-button-close-modal-border: transparent;
+  $button-button-close-modal-margin: 0 0.5vw 0 0;
+  $button-button-close-modal-padding: 0.5vh 0.3vw;
+  $button-button-close-modal-color: $gray;
+
 //input
 
   //.input-shop (nav)
   $input-input-shop-border-color: $yellow;
-  $input-input-shop-margin: 0 0.5vw 0 0;
 
   //.input-wider (nav)
   $input-input-wider-width: 20vw;
@@ -69,6 +73,7 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
 
   //.input-wide
   $input-input-range-width: 15vw;
+  $input-input-wider-margin: 0 0.5vw 0 0;
 
 //select
 

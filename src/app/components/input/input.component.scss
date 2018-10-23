@@ -2,7 +2,7 @@
 
 .input-shop{
   border-color: $input-input-shop-border-color;
-  margin: $input-input-shop-margin;
+
 
   &:focus{
     box-shadow: $but-inp-sel-hover-box-shadow;
@@ -12,6 +12,7 @@
 
 .input-wider{
   width: $input-input-wider-width;
+  margin: $input-input-wider-margin;
 }
 
 .input-narrow{

@@ -70,12 +70,8 @@
       </div>
 
       <app-button
-        dataTarget="#filter"
-        dataToggle="collapse"
-        aria-expanded="false"
-        aria-controls="filter"
         classes="button-shop"
-        (click)="toggleFilter()"
+        (click)="isCollapsed = !isCollapsed"
         [iconNameArray]="['fas', 'filter']"
         [iconSize]="'2x'"
       ></app-button>
@@ -90,7 +86,8 @@
 
         <app-button
           classes="button-shop"
-          [iconNameArray]="['fas', 'sign-in-alt']"
+          (click)="open(content)"
+          [iconNameArray]="['fas', 'user']"
           [iconSize]="'2x'"
         ></app-button>
 
@@ -104,9 +101,23 @@
 
     </div>
 
-  <div class="collapse nav-row" id="filter" [ngClass]="{ 'show': filterOpen }">
+  <div class="nav-row" id="filter" [ngbCollapse]="isCollapsed">
     <hr>
     <app-filter></app-filter>
   </div>
 
 </nav>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Logowanie:</h4>
+    <app-button
+      classes="button-close-modal"
+      (click)="modal.dismiss('Cross click')"
+      [iconNameArray]="['fas', 'times']"
+    ></app-button>
+  </div>
+  <div class="modal-body">
+    <app-login></app-login>
+  </div>
+</ng-template>

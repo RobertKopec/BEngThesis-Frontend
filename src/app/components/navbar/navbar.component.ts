@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
@@ -6,15 +7,16 @@ import { Component} from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  isCollapsed = true;
   navbarOpen = false;
-  filterOpen = false;
+
+  constructor(private modalService: NgbModal) {}
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  toggleFilter() {
-    this.filterOpen = !this.filterOpen;
+  open(content) {
+    this.modalService.open(content, { centered: true });
   }
-
 }

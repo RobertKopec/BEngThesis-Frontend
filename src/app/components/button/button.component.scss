@@ -10,6 +10,17 @@
     }
   }
 
+  //TO DO: create button-close-modal and button-shop with mixin include
+
+  .button-close-modal{
+    @extend %button;
+
+    color: $button-button-close-modal-color;
+    border: $button-button-close-modal-border;
+    margin: $button-button-close-modal-margin;
+    padding: $button-button-close-modal-padding;
+  }
+
   .button-shop{
     @extend %button;
 

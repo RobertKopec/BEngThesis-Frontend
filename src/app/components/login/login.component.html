@@ -1,0 +1,44 @@
+<form class="login-form flex-column">
+
+  <div class="form-group d-inline-flex justify-content-between">
+
+    <label for="input-login">Login:</label>
+    <app-input
+      placeholder=""
+      classes="form-control"
+      id="input-login"
+      [type]="'input'"
+    ></app-input>
+
+  </div>
+
+  <div class="form-group d-inline-flex justify-content-between">
+
+    <label for="input-password">Hasło:</label>
+    <app-input
+      placeholder=""
+      classes="form-control"
+      id="input-password"
+      [type]="'input'"
+    ></app-input>
+
+  </div>
+
+  <div class="d-inline-flex justify-content-between">
+
+    <app-button
+    classes="btn btn-outline-primary"
+    text="Rejstracja"
+      [iconNameArray]="['far', 'address-card']"
+    ></app-button>
+
+    <app-button
+      classes="btn btn-outline-success"
+      text="Zaloguj się!"
+      [iconNameArray]="['fas', 'sign-in-alt']"
+    ></app-button>
+
+  </div>
+
+</form>
+
