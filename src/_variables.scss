@@ -60,6 +60,48 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   $button-button-close-modal-padding: 0.5vh 0.3vw;
   $button-button-close-modal-color: $gray;
 
+//categories
+
+  //.panel-categories
+  $categories-panel-categories-width: 100%;
+
+//create-advert
+
+  //label
+  $create-advert-label-padding: 1vh 0;
+  $create-advert-label-margin: 0 1vw 0 0;
+
+  //.create-advert-form
+  $create-create-advert-form-padding: 3.5vh 5vw 0 5vw;
+
+//filter
+
+  //.filter-form
+  $filter-filter-form-width: 100%;
+
+  //hr
+  $filter-hr-width: 0.5vw;
+  $filter-hr-border-color: $yellow;
+  $filter-hr-margin: 0.5vw;
+
+//footer
+
+  //.footer-signature
+  $footer-footer-signature-padding: 3vh 7vw;
+  $footer-footer-signature-width: 100%;
+  $footer-footer-signature-color: $gray-dark;
+
+  //hr &.left &.right
+  $footer-hr-width: 36vw;
+  $footer-hr-border-color: $yellow;
+  $footer-hr-left-margin-left: 0;
+  $footer-hr-left-margin-right: auto;
+  $footer-hr-right-margin-right: 0;
+  $footer-hr-right-margin-left: auto;
+
+  //p
+  $footer-p-margin: 0;
+
 //input
 
   //.input-shop (nav)
@@ -75,13 +117,13 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   $input-input-range-width: 15vw;
   $input-input-wider-margin: 0 0.5vw 0 0;
 
-//select
+//login
 
-  //.select
-  $select-select-margin: 0 0.5vw;
+  //.login-form
+  $login-login-form-padding: 3.5vh 4.5vw;
 
-  //.select-shop (nav)
-  $select-select-shop-border-color: $yellow;
+  //label
+  $login-label-padding: 1vh 0;
 
 //navbar
 
@@ -95,21 +137,6 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   //hr
   $navbar-hr-width: 100;
   $navbar-hr-border-color: $yellow;
-
-//filter
-
-  //.filter-form
-  $filter-filter-form-width: 100%;
-
-  //hr
-  $filter-hr-width: 0.5vw;
-  $filter-hr-border-color: $yellow;
-  $filter-hr-margin: 0.5vw;
-
-//categories
-
-  //.panel-categories
-  $categories-panel-categories-width: 100%;
 
 //photo
 
@@ -133,20 +160,14 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   $photo-img-hover-transform: scale(1.03);
   $photo-img-hover-opacity: 1;
 
-//footer
+//select
 
-  //.footer-signature
-  $footer-footer-signature-padding: 3vh 7vw;
-  $footer-footer-signature-width: 100%;
-  $footer-footer-signature-color: $gray-dark;
+  //.select-nav
+  $select-select-nav-margin: 0 0.5vw;
 
-  //hr &.left &.right
-  $footer-hr-width: 36vw;
-  $footer-hr-border-color: $yellow;
-  $footer-hr-left-margin-left: 0;
-  $footer-hr-left-margin-right: auto;
-  $footer-hr-right-margin-right: 0;
-  $footer-hr-right-margin-left: auto;
+  //.select-shop (nav)
+  $select-select-shop-border-color: $yellow;
 
-  //p
-  $footer-p-margin: 0;
+  //select-create-advert
+  $select-create-advert-width: 11.85vw;
+

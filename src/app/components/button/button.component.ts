@@ -10,6 +10,4 @@ export class ButtonComponent {
   @Input() text: string;
   @Input() iconNameArray: string;
   @Input() iconSize: string;
-  @Input() dataTarget: string;
-  @Input() dataToggle: string;
 }

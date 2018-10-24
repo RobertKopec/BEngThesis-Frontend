@@ -1,7 +1,7 @@
 @import "../../../variables";
 
-.select{
-  margin: $select-select-margin;
+.select-nav{
+  margin: $select-select-nav-margin;
 }
 
 .select-shop{
@@ -11,6 +11,10 @@
     box-shadow: $but-inp-sel-hover-box-shadow;
     transition: color $but-inp-sel-hover-transition, box-shadow $but-inp-sel-hover-transition;
   }
+}
+
+.select-create-advert{
+  width: $select-create-advert-width;
 }
 
 option:first-child{

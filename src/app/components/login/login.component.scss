@@ -2,9 +2,9 @@
 
 .login-form{
   display: flex;
-  padding: 3.5vh 4.5vw
+  padding: $login-login-form-padding;
 }
 
 label{
-  padding: 1vh 0;
+  padding: $login-label-padding;
 }

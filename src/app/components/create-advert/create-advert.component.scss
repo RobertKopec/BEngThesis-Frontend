@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+.create-advert-form{
+  display: flex;
+  padding: $create-create-advert-form-padding;
+}
+
+label{
+  padding: $create-advert-label-padding;
+  margin: $create-advert-label-margin;
+}
+
+.custom-file-label{
+  margin: 0;
+}

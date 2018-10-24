@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -16,7 +16,11 @@ export class NavbarComponent {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  open(content) {
-    this.modalService.open(content, { centered: true });
+  open(login) {
+    this.modalService.open(login, { centered: true });
+  }
+
+  show(crateAdvert) {
+    this.modalService.open(crateAdvert, { centered: true, size: 'lg' });
   }
 }

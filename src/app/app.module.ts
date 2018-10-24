@@ -36,13 +36,14 @@ import {
   faPaw,
   faLaptop,
   faVolleyballBall,
-  faBars, faTimes, faUser
+  faBars, faTimes, faUser, faCheck
 } from '@fortawesome/free-solid-svg-icons';
 import {faAddressCard, faImages, faStar} from '@fortawesome/free-regular-svg-icons';
 import { LoginComponent } from './components/login/login.component';
+import { CreateAdvertComponent } from './components/create-advert/create-advert.component';
 
 // tslint:disable-next-line:max-line-length
-library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser);
+library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser, faCheck);
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAl
     FilterComponent,
     FooterComponent,
     PhotoComponent,
-    LoginComponent
+    LoginComponent,
+    CreateAdvertComponent
   ],
   imports: [
     BrowserModule,

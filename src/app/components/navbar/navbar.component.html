@@ -33,6 +33,7 @@
 
       <app-button
         classes="button-shop"
+        (click)="show(createAdvert)"
         [iconNameArray]="['fas', 'plus']"
         [iconSize]="'2x'"
       ></app-button>
@@ -46,7 +47,7 @@
         ></app-input>
 
         <app-select
-          classes="select-shop"
+          classes="select-shop select-nav"
           [options]="[
               {text: 'Wybierz kategorię'},
               {text: 'Elektronika', value: 'electronics'},
@@ -86,7 +87,7 @@
 
         <app-button
           classes="button-shop"
-          (click)="open(content)"
+          (click)="open(login)"
           [iconNameArray]="['fas', 'user']"
           [iconSize]="'2x'"
         ></app-button>
@@ -108,9 +109,9 @@
 
 </nav>
 
-<ng-template #content let-modal>
+<ng-template #login let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Logowanie:</h4>
+    <h4 class="modal-title">Logowanie:</h4>
     <app-button
       classes="button-close-modal"
       (click)="modal.dismiss('Cross click')"
@@ -119,5 +120,19 @@
   </div>
   <div class="modal-body">
     <app-login></app-login>
+  </div>
+</ng-template>
+
+<ng-template #createAdvert let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Dodaj nowe ogłoszenie:</h4>
+    <app-button
+      classes="button-close-modal"
+      (click)="modal.dismiss('Cross click')"
+      [iconNameArray]="['fas', 'times']"
+    ></app-button>
+  </div>
+  <div class="modal-body">
+    <app-create-advert></app-create-advert>
   </div>
 </ng-template>

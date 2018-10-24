@@ -21,6 +21,10 @@
     padding: $button-button-close-modal-padding;
   }
 
+  .button-create-advert{
+    margin: 5.5vh 0;
+  }
+
   .button-shop{
     @extend %button;
 

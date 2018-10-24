@@ -1,0 +1,146 @@
+<form class="create-advert-form flex-column">
+
+  <div class="form-group">
+
+    <label for="input-name">Podaj nagówek ogłoszenia: </label>
+    <app-input
+      placeholder=""
+      classes="input-shop form-control"
+      id="input-name"
+      [type]="'input'"
+    ></app-input>
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="input-description">Uzupełnij opis ogłoszenia: </label>
+    <textarea class="form-control" rows="3" id="input-description"></textarea>
+
+  </div>
+
+  <div class="d-inline-flex justify-content-between">
+
+    <div class="form-group">
+      <label for="category-state">Kategoria:</label>
+      <app-select
+        classes="select-shop select-create-advert"
+        id="category-state"
+        [options]="[
+              {text: 'Wybierz kategorię'},
+              {text: 'Elektronika', value: 'electronics'},
+              {text: 'Sztuka i zbiory', value: 'art'},
+              {text: 'Zwierzęta', value: 'animals'},
+              {text: 'Dom i ogród', value: 'home'},
+              {text: 'Moda', value: 'fashion'},
+              {text: 'Dzieci', value: 'children'},
+              {text: 'Zdrowie i uroda', value: 'health'},
+              {text: 'Kultura i rozrywka', value: 'culture'},
+              {text: 'Sport i hobby', value: 'sport'},
+              {text: 'Mtoryzacja', value: 'moto'}]"
+      ></app-select>
+    </div>
+
+    <div class="form-group">
+      <label for="select-state">Stan:</label>
+      <app-select
+        classes="select-shop select-create-advert"
+        id="select-state"
+        [options]="[
+              {text: 'Wybierz stan'},
+              {text: 'Nowe', value: 'new'},
+              {text: 'Urzywane', value: 'used'},
+              {text: 'Uszkodzone', value: 'broken'}]"
+      ></app-select>
+    </div>
+
+  </div>
+
+  <div class="d-inline-flex justify-content-between">
+
+    <div class="form-group">
+      <label for="input-price">Cena:</label>
+      <app-input
+        placeholder=""
+        classes="input-shop form-control"
+        id="input-price"
+        [type]="'input'"
+      ></app-input>
+    </div>
+
+    <div class="form-group">
+      <label for="input-city">Lokalizacja:</label>
+      <app-input
+        placeholder=""
+        classes="input-shop form-control"
+        id="input-city"
+        [type]="'input'"
+      ></app-input>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="input-name">Dodaj zdjęcia: </label>
+      <div class="custom-file">
+        <app-input
+          classes="custom-file-input"
+          id="inputGroupFile01"
+          [type]="'file'"
+        ></app-input>
+        <label class="custom-file-label" for="inputGroupFile01">Wybierz zdjęcie . . .</label>
+      </div>
+
+  </div>
+
+  <div class="d-inline-flex">
+
+    <label>Opcje dostawy:</label>
+
+    <div class="form-check form-check-inline">
+      <app-input
+        classes="form-check-input"
+        type="checkbox"
+        value="deliveryNo"
+        id="deliveryNo"
+      ></app-input>
+      <label class="form-check-label" for="deliveryNo">Odbiór osobisty</label>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <app-input
+      classes="form-check-input"
+      type="checkbox"
+      value="deliveryYes"
+      id="deliveryYes"
+      ></app-input>
+      <label class="form-check-label" for="deliveryYes">Możliwa wysyłka</label>
+    </div>
+
+  </div>
+
+  <div class="d-inline-flex justify-content-between">
+
+    <div class="form-group">
+      <label for="input-phone-number">Telefon kontaktowy:</label>
+      <app-input
+        placeholder=""
+        classes="input-shop form-control"
+        id="input-phone-number"
+        [type]="'input'"
+      ></app-input>
+    </div>
+
+  <div class="form-group">
+    <app-button
+      classes="btn btn-outline-success button-create-advert"
+      text="Zatwierdź"
+      id="button"
+      [iconNameArray]="['fas', 'check']"
+    ></app-button>
+  </div>
+
+  </div>
+
+</form>
