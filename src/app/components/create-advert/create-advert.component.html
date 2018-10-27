@@ -7,7 +7,8 @@
       placeholder=""
       classes="input-shop form-control"
       id="input-name"
-      [type]="'input'"
+      [type]="'text'"
+      (update)="assignTitle($event)"
     ></app-input>
 
   </div>
@@ -15,7 +16,7 @@
   <div class="form-group">
 
     <label for="input-description">Uzupełnij opis ogłoszenia: </label>
-    <textarea class="form-control" rows="3" id="input-description"></textarea>
+    <textarea class="form-control" rows="3" id="input-description" #descriptionInput></textarea>
 
   </div>
 
@@ -38,6 +39,7 @@
               {text: 'Kultura i rozrywka', value: 'culture'},
               {text: 'Sport i hobby', value: 'sport'},
               {text: 'Mtoryzacja', value: 'moto'}]"
+        (update)="assignCategory($event)"
       ></app-select>
     </div>
 
@@ -51,6 +53,7 @@
               {text: 'Nowe', value: 'new'},
               {text: 'Urzywane', value: 'used'},
               {text: 'Uszkodzone', value: 'broken'}]"
+        (update)="assignState($event)"
       ></app-select>
     </div>
 
@@ -59,12 +62,13 @@
   <div class="d-inline-flex justify-content-between">
 
     <div class="form-group">
-      <label for="input-price">Cena:</label>
+      <label for="input-price">Cena (zł):</label>
       <app-input
         placeholder=""
         classes="input-shop form-control"
         id="input-price"
-        [type]="'input'"
+        [type]="'number'"
+        (update)="assignPrice($event)"
       ></app-input>
     </div>
 
@@ -74,7 +78,8 @@
         placeholder=""
         classes="input-shop form-control"
         id="input-city"
-        [type]="'input'"
+        [type]="'text'"
+        (update)="assignAddress($event)"
       ></app-input>
     </div>
 
@@ -88,8 +93,9 @@
           classes="custom-file-input"
           id="inputGroupFile01"
           [type]="'file'"
+          (update)="assignPicture($event)"
         ></app-input>
-        <label class="custom-file-label" for="inputGroupFile01">Wybierz zdjęcie . . .</label>
+        <label class="custom-file-label" for="inputGroupFile01"></label>
       </div>
 
   </div>
@@ -100,20 +106,20 @@
 
     <div class="form-check form-check-inline">
       <app-input
-        classes="form-check-input"
-        type="checkbox"
-        value="deliveryNo"
+        class="form-check-input"
+        [type]="'checkbox'"
         id="deliveryNo"
+        (update)="assignPersonal($event)"
       ></app-input>
       <label class="form-check-label" for="deliveryNo">Odbiór osobisty</label>
     </div>
 
     <div class="form-check form-check-inline">
       <app-input
-      classes="form-check-input"
-      type="checkbox"
-      value="deliveryYes"
-      id="deliveryYes"
+        class="form-check-input"
+        [type]="'checkbox'"
+        id="deliveryYes"
+        (update)="assignShipment($event)"
       ></app-input>
       <label class="form-check-label" for="deliveryYes">Możliwa wysyłka</label>
     </div>
@@ -128,7 +134,8 @@
         placeholder=""
         classes="input-shop form-control"
         id="input-phone-number"
-        [type]="'input'"
+        [type]="'tel'"
+        (update)="assignNumber($event)"
       ></app-input>
     </div>
 
@@ -137,7 +144,9 @@
       classes="btn btn-outline-success button-create-advert"
       text="Zatwierdź"
       id="button"
+      [type]="'submit'"
       [iconNameArray]="['fas', 'check']"
+      (click) = "createAdvert()"
     ></app-button>
   </div>
 

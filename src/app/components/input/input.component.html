@@ -3,5 +3,6 @@
     [ngClass]="classes"
     [type]="type"
     [placeholder]="placeholder"
-    [(ngModel)]="value">
+    [(ngModel)]="value"
+    (change)="onUpdate()" >
 </div>

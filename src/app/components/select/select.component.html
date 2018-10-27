@@ -1,5 +1,5 @@
 <div class="d-flex">
-  <select class="custom-select" [ngClass]="classes" >
+  <select class="custom-select" [(ngModel)]="value" [ngClass]="classes" (change)="onUpdate()">
     <option
       *ngFor="let option of options"
       [ngValue]="option.value"

@@ -15,39 +15,44 @@
           classes="button-shop"
           [iconNameArray]="['fas', 'th']"
           [iconSize]="'2x'"
+          [type]="'button'"
         ></app-button>
 
-        <app-button
-          classes="button-shop"
-          [iconNameArray]="['fas', 'th-list']"
-          [iconSize]="'2x'"
-        ></app-button>
+        <!--<app-button-->
+          <!--classes="button-shop"-->
+          <!--[iconNameArray]="['fas', 'th-list']"-->
+          <!--[iconSize]="'2x'"-->
+          <!--[type]="'button'"-->
+        <!--&gt;</app-button>-->
 
-        <app-button
-          classes="button-shop"
-          [iconNameArray]="['fas', 'map-marked-alt']"
-          [iconSize]="'2x'"
-        ></app-button>
+        <!--<app-button-->
+          <!--classes="button-shop"-->
+          <!--[iconNameArray]="['fas', 'map-marked-alt']"-->
+          <!--[iconSize]="'2x'"-->
+          <!--[type]="'button'"-->
+        <!--&gt;</app-button>-->
 
       </div>
+        <app-button
+          *ngIf="getLogin()"
+          classes="button-shop"
+          (click)="show(createAdvert)"
+          [iconNameArray]="['fas', 'plus']"
+          [iconSize]="'2x'"
+          [type]="'button'"
+        ></app-button>
 
-      <app-button
-        classes="button-shop"
-        (click)="show(createAdvert)"
-        [iconNameArray]="['fas', 'plus']"
-        [iconSize]="'2x'"
-      ></app-button>
 
       <div class="d-inline-flex">
 
         <app-input
           placeholder="Wyszukaj przedmiot . . ."
-          [type]="'input'"
+          [type]="'search'"
           classes="input-shop input-wider form-control"
         ></app-input>
 
         <app-select
-          classes="select-shop select-nav"
+          classes="select-shop select-nav "
           [options]="[
               {text: 'Wybierz kategorię'},
               {text: 'Elektronika', value: 'electronics'},
@@ -66,6 +71,7 @@
           classes="button-shop"
           [iconNameArray]="['fas', 'search']"
           [iconSize]="'2x'"
+          [type]="'submit'"
         ></app-button>
 
       </div>
@@ -75,27 +81,43 @@
         (click)="isCollapsed = !isCollapsed"
         [iconNameArray]="['fas', 'filter']"
         [iconSize]="'2x'"
+        [type]="'button'"
       ></app-button>
 
       <div class="d-inline-flex">
 
-        <app-button
-          classes="button-shop"
-          [iconNameArray]="['far', 'star']"
-          [iconSize]="'2x'"
-        ></app-button>
+        <!--<app-button-->
+          <!--*ngIf="getLogin()"-->
+          <!--classes="button-shop"-->
+          <!--[iconNameArray]="['far', 'star']"-->
+          <!--[iconSize]="'2x'"-->
+          <!--[type]="'button'"-->
+        <!--&gt;</app-button>-->
 
         <app-button
+          *ngIf="!getLogin()"
           classes="button-shop"
           (click)="open(login)"
-          [iconNameArray]="['fas', 'user']"
+          [iconNameArray]="['fas', 'sign-in-alt']"
           [iconSize]="'2x'"
+          [type]="'button'"
         ></app-button>
 
         <app-button
+          *ngIf="getLogin()"
+          classes="btn btn-outline-warning disabled"
+          [iconNameArray]="['fas', 'user']"
+          [text]="getLogin()"
+          [type]="'button'"
+        ></app-button>
+
+        <app-button
+          *ngIf="getLogin()"
           classes="button-shop"
+          (click)="signOut()"
           [iconNameArray]="['fas', 'sign-out-alt']"
           [iconSize]="'2x'"
+          [type]="'button'"
         ></app-button>
 
       </div>
@@ -116,6 +138,7 @@
       classes="button-close-modal"
       (click)="modal.dismiss('Cross click')"
       [iconNameArray]="['fas', 'times']"
+      [type]="'button'"
     ></app-button>
   </div>
   <div class="modal-body">
@@ -130,6 +153,7 @@
       classes="button-close-modal"
       (click)="modal.dismiss('Cross click')"
       [iconNameArray]="['fas', 'times']"
+      [type]="'button'"
     ></app-button>
   </div>
   <div class="modal-body">

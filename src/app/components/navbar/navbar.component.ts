@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {AppService} from '../../app.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +11,9 @@ export class NavbarComponent {
   isCollapsed = true;
   navbarOpen = false;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private appService: AppService) {}
 
-  toggleNavbar() {
+    toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
 
@@ -23,4 +24,13 @@ export class NavbarComponent {
   show(crateAdvert) {
     this.modalService.open(crateAdvert, { centered: true, size: 'lg' });
   }
+
+  getLogin(): string {
+    return this.appService.loggedUser;
+  }
+
+  signOut() {
+    delete(this.appService.loggedUser);
+  }
+
 }

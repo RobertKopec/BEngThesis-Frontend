@@ -7,7 +7,8 @@
       placeholder=""
       classes="form-control"
       id="input-login"
-      [type]="'input'"
+      [type]="'text'"
+      (update)="assignLogin($event)"
     ></app-input>
 
   </div>
@@ -19,7 +20,8 @@
       placeholder=""
       classes="form-control"
       id="input-password"
-      [type]="'input'"
+      [type]="'password'"
+      (update)="assignPassword($event)"
     ></app-input>
 
   </div>
@@ -35,6 +37,8 @@
     <app-button
       classes="btn btn-outline-success"
       text="Zaloguj się!"
+      [type]="'submit'"
+      (click)="signIn()"
       [iconNameArray]="['fas', 'sign-in-alt']"
     ></app-button>
 

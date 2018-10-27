@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-select',
@@ -10,4 +10,10 @@ export class SelectComponent {
   @Input() text: string;
   @Input() value: string;
   @Input() options: object;
+
+  @Output() update: EventEmitter<string> = new EventEmitter<string>();
+
+  onUpdate(): void {
+    this.update.emit(this.value);
+  }
 }

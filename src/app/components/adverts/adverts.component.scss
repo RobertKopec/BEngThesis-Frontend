@@ -1,0 +1,18 @@
+@import "../../../variables";
+
+.adverts-container{
+  width: $adverts-adverts-container-width;
+}
+
+.advert-card{
+  width: $adverts-adverts-card-width;
+  margin: $adverts-adverts-card-margin;
+}
+
+.card-header{
+  border-color: $adverts-card-header-border-color;
+}
+
+li{
+  border-color: $adverts-li-border-color;
+}

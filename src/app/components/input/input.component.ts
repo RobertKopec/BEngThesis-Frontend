@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -6,9 +6,14 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent {
-  @Input() value: string;
+  value: string;
   @Input() classes: string;
   @Input() placeholder: string;
   @Input() type: string;
 
+  @Output() update: EventEmitter<string> = new EventEmitter<string>();
+
+  onUpdate(): void {
+    this.update.emit(this.value);
+  }
 }

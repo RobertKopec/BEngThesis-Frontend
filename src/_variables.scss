@@ -20,6 +20,21 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   $app-content-img-bg: $white;
   $app-content-img-border-radius: 0.2rem;
 
+//advert
+
+  //.adverts-container
+  $adverts-adverts-container-width: 100%;
+
+  //.adverts-card
+  $adverts-adverts-card-width: 16.65vw;
+  $adverts-adverts-card-margin:0 0 1.65vh 0;
+
+  //.card-header
+  $adverts-card-header-border-color: $yellow;
+
+  //li
+  $adverts-li-border-color: $yellow;
+
 //button
 
   //.button

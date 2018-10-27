@@ -25,6 +25,11 @@
     margin: 5.5vh 0;
   }
 
+  .btn-outline-warning{
+    color: $black;
+    margin: $button-button-shop-border-margin;
+  }
+
   .button-shop{
     @extend %button;
 
