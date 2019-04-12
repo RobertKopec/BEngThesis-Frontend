@@ -1,11 +1,11 @@
 @import "../../../variables";
 
-.login-form{
+.sign-up-form {
   display: flex;
   padding: $login-sign-up-form-padding;
 }
 
-label{
+label {
   padding: $login-sign-up-label-padding;
   margin: $login-sign-up-label-margin;
   width: $login-sign-up-label-width;
@@ -14,3 +14,4 @@ label{
 .form-control {
   width: $login-sign-up-form-control-width-fix;
 }
+

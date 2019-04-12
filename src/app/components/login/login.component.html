@@ -1,48 +1,70 @@
-<form class="login-form flex-column">
+<form class="login-form flex-column" (ngSubmit)="onSubmit()" #f="ngForm">
 
   <div class="form-group d-inline-flex justify-content-between">
-
-    <label for="input-login">Login:</label>
-    <app-input
-      placeholder=""
-      classes="form-control"
-      id="input-login"
-      [type]="'text'"
-      (update)="assignLogin($event)"
-    ></app-input>
-
+    <label for="input-login">{{loginText}}</label>
+    <div>
+      <input
+        placeholder=""
+        class="form-control"
+        id="input-login"
+        type="text"
+        name="login"
+        ngModel
+        required
+        #login="ngModel">
+      <span class="invalid-message" *ngIf="!login.valid && login.touched">{{invalidLogin}}</span>
+    </div>
   </div>
 
   <div class="form-group d-inline-flex justify-content-between">
-
-    <label for="input-password">Hasło:</label>
-    <app-input
-      placeholder=""
-      classes="form-control"
-      id="input-password"
-      [type]="'password'"
-      (update)="assignPassword($event)"
-    ></app-input>
-
+    <label for="input-password">{{passwordText}}</label>
+    <div>
+      <input
+        placeholder=""
+        class="form-control"
+        id="input-password"
+        type="password"
+        name="password"
+        ngModel
+        required
+        #password="ngModel">
+      <span class="invalid-message" *ngIf="!password.valid && password.touched">{{invalidPassword}}</span>
+    </div>
   </div>
 
   <div class="d-inline-flex justify-content-between">
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      (click)="open(signUp)">
+      <fa-icon [icon]="['fas', 'user-plus']"></fa-icon>
+      {{signUpText}}
+    </button>
 
-    <app-button
-    classes="btn btn-outline-primary"
-    text="Rejstracja"
-      [iconNameArray]="['far', 'address-card']"
-    ></app-button>
-
-    <app-button
-      classes="btn btn-outline-success"
-      text="Zaloguj się!"
-      [type]="'submit'"
-      (click)="signIn()"
-      [iconNameArray]="['fas', 'sign-in-alt']"
-    ></app-button>
-
+    <button
+      class="btn btn-outline-success"
+      type="submit">
+      <fa-icon [icon]="['fas', 'sign-in-alt']"></fa-icon>
+      {{logIn}}
+    </button>
   </div>
+
+  <app-alert *ngIf="!isValid"></app-alert>
 
 </form>
 
+
+<ng-template #signUp let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{signUpTitle}}</h4>
+    <button
+      class="button-close-modal"
+      (click)="modal.dismiss('Cross click')"
+      type="button">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-sign-up></app-sign-up>
+  </div>
+</ng-template>

@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-center"><img src="{{advert[index].picture}}" alt="Advert image"></div>
+<ul class="list-group col-12 my-2">
+  <li class="list-group-item"><b>{{stateText}}</b>{{advert[index].state}}</li>
+  <li class="list-group-item"><b>{{categoryText}}</b>{{advert[index].category}}</li>
+  <li class="list-group-item"><b>{{addressText}} </b>{{advert[index].address}}</li>
+  <li class="list-group-item"><b>{{deliveryOptions}}</b> {{advert[index].personal}}, {{advert[index].shipment}}</li>
+</ul>
+<div class="container-fluid my-2">
+  <h4>{{descriptionText}}</h4>
+  <p class="lead">{{advert[index].description}}</p>
+</div>
+<div class="modal-footer d-flex justify-content-between">
+  <p class=""><b>{{telNumberText}}</b>{{advert[index].number}}</p>
+  <p class=""><b>{{priceText}}</b>{{advert[index].price}} zł</p>
+</div>
