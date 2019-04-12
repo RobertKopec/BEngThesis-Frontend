@@ -7,6 +7,7 @@
 .advert-card{
   width: $adverts-adverts-card-width;
   margin: $adverts-adverts-card-margin;
+  border-color: $adverts-card-header-border-color;
 }
 
 .card-header{
@@ -15,4 +16,12 @@
 
 li{
   border-color: $adverts-li-border-color;
+}
+
+p {
+  margin: $adverts-p-margin;
+}
+
+img {
+  height: 30vh;
 }

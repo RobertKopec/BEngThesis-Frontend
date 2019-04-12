@@ -4,121 +4,102 @@
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-tagret="#navbarContent" aria-controls="navbarContent"
             aria-expanded="false" aria-label="Toggler navigation bar content" (click)="toggleNavbar()">
-      <fa-icon [icon]="['fas', 'bars']" size="'2x'"></fa-icon>
+      <fa-icon [icon]="['fas', 'bars']" size="2x"></fa-icon>
     </button>
 
     <div class="collapse navbar-collapse justify-content-between nav-row" id="navbarContent" [ngClass]="{ 'show': navbarOpen }">
 
       <div class="d-inline-flex">
+        <!--        (click)="filterReset()"-->
+        <button
+          class="button-shop"
+          type="button">
+          <fa-icon [icon]="['fas', 'th']" size="2x"></fa-icon>
+        </button>
 
-        <app-button
-          classes="button-shop"
-          [iconNameArray]="['fas', 'th']"
-          [iconSize]="'2x'"
-          [type]="'button'"
-        ></app-button>
+        <button
+          class="button-shop"
+          type="button">
+          <fa-icon [icon]="['fas', 'th-list']" size="2x"></fa-icon>
+        </button>
 
-        <!--<app-button-->
-          <!--classes="button-shop"-->
-          <!--[iconNameArray]="['fas', 'th-list']"-->
-          <!--[iconSize]="'2x'"-->
-          <!--[type]="'button'"-->
-        <!--&gt;</app-button>-->
-
-        <!--<app-button-->
-          <!--classes="button-shop"-->
-          <!--[iconNameArray]="['fas', 'map-marked-alt']"-->
-          <!--[iconSize]="'2x'"-->
-          <!--[type]="'button'"-->
-        <!--&gt;</app-button>-->
+        <button
+          class="button-shop"
+          type="button">
+          <fa-icon [icon]="['fas', 'map-marked-alt']" size="2x"></fa-icon>
+        </button>
 
       </div>
-        <app-button
-          *ngIf="getLogin()"
-          classes="button-shop"
-          (click)="show(createAdvert)"
-          [iconNameArray]="['fas', 'plus']"
-          [iconSize]="'2x'"
-          [type]="'button'"
-        ></app-button>
+      <!--      *ngIf="getLogin()"-->
+      <button
+        class="button-shop"
+        (click)="show(createAdvert)"
+        type="button">
+        <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+      </button>
 
+      <form class="d-inline-flex">
 
-      <div class="d-inline-flex">
-
-        <app-input
+        <input
           placeholder="Wyszukaj przedmiot . . ."
-          [type]="'search'"
-          classes="input-shop input-wider form-control"
-        ></app-input>
+          type="search"
+          class="input-shop input-wider form-control">
+        <!--        (update)="assignSearch($event)"-->
 
-        <app-select
-          classes="select-shop select-nav "
-          [options]="[
-              {text: 'Wybierz kategorię'},
-              {text: 'Elektronika', value: 'electronics'},
-              {text: 'Sztuka i zbiory', value: 'art'},
-              {text: 'Zwierzęta', value: 'animals'},
-              {text: 'Dom i ogród', value: 'home'},
-              {text: 'Moda', value: 'fashion'},
-              {text: 'Dzieci', value: 'children'},
-              {text: 'Zdrowie i uroda', value: 'health'},
-              {text: 'Kultura i rozrywka', value: 'culture'},
-              {text: 'Sport i hobby', value: 'sport'},
-              {text: 'Mtoryzacja', value: 'moto'}]"
-        ></app-select>
+        <select
+          class="custom-select select-shop select-nav select-narrow">
+          <option *ngFor="let category of categories" [value]="category.value">{{category.text}}</option>
+          <!--          (update)="assignCategory($event)"-->
+        </select>
 
-        <app-button
-          classes="button-shop"
-          [iconNameArray]="['fas', 'search']"
-          [iconSize]="'2x'"
-          [type]="'submit'"
-        ></app-button>
+        <button
+          class="button-shop"
+          type="submit"
+          (click)="filter()">
+          <fa-icon [icon]="['fas', 'search']" size="2x"></fa-icon>
+        </button>
 
-      </div>
+      </form>
 
-      <app-button
-        classes="button-shop"
+      <button
+        class="button-shop"
         (click)="isCollapsed = !isCollapsed"
-        [iconNameArray]="['fas', 'filter']"
-        [iconSize]="'2x'"
-        [type]="'button'"
-      ></app-button>
+        type="button">
+        <fa-icon [icon]="['fas', 'filter']" size="2x"></fa-icon>
+      </button>
 
       <div class="d-inline-flex">
 
-        <!--<app-button-->
-          <!--*ngIf="getLogin()"-->
-          <!--classes="button-shop"-->
-          <!--[iconNameArray]="['far', 'star']"-->
-          <!--[iconSize]="'2x'"-->
-          <!--[type]="'button'"-->
-        <!--&gt;</app-button>-->
+        <button
+          *ngIf="getLogin()"
+          class="button-shop"
+          type="button">
+          <fa-icon [icon]="['far', 'star']" size="2x"></fa-icon>
+        </button>
 
-        <app-button
+        <button
           *ngIf="!getLogin()"
-          classes="button-shop"
+          class="button-shop"
           (click)="open(login)"
-          [iconNameArray]="['fas', 'sign-in-alt']"
-          [iconSize]="'2x'"
-          [type]="'button'"
-        ></app-button>
+          type="button">
+          <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
+        </button>
 
-        <app-button
+        <button
           *ngIf="getLogin()"
-          classes="btn btn-outline-warning disabled"
-          [iconNameArray]="['fas', 'user']"
-          [text]="getLogin()"
-          [type]="'button'"
-        ></app-button>
+          class="btn btn-outline-warning disabled"
+          type="button">
+          <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
+          <span class="loggedUser">{{appService.loggedUser}}</span>
+        </button>
 
-        <app-button
+        <button
           *ngIf="getLogin()"
-          classes="button-shop"
+          class="button-shop"
           (click)="signOut()"
-          [iconNameArray]="['fas', 'sign-out-alt']"
-          [iconSize]="'2x'"
-          [type]="'button'"
-        ></app-button>
+          type="button">
+          <fa-icon [icon]="['fas', 'sign-out-alt']" size="2x"></fa-icon>
+        </button>
 
       </div>
 
@@ -133,13 +114,13 @@
 
 <ng-template #login let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Logowanie:</h4>
-    <app-button
-      classes="button-close-modal"
+    <h4 class="modal-title">{{loginTitle}}</h4>
+    <button
+      class="button-close-modal"
       (click)="modal.dismiss('Cross click')"
-      [iconNameArray]="['fas', 'times']"
-      [type]="'button'"
-    ></app-button>
+      type="button">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
   </div>
   <div class="modal-body">
     <app-login></app-login>
@@ -148,13 +129,13 @@
 
 <ng-template #createAdvert let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Dodaj nowe ogłoszenie:</h4>
-    <app-button
-      classes="button-close-modal"
+    <h4 class="modal-title">{{createAdvertTitle}}</h4>
+    <button
+      class="button-close-modal"
       (click)="modal.dismiss('Cross click')"
-      [iconNameArray]="['fas', 'times']"
-      [type]="'button'"
-    ></app-button>
+      type="button">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
   </div>
   <div class="modal-body">
     <app-create-advert></app-create-advert>

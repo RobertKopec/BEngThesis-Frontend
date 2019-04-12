@@ -1,127 +1,152 @@
-<form class="create-advert-form flex-column">
+<form class="create-advert-form flex-column" (ngSubmit)="onSubmit()" #f="ngForm">
 
   <div class="form-group">
-
-    <label for="input-name">Podaj nagówek ogłoszenia: </label>
-    <app-input
-      placeholder=""
-      classes="input-shop form-control"
-      id="input-name"
-      [type]="'text'"
-      (update)="assignTitle($event)"
-    ></app-input>
-
+    <label for="title">{{title}}</label>
+    <div>
+      <input
+        class="input-shop form-control"
+        id="title"
+        type="text"
+        name="title"
+        ngModel
+        required
+        #title="ngModel">
+      <span class="invalid-message" *ngIf="!title.valid && title.touched">{{invalidTitle}}</span>
+    </div>
   </div>
 
   <div class="form-group">
+    <label for="description">{{descriptionText}}</label>
+    <div>
+      <textarea
+        class="form-control textarea-shop"
+        rows="3"
+        id="description"
+        name="description"
+        ngModel
+        required
+        #description="ngModel">      
+      </textarea>
+      <span class="invalid-message" *ngIf="!description.valid && description.touched">{{invalidDescription}}</span>
+    </div>
+  </div>
 
-    <label for="input-description">Uzupełnij opis ogłoszenia: </label>
-    <textarea class="form-control" rows="3" id="input-description" #descriptionInput></textarea>
+  <div class="d-inline-flex justify-content-between">
+
+    <div class="form-group select-form-control-fix">
+      <label for="category">{{categoryText}}</label>
+      <div>
+        <select
+          class="custom-select select-shop select-narrow"
+          id="category"
+          name="category"
+          ngModel
+          required
+          #category="ngModel">
+          <option *ngFor="let category of categories" [value]="category.value">{{category.text}}</option>
+        </select>
+        <span class="invalid-message" *ngIf="!category.valid && category.touched">{{invalidCategory}}</span>
+      </div>
+
+    </div>
+
+    <div class="form-group select-form-control-fix">
+      <label for="state">{{stateText}}</label>
+      <div>
+        <select
+          class="custom-select select-shop select-narrow"
+          id="state"
+          name="state"
+          ngModel
+          required
+          #state="ngModel">
+          <option *ngFor="let state of states" [value]="state.value">{{state.text}}</option>
+        </select>
+        <span class="invalid-message" *ngIf="!state.valid && state.touched">{{invalidState}}</span>
+      </div>
+    </div>
 
   </div>
 
   <div class="d-inline-flex justify-content-between">
 
     <div class="form-group">
-      <label for="category-state">Kategoria:</label>
-      <app-select
-        classes="select-shop select-create-advert"
-        id="category-state"
-        [options]="[
-              {text: 'Wybierz kategorię'},
-              {text: 'Elektronika', value: 'electronics'},
-              {text: 'Sztuka i zbiory', value: 'art'},
-              {text: 'Zwierzęta', value: 'animals'},
-              {text: 'Dom i ogród', value: 'home'},
-              {text: 'Moda', value: 'fashion'},
-              {text: 'Dzieci', value: 'children'},
-              {text: 'Zdrowie i uroda', value: 'health'},
-              {text: 'Kultura i rozrywka', value: 'culture'},
-              {text: 'Sport i hobby', value: 'sport'},
-              {text: 'Mtoryzacja', value: 'moto'}]"
-        (update)="assignCategory($event)"
-      ></app-select>
+      <label for="price">{{priceText}}</label>
+      <div>
+        <input
+          placeholder="zł"
+          class="input-shop form-control"
+          id="price"
+          type="number"
+          name="price"
+          ngModel
+          required
+          pattern="{{onlyDigits}}"
+          #price="ngModel">
+        <span class="invalid-message" *ngIf="!price.valid && price.touched">{{invalidPrice}}</span>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="select-state">Stan:</label>
-      <app-select
-        classes="select-shop select-create-advert"
-        id="select-state"
-        [options]="[
-              {text: 'Wybierz stan'},
-              {text: 'Nowe', value: 'new'},
-              {text: 'Urzywane', value: 'used'},
-              {text: 'Uszkodzone', value: 'broken'}]"
-        (update)="assignState($event)"
-      ></app-select>
-    </div>
-
-  </div>
-
-  <div class="d-inline-flex justify-content-between">
-
-    <div class="form-group">
-      <label for="input-price">Cena (zł):</label>
-      <app-input
-        placeholder=""
-        classes="input-shop form-control"
-        id="input-price"
-        [type]="'number'"
-        (update)="assignPrice($event)"
-      ></app-input>
-    </div>
-
-    <div class="form-group">
-      <label for="input-city">Lokalizacja:</label>
-      <app-input
-        placeholder=""
-        classes="input-shop form-control"
-        id="input-city"
-        [type]="'text'"
-        (update)="assignAddress($event)"
-      ></app-input>
+      <label for="city">{{addressText}}</label>
+      <div>
+        <input
+          placeholder="Miasto"
+          class="input-shop form-control"
+          id="city"
+          type="text"
+          name="city"
+          ngModel
+          required
+          #city="ngModel">
+        <span class="invalid-message" *ngIf="!city.valid && city.touched">{{invalidAddress}}</span>
+      </div>
     </div>
 
   </div>
 
   <div class="form-group">
 
-    <label for="input-name">Dodaj zdjęcia: </label>
+    <label for="photo">{{pictureText}}</label>
       <div class="custom-file">
-        <app-input
-          classes="custom-file-input"
-          id="inputGroupFile01"
-          [type]="'file'"
-          (update)="assignPicture($event)"
-        ></app-input>
-        <label class="custom-file-label" for="inputGroupFile01"></label>
+        <div>
+          <input
+            placeholder=""
+            class="input-shop form-control"
+            id="photo"
+            type="text"
+            name="photo"
+            ngModel
+            required
+            #photo="ngModel">
+          <span class="invalid-message" *ngIf="!photo.valid && photo.touched">{{invalidPhoto}}</span>
+        </div>
       </div>
 
   </div>
 
   <div class="d-inline-flex">
 
-    <label>Opcje dostawy:</label>
+    <label>{{deliveryOptions}}</label>
 
     <div class="form-check form-check-inline">
-      <app-input
+      <input
         class="form-check-input"
-        [type]="'checkbox'"
-        id="deliveryNo"
-        (update)="assignPersonal($event)"
-      ></app-input>
-      <label class="form-check-label" for="deliveryNo">Odbiór osobisty</label>
+        type="checkbox"
+        id="personal"
+        name="personal"
+        ngModel>
+      <label class="form-check-label" for="personal">{{personalText}}</label>
     </div>
 
     <div class="form-check form-check-inline">
-      <app-input
+      <input
         class="form-check-input"
-        [type]="'checkbox'"
-        id="deliveryYes"
-        (update)="assignShipment($event)"
-      ></app-input>
-      <label class="form-check-label" for="deliveryYes">Możliwa wysyłka</label>
+        type="checkbox"
+        id="shipment"
+        name="shipment"
+        ngModel>
+      <label class="form-check-label" for="shipment">{{shipmentText}}</label>
     </div>
 
   </div>
@@ -129,26 +154,31 @@
   <div class="d-inline-flex justify-content-between">
 
     <div class="form-group">
-      <label for="input-phone-number">Telefon kontaktowy:</label>
-      <app-input
-        placeholder=""
-        classes="input-shop form-control"
-        id="input-phone-number"
-        [type]="'tel'"
-        (update)="assignNumber($event)"
-      ></app-input>
+      <label for="telNumber">{{telNumberText}}</label>
+      <div>
+        <input
+          class="input-shop form-control"
+          id="telNumber"
+          type="tel"
+          name="telNumber"
+          ngModel
+          required
+          pattern="{{phoneNumber}}"
+          #telNumber="ngModel">
+        <span class="invalid-message" *ngIf="!telNumber.valid && telNumber.touched">{{invalidTelNumber}}</span>
+      </div>
     </div>
 
-  <div class="form-group">
-    <app-button
-      classes="btn btn-outline-success button-create-advert"
-      text="Zatwierdź"
-      id="button"
-      [type]="'submit'"
-      [iconNameArray]="['fas', 'check']"
-      (click) = "createAdvert()"
-    ></app-button>
-  </div>
+    <div class="form-group">
+      <button
+        class="btn btn-outline-success button-create-advert"
+        id="button"
+        type="submit"
+        [disabled]="!f.valid">
+        <fa-icon [icon]="['fas', 'check']"></fa-icon>
+        {{submit}}
+      </button>
+    </div>
 
   </div>
 

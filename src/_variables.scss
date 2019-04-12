@@ -27,13 +27,16 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
 
   //.adverts-card
   $adverts-adverts-card-width: 16.65vw;
-  $adverts-adverts-card-margin:0 0 1.65vh 0;
+$adverts-adverts-card-margin: 0 0.45vw 1.65vh 0;
 
   //.card-header
   $adverts-card-header-border-color: $yellow;
 
   //li
   $adverts-li-border-color: $yellow;
+
+//p
+$adverts-p-margin: 0;
 
 //button
 
@@ -89,6 +92,9 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   //.create-advert-form
   $create-create-advert-form-padding: 3.5vh 5vw 0 5vw;
 
+//.select-form-control-fix
+$create-advert-form-control-width: 11.795vw;
+
 //filter
 
   //.filter-form
@@ -97,7 +103,7 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   //hr
   $filter-hr-width: 0.5vw;
   $filter-hr-border-color: $yellow;
-  $filter-hr-margin: 0.5vw;
+$filter-hr-margin: auto 0.5vw;
 
 //footer
 
@@ -131,14 +137,6 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   //.input-wide
   $input-input-range-width: 15vw;
   $input-input-wider-margin: 0 0.5vw 0 0;
-
-//login
-
-  //.login-form
-  $login-login-form-padding: 3.5vh 4.5vw;
-
-  //label
-  $login-label-padding: 1vh 0;
 
 //navbar
 
@@ -183,6 +181,21 @@ $but-inp-sel-hover-transition: 0.2s ease-in-out;
   //.select-shop (nav)
   $select-select-shop-border-color: $yellow;
 
-  //select-create-advert
-  $select-create-advert-width: 11.85vw;
+//select-narrow
+$select-narrow: 11.85vw;
 
+//signUp login
+
+//.sign-up-form, .login-form
+$login-sign-up-form-padding: 3.5vh 4vw;
+
+//label
+$login-sign-up-label-padding: 1vh 0;
+$login-sign-up-label-margin: 0 1vw 0 0;
+$login-sign-up-label-width: 2.86vw;
+
+//.form-control
+$login-sign-up-form-control-width-fix: auto;
+
+//validation
+$input-input-invalid-border-color: $red;

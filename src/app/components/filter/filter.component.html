@@ -1,104 +1,94 @@
 <form class="d-inline-flex justify-content-between filter-form">
 
   <div class="form-check">
+    <p>{{stateText}}</p>
 
-    <p>Stan:</p>
+    <div class="form-grup">
+      <input
+        class="form-check-input input-checkbox"
+        type="checkbox"
+        value="new"
+        id="stateNew">
+      <label class="form-check-label" for="stateNew">{{states[1].text}}</label>
+    </div>
 
-    <app-input
-    classes="form-check-input input-checkbox"
-    type="checkbox"
-    value="new"
-    id="stateNew"
-    ></app-input>
-    <label class="form-check-label" for="stateNew">Nowe</label>
+    <div class="form-grup">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="used"
+        id="stateUsed">
+      <label class="form-check-label" for="stateUsed">{{states[2].text}}</label>
+    </div>
 
-    <app-input
-      classes="form-check-input"
-      type="checkbox"
-      value="used"
-      id="stateUsed"
-    ></app-input>
-    <label class="form-check-label" for="stateUsed">Używane</label>
-
-    <app-input
-      classes="form-check-input"
-      type="checkbox"
-      value="broken"
-      id="stateBroken"
-    ></app-input>
-    <label class="form-check-label" for="stateBroken">Uszkodzone</label>
-
+    <div class="form-grup">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="broken"
+        id="stateBroken">
+      <label class="form-check-label" for="stateBroken">{{states[3].text}}</label>
+    </div>
   </div>
 
   <div class="flex-column">
-
-    <p>Cena:</p>
+    <p>{{priceText}}</p>
 
     <div class="d-inline-flex">
-
-      <app-input
-        [type]="'input'"
-        classes="input-shop form-control input-narrow"
-        placeholder="Od"
-      ></app-input>
+      <input
+        type="number"
+        class="input-shop form-control input-narrow"
+        placeholder="Od">
 
       <hr>
 
-      <app-input
-        [type]="'input'"
-        classes="input-shop form-control input-narrow"
-        placeholder="Do"
-      ></app-input>
-
+      <input
+        type="number"
+        class="input-shop form-control input-narrow"
+        placeholder="Do">
     </div>
 
   </div>
 
   <div class="form-check">
+    <p>{{deliveryOptions}}</p>
 
-    <p>Opcje dostawy:</p>
+    <div class="form-group">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="deliveryYes"
+        id="shipment">
+      <label class="form-check-label" for="shipment">{{shipmentText}}</label>
+    </div>
 
-    <app-input
-      classes="form-check-input"
-      type="checkbox"
-      value="deliveryYes"
-      id="deliveryYes"
-    ></app-input>
-    <label class="form-check-label" for="deliveryYes">Możliwa wysyłka</label>
-
-    <app-input
-      classes="form-check-input"
-      type="checkbox"
-      value="deliveryNo"
-      id="deliveryNo"
-    ></app-input>
-    <label class="form-check-label" for="deliveryNo">Odbiór osobisty</label>
-
+    <div class="form-group">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        value="deliveryNo"
+        id="personal">
+      <label class="form-check-label" for="personal">{{personalText}}</label>
+    </div>
   </div>
 
   <div class="flex-column">
+    <p>{{localization}}</p>
 
-    <p>Opcje lokalizacji:</p>
-
-    <app-input
-      [type]="'input'"
-      classes="input-shop form-control input-wide"
-      placeholder="Wpisz miasto . . ."
-    ></app-input>
-
+    <input
+      type="input"
+      class="input-shop form-control input-wide"
+      placeholder="Wpisz miasto . . .">
   </div>
 
   <div class="flex-column">
-
-    <label for="cityRange">W promieniu:</label>
-    <app-input
-      [type]="'range'"
-      classes="form-control-range input-wide"
+    <label for="cityRange">{{rangeText}}</label>
+    <input
+      type="range"
+      class="form-control-range input-wide"
       placeholder="Wpisz miasto . . ."
       value="range"
-      id="cityRange"
-    ></app-input>
-
+      id="cityRange">
   </div>
 
 </form>

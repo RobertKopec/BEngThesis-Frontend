@@ -1,68 +1,38 @@
-<div class="advrets-container d-flex flex-wrap justify-content-between">
-  <div class="card advert-card">
+<div class="advrets-container d-flex flex-wrap ">
+  <div class="card advert-card " *ngFor="let advert of getAdverts(), index as idx">
     <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-header">
-      <h5 class="card-title">Card title</h5>
+    <div class="card-header d-inline-flex justify-content-between">
+      <h5 class="card-title"></h5>
+      <button
+        class="button-shop"
+        (click)="open(advertDetails)"
+        type="button">
+        {{details}}
+      </button>
     </div>
+    <ng-template #advertDetails let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button
+          class="button-close-modal"
+          (click)="modal.dismiss('Cross click')"
+          type="button">
+          <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-advert-details
+          [index]="idx"
+        ></app-advert-details>
+      </div>
+    </ng-template>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Kategoria</p><p>Stan</p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Lokalizacja</p><p>Cena zł</p></li>
-    </ul>
-  </div>
-
-  <div class="card advert-card">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-header">
-      <h5 class="card-title">Card title</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Kategoria</p><p>Stan</p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Lokalizacja</p><p>Cena zł</p></li>
-    </ul>
-  </div>
-
-  <div class="card advert-card">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-header">
-      <h5 class="card-title">Card title</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Kategoria</p><p>Stan</p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Lokalizacja</p><p>Cena zł</p></li>
-    </ul>
-  </div>
-
-  <div class="card advert-card">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-header">
-      <h5 class="card-title">Card title</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Kategoria</p><p>Stan</p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Lokalizacja</p><p>Cena zł</p></li>
-    </ul>
-  </div>
-
-  <div class="card advert-card">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-header">
-      <h5 class="card-title">Card title</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Kategoria</p><p>Stan</p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Lokalizacja</p><p>Cena zł</p></li>
-    </ul>
-  </div>
-
-  <div class="card advert-card">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-header">
-      <h5 class="card-title">Card title</h5>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Kategoria</p><p>Stan</p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p>Lokalizacja</p><p>Cena zł</p></li>
+      <li class="list-group-item d-inline-flex justify-content-between"><p></p>
+        <p></p></li>
+      <li class="list-group-item d-inline-flex justify-content-between"><p></p>
+        <p>zł</p></li>
     </ul>
   </div>
 </div>
+
 

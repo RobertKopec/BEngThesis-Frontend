@@ -1,73 +1,83 @@
 <div class="d-inline-flex justify-content-between panel-categories">
 
-  <app-button
-    [classes]="'button-category-red'"
-    [iconNameArray]="['fas', 'laptop']"
-    [text]="'Elektonika'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-red"
+    type="button"
+    (click)="filter('Elektronika')">
+    <fa-icon [icon]="['fas', 'laptop']"></fa-icon>
+    {{categories[1].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-orange'"
-    [iconNameArray]="['far', 'images']"
-    [text]="'Sztuka i zbiory'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class='button-category-orange'
+    type="button"
+    (click)="filter('Sztuka i zbiory')">
+    <fa-icon [icon]="['far', 'images']"></fa-icon>
+    {{categories[2].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-yellow'"
-    [iconNameArray]="['fas', 'paw']"
-    [text]="'Zwierzęta'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-yellow"
+    type="button"
+    (click)="filter('Zwierzęta')">
+    <fa-icon [icon]="['fas', 'paw']"></fa-icon>
+    {{categories[3].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-green-light'"
-    [iconNameArray]="['fas', 'home']"
-    [text]="'Dom i ogród'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-green-light"
+    type="button"
+    (click)="filter('Dom i ogród')">
+    <fa-icon [icon]="['fas', 'home']"></fa-icon>
+    {{categories[4].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-green'"
-    [iconNameArray]="['fas', 'tshirt']"
-    [text]="'Moda'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-green"
+    type="button"
+    (click)="filter('Moda')">
+    <fa-icon [icon]="['fas', 'tshirt']"></fa-icon>
+    {{categories[5].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-blue-light'"
-    [iconNameArray]="['fas', 'child']"
-    [text]="'Dzieci'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-blue-light"
+    type="button"
+    (click)="filter('Dzieci')">
+    <fa-icon [icon]="['fas', 'child']"></fa-icon>
+    {{categories[6].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-blue'"
-    [iconNameArray]="['fas', 'spa']"
-    [text]="'Zdrowie i uroda'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-blue"
+    type="button"
+    (click)="filter('Zdrowie i uroda')">
+    <fa-icon [icon]="['fas', 'spa']"></fa-icon>
+    {{categories[7].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-violet'"
-    [iconNameArray]="['fas', 'gamepad']"
-    [text]="'Kultura i rozrywka'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-violet"
+    type="button"
+    (click)="filter('Kultura i rozrywka')">
+    <fa-icon [icon]="['fas', 'gamepad']"></fa-icon>
+    {{categories[8].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-purple'"
-    [iconNameArray]="['fas', 'volleyball-ball']"
-    [text]="'Sport i hobby'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-purple"
+    type="button"
+    (click)="filter('Sport i hobby')">
+    <fa-icon [icon]="['fas', 'volleyball-ball']"></fa-icon>
+    {{categories[9].text}}
+  </button>
 
-  <app-button
-    [classes]="'button-category-magenta'"
-    [iconNameArray]="['fas', 'car']"
-    [text]="'Motoryzacja'"
-    [type]="'button'"
-  ></app-button>
+  <button
+    class="button-category-magenta"
+    type="button"
+    (click)="filter('Motoryzacja')">
+    <fa-icon [icon]="['fas', 'car']"></fa-icon>
+    {{categories[10].text}}
+  </button>
 
 </div>

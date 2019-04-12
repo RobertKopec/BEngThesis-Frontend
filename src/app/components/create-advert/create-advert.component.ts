@@ -1,75 +1,58 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {AppService} from '../../app.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {Constrains} from '../../app.constraints';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-create-advert',
   templateUrl: './create-advert.component.html',
   styleUrls: ['./create-advert.component.scss']
 })
-export class CreateAdvertComponent implements OnInit {
+export class CreateAdvertComponent {
 
-  @ViewChild('descriptionInput') descriptionInputRef: ElementRef;
+  @ViewChild('f') singUpForm: NgForm;
 
-  title;
-  description;
-  price;
-  createDate;
-  category;
-  number;
-  address;
-  state;
-  picture;
-  personal;
-  shipment;
-  user;
+  private title = Constrains.title;
+  private descriptionText = Constrains.descriptionText;
+  private categoryText = Constrains.categoryText;
+  private categories = Constrains.categories;
+  private stateText = Constrains.stateText;
+  private states = Constrains.states;
+  private priceText = Constrains.priceText;
+  private addressText = Constrains.addressText;
+  private pictureText = Constrains.pictureText;
+  private deliveryOptions = Constrains.deliveryOptions;
+  private personalText = Constrains.personalText;
+  private shipmentText = Constrains.shipmentText;
+  private telNumberText = Constrains.telNumberText;
+  private submit = Constrains.submit;
+
+  private onlyDigits = Constrains.onlyDigits;
+  private phoneNumber = Constrains.phoneNumber;
+
+  private invalidAddress = Constrains.invalidAddress;
+  private invalidTelNumber = Constrains.invalidTelNumber;
+  private invalidTitle = Constrains.invalidTitle;
+  private invalidDescription = Constrains.invalidDescription;
+  private invalidPrice = Constrains.invalidPrice;
+  private invalidState = Constrains.invalidState;
+  private invalidCategory = Constrains.invalidCategory;
+  private invalidPhoto = Constrains.invalidPhoto;
 
   constructor(private appService: AppService, private modalService: NgbModal) { }
 
-  ngOnInit() {
+  onSubmit() {
   }
 
-  createAdvert() {
-    this.appService.createAdvert(
-      // tslint:disable-next-line:max-line-length
-      this.title, this.descriptionInputRef.nativeElement.value, this.price, new Date(), this.category, this.number, this.address, this.state, this.picture, this.personal, this.shipment, this.appService.user
-    );
-    this.modalService.dismissAll();
-  }
+  // createAdvert() {
+  //   this.createAdvertError = '';
 
-  assignTitle(title: string) {
-    this.title = title;
-  }
-
-  assignCategory(category: string) {
-    this.category = category;
-  }
-
-  assignState(state: string) {
-    this.state = state;
-  }
-
-  assignPrice(price: string) {
-    this.price = Number(price);
-  }
-
-  assignAddress(address: string) {
-    this.address = address;
-  }
-
-  assignPicture(picture: string) {
-    this.picture = picture;
-  }
-
-  assignPersonal(personal: string) {
-    this.personal = personal;
-  }
-
-  assignShipment(shipment: string) {
-    this.shipment = shipment;
-  }
-
-  assignNumber(number: string) {
-    this.number = number;
-  }
+  //     this.appService.createAdvert(
+  //       // tslint:disable-next-line:max-line-length
+  //       this.title, this.descriptionInputRef.nativeElement.value, this.price, new Date(), this.category, this.number, this.address, this.state, this.picture, this.personal, this.shipment, this.appService.user
+  //     );
+  //     this.modalService.dismissAll();
+  //   }
+  // }
 }

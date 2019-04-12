@@ -1,3 +1,169 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
+
+.input-shop, .textarea-shop, .select-shop {
+  border-color: $input-input-shop-border-color;
+
+
+  &:focus {
+    border-color: $input-input-shop-border-color;
+    box-shadow: $but-inp-sel-hover-box-shadow;
+    transition: color $but-inp-sel-hover-transition, box-shadow $but-inp-sel-hover-transition;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+//buttons
+
+%button {
+  cursor: pointer;
+  background: $button-button-bg;
+  border-radius: $button-button-border-radius;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+//TO DO: create button-close-modal and button-shop with mixin include
+
+.button-close-modal {
+  @extend %button;
+
+  color: $button-button-close-modal-color;
+  border: $button-button-close-modal-border;
+  margin: $button-button-close-modal-margin;
+  padding: $button-button-close-modal-padding;
+}
+
+.button-create-advert {
+  margin: 5.5vh 0;
+}
+
+.btn-outline-warning {
+  margin: $button-button-shop-border-margin !important;
+}
+
+.button-shop {
+  @extend %button;
+
+  color: $button-button-shop-color;
+  border: $button-button-shop-border;
+  margin: $button-button-shop-border-margin;
+  padding: $button-button-shop-border-padding;
+
+  &:hover {
+    box-shadow: $but-inp-sel-hover-box-shadow;
+    color: $button-button-shop-hover-color;
+    transition: color $but-inp-sel-hover-transition,
+    box-shadow $but-inp-sel-hover-transition;
+  }
+}
+
+%button-category {
+  display: flex;
+  flex-direction: column;
+  height: $button-button-category-height;
+  width: $button-button-category-width;
+  padding: $button-button-category-padding;
+  background: $button-button-category-bg !important;
+  border-width: $button-button-category-border-width;
+  border-style: $button-button-category-border-style;
+  color: $button-button-category-color;
+}
+
+$buttonCategoriesConfig: 'red' $button-button-category-red,
+'orange' $button-button-category-orange,
+'yellow' $button-button-category-yellow,
+'green-light' $button-button-category-green-light,
+'green' $button-button-category-green,
+'blue-light' $button-button-category-blue-light,
+'blue' $button-button-category-blue,
+'violet' $button-button-category-violet,
+'purple' $button-button-category-purple,
+'magenta' $button-button-category-magenta;
+
+@each $tuple in $buttonCategoriesConfig {
+  .button-category-#{nth($tuple, 1)} {
+    @extend %button-category;
+    @extend %button;
+
+    border-color: nth($tuple, 2);
+
+    &:hover {
+      color: nth($tuple, 2);
+      transition: color $but-inp-sel-hover-transition;
+    }
+  }
+}
+
+
+//inputs
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-wider {
+  width: $input-input-wider-width;
+  margin: $input-input-wider-margin;
+}
+
+.input-narrow {
+  width: $input-input-narrow-width;
+}
+
+.input-checkbox {
+  outline: $yellow !important;
+}
+
+.input-wide {
+  width: $input-input-range-width;
+}
+
+
+// selects
+
+.select-nav {
+  margin: $select-select-nav-margin;
+}
+
+.select-narrow {
+  width: $select-narrow;
+}
+
+option:first-child {
+  display: none;
+}
+
+@-moz-document url-prefix() {
+  select, select:-moz-focusring, select::-moz-focus-inner {
+    color: transparent !important;
+    text-shadow: 0 0 0 #495057
+  }
+
+  select:-moz-focusring option:disabled {
+    text-shadow: none;
+  }
+}
+
+//validation
+input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
+  border-color: $red;
+}
+
+.invalid-message {
+  font-size: 75%;
+  color: $red;
+  text-align: center;
+}
