@@ -11,7 +11,7 @@ import {UserModel} from '../../models/user.model';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent {
-  @ViewChild('f') singUpForm: NgForm;
+  @ViewChild('f', {static: false}) singUpForm: NgForm;
 
   constructor(private appService: AppService, private modalService: NgbModal) {
   }

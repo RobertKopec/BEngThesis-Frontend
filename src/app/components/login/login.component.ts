@@ -10,7 +10,7 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  @ViewChild('f') loginForm: NgForm;
+  @ViewChild('f', {static: false}) loginForm: NgForm;
 
   constructor(private appService: AppService, private modalService: NgbModal) {
   }

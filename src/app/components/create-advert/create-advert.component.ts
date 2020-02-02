@@ -11,7 +11,7 @@ import {NgForm} from '@angular/forms';
 })
 export class CreateAdvertComponent {
 
-  @ViewChild('f') singUpForm: NgForm;
+  @ViewChild('f', {static: false}) singUpForm: NgForm;
 
   private title = Constrains.title;
   private descriptionText = Constrains.descriptionText;
