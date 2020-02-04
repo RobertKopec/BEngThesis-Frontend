@@ -2,7 +2,7 @@
   <div class="card advert-card " *ngFor="let advert of getAdverts(), index as idx">
     <img class="card-img-top" src="" alt="Card image cap">
     <div class="card-header d-inline-flex justify-content-between">
-      <h5 class="card-title"></h5>
+      <h5 class="card-title">{{advert.title}}</h5>
       <button
         class="button-shop"
         (click)="open(advertDetails)"
@@ -12,7 +12,7 @@
     </div>
     <ng-template #advertDetails let-modal>
       <div class="modal-header">
-        <h4 class="modal-title"></h4>
+        <h4 class="modal-title">{{advert.title}}</h4>
         <button
           class="button-close-modal"
           (click)="modal.dismiss('Cross click')"
@@ -27,10 +27,14 @@
       </div>
     </ng-template>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item d-inline-flex justify-content-between"><p></p>
-        <p></p></li>
-      <li class="list-group-item d-inline-flex justify-content-between"><p></p>
-        <p>zł</p></li>
+      <li class="list-group-item d-inline-flex justify-content-between">
+        <p>{{advert.category}}</p>
+        <p>{{advert.state}}</p>
+      </li>
+      <li class="list-group-item d-inline-flex justify-content-between">
+        <p>{{advert.address}}</p>
+        <p>{{advert.price}}zł</p>
+      </li>
     </ul>
   </div>
 </div>

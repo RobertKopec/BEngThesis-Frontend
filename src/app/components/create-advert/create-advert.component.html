@@ -1,7 +1,7 @@
 <form class="create-advert-form flex-column" (ngSubmit)="onSubmit()" #f="ngForm">
 
   <div class="form-group">
-    <label for="title">{{title}}</label>
+    <label for="title">{{titleText}}</label>
     <div>
       <input
         class="input-shop form-control"
@@ -25,7 +25,7 @@
         name="description"
         ngModel
         required
-        #description="ngModel">      
+        #description="ngModel">
       </textarea>
       <span class="invalid-message" *ngIf="!description.valid && description.touched">{{invalidDescription}}</span>
     </div>

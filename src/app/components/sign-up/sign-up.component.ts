@@ -38,6 +38,12 @@ export class SignUpComponent {
   private user: UserModel;
 
   onSubmit() {
+    this.createUserModelInstance();
+    this.appService.signUp(this.user);
+    this.modalService.dismissAll();
+  }
+
+  createUserModelInstance(): void {
     this.user = new UserModel(
       this.singUpForm.value.login,
       this.singUpForm.value.password,
@@ -45,7 +51,5 @@ export class SignUpComponent {
       this.singUpForm.value.userName,
       this.singUpForm.value.address,
       this.singUpForm.value.telNumber);
-    this.appService.signUp(this.user);
-    this.modalService.dismissAll();
   }
 }

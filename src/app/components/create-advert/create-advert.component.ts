@@ -13,7 +13,7 @@ export class CreateAdvertComponent {
 
   @ViewChild('f', {static: false}) singUpForm: NgForm;
 
-  private title = Constrains.title;
+  private titleText = Constrains.title;
   private descriptionText = Constrains.descriptionText;
   private categoryText = Constrains.categoryText;
   private categories = Constrains.categories;

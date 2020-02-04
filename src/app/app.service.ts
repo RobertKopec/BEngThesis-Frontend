@@ -47,14 +47,6 @@ export class AppService {
   }
 
   signUp(user) {
-    // const user = {
-    //   login: login,
-    //   password: password,
-    //   name : name,
-    //   number: number,
-    //   mail: mail,
-    //   address: address
-    // };
 
     this.http.post('http://localhost:8080/api/user/add', user).subscribe(
       (response: Response) => {
