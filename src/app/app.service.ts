@@ -14,29 +14,16 @@ export class AppService {
 
   alertMessageChanged = new Subject<string>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   setAlert(alertMessage: string) {
     this.alertMessage += alertMessage;
     this.alertMessageChanged.next(this.alertMessage);
   }
 
-  createAdvert(title, description, price, createDate, category, number, address, state, picture, personal, shipment, user) {
-    const advert = {
-      title: title,
-      description: description,
-      price : price,
-      createDate: createDate,
-      category: category,
-      number: number,
-      address: address,
-      state: state,
-      picture: picture,
-      personal: personal,
-      shipment: shipment,
-      user: user
-    };
-
+  createAdvert(advert) {
+    console.log(advert);
     this.http.post('http://localhost:8080/api/tradeAdvert/add', advert).subscribe(
       (response: Response) => {
         console.log(response);
@@ -47,7 +34,6 @@ export class AppService {
   }
 
   signUp(user) {
-
     this.http.post('http://localhost:8080/api/user/add', user).subscribe(
       (response: Response) => {
         console.log(response);
@@ -59,7 +45,7 @@ export class AppService {
   signIn(login: string) {
     this.http.get('http://localhost:8080/api/user/' + login).subscribe(
       data => {
-        if (data !== null && data !== undefined) {
+        if (data !== undefined) {
           this.user = data;
           console.log(this.user);
         }
@@ -71,7 +57,7 @@ export class AppService {
   getAdverts() {
     this.http.get('http://localhost:8080/api/tradeAdvert/all').subscribe(
       data => {
-        if (data !== null && data !== undefined) {
+        if (data !== undefined) {
           this.adverts = data;
           this.filteredAdverts = data;
           console.log(this.adverts);

@@ -1,6 +1,6 @@
 <div class="advrets-container d-flex flex-wrap ">
   <div class="card advert-card " *ngFor="let advert of getAdverts(), index as idx">
-    <img class="card-img-top" src="" alt="Card image cap">
+    <img class="card-img-top" src="{{advert.picture}}." alt="Card image cap">
     <div class="card-header d-inline-flex justify-content-between">
       <h5 class="card-title">{{advert.title}}</h5>
       <button

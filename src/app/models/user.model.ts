@@ -5,6 +5,6 @@ export class UserModel {
     public email: string,
     public userName: string,
     public address: string,
-    public telNumber: number) {
+    public telNumber: string) {
   }
 }

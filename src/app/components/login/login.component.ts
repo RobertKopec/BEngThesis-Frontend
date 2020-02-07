@@ -29,7 +29,6 @@ export class LoginComponent {
   private password: string;
   private isValid = true;
 
-
   onSubmit() {
     if (this.checkValidation()) {
       this.login = this.loginForm.value.login;
@@ -38,8 +37,8 @@ export class LoginComponent {
       this.appService.signIn(this.login);
       setTimeout(() => {
         // tslint:disable-next-line:max-line-length
-        if (this.appService.user !== undefined && this.appService.user !== null && this.appService.user.login === this.login && this.appService.user.password === this.password) {
-          this.appService.loggedUser = this.login;
+        if (this.appService.user !== undefined && this.appService.user.login === this.login && this.appService.user.password === this.password) {
+          this.appService.loggedUser = this.appService.user.login;
           this.modalService.dismissAll();
         } else {
           this.appService.setAlert(this.invalidCredentials);

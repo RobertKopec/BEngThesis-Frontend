@@ -32,7 +32,7 @@ export class Constrains {
     value: 'Child'
   }, {
     text: 'Zdrowie i uroda',
-    value: 'Healt'
+    value: 'Health'
   }, {
     text: 'Kultura i rozrywka',
     value: 'Culture'

@@ -3,6 +3,7 @@ import {AppService} from '../../app.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Constrains} from '../../app.constraints';
 import {NgForm} from '@angular/forms';
+import {AdvertModel} from '../../models/advert.model';
 
 @Component({
   selector: 'app-create-advert',
@@ -11,7 +12,7 @@ import {NgForm} from '@angular/forms';
 })
 export class CreateAdvertComponent {
 
-  @ViewChild('f', {static: false}) singUpForm: NgForm;
+  @ViewChild('f', {static: false}) createAdvertForm: NgForm;
 
   private titleText = Constrains.title;
   private descriptionText = Constrains.descriptionText;
@@ -40,19 +41,32 @@ export class CreateAdvertComponent {
   private invalidCategory = Constrains.invalidCategory;
   private invalidPhoto = Constrains.invalidPhoto;
 
-  constructor(private appService: AppService, private modalService: NgbModal) { }
-
-  onSubmit() {
+  constructor(private appService: AppService, private modalService: NgbModal) {
   }
 
-  // createAdvert() {
-  //   this.createAdvertError = '';
+  private advert: AdvertModel;
 
-  //     this.appService.createAdvert(
-  //       // tslint:disable-next-line:max-line-length
-  //       this.title, this.descriptionInputRef.nativeElement.value, this.price, new Date(), this.category, this.number, this.address, this.state, this.picture, this.personal, this.shipment, this.appService.user
-  //     );
-  //     this.modalService.dismissAll();
-  //   }
-  // }
+  onSubmit() {
+    console.log(this.appService.user);
+    this.createAdvertModelInstance();
+    this.appService.createAdvert(this.advert);
+    this.modalService.dismissAll();
+  }
+
+  createAdvertModelInstance(): void {
+    this.advert = new AdvertModel(
+      this.createAdvertForm.value.title,
+      this.createAdvertForm.value.description,
+      this.createAdvertForm.value.category,
+      this.createAdvertForm.value.state,
+      this.createAdvertForm.value.price,
+      this.createAdvertForm.value.city,
+      this.createAdvertForm.value.photo,
+      this.createAdvertForm.value.personal,
+      this.createAdvertForm.value.shipment,
+      this.createAdvertForm.value.telNumber,
+      this.appService.user,
+      new Date()
+    );
+  }
 }

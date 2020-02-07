@@ -58,12 +58,12 @@
         class="form-control"
         id="input-username"
         type="text"
-        name="username"
+        name="userName"
         ngModel
         pattern="{{onlyLetters}}"
         required
-        #username="ngModel">
-      <span class="invalid-message" *ngIf="!username.valid && username.touched">{{invalidUserName}}</span>
+        #userName="ngModel">
+      <span class="invalid-message" *ngIf="!userName.valid && userName.touched">{{invalidUserName}}</span>
     </div>
   </div>
 

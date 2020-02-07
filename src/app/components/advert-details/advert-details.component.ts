@@ -10,11 +10,11 @@ import {Constrains} from '../../app.constraints';
 export class AdvertDetailsComponent implements OnInit {
 
   private descriptionText = Constrains.descriptionText;
-  private categoryText = Constrains.categoryText;
-  private stateText = Constrains.stateText;
-  private priceText = Constrains.priceText;
-  private addressText = Constrains.addressText;
-  private telNumberText = Constrains.telNumberText;
+  private categoryText = Constrains.categoryText + ':';
+  private stateText = Constrains.stateText + ':';
+  private priceText = Constrains.priceText + ':';
+  private addressText = Constrains.addressText + ':';
+  private telNumberText = Constrains.telNumberText + ':';
   private deliveryOptions = Constrains.deliveryOptions;
 
   advert: object;
