@@ -88,7 +88,7 @@
     </div>
 
     <div class="form-group">
-      <label for="city">{{addressText}}</label>
+      <label for="city">{{cityText}}</label>
       <div>
         <input
           placeholder="Miasto"
@@ -99,7 +99,7 @@
           ngModel
           required
           #city="ngModel">
-        <span class="invalid-message" *ngIf="!city.valid && city.touched">{{invalidAddress}}</span>
+        <span class="invalid-message" *ngIf="!city.valid && city.touched">{{invalidCity}}</span>
       </div>
     </div>
 

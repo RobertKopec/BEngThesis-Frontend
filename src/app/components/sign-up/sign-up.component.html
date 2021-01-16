@@ -2,7 +2,7 @@
 
   <div class="form-group d-inline-flex justify-content-between">
     <label for="input-login">{{loginText}}</label>
-    <div>
+    <div class="input-container">
       <input
         placeholder=""
         class="form-control"
@@ -11,6 +11,7 @@
         name="login"
         ngModel
         required
+        pattern="{{loginValidation}}"
         #login="ngModel">
       <span class="invalid-message" *ngIf="!login.valid && login.touched">{{invalidLogin}}</span>
     </div>
@@ -18,7 +19,7 @@
 
   <div class="form-group d-inline-flex justify-content-between">
     <label for="input-password">{{passwordText}}</label>
-    <div>
+    <div class="input-container">
       <input
         placeholder=""
         class="form-control"
@@ -35,7 +36,7 @@
 
   <div class="form-group d-inline-flex justify-content-between">
     <label for="input-mail">{{emailText}}:</label>
-    <div>
+    <div class="input-container">
       <input
         placeholder=""
         class="form-control"
@@ -52,7 +53,7 @@
 
   <div class="form-group d-inline-flex justify-content-between">
     <label for="input-username">{{usernameText}}</label>
-    <div>
+    <div class="input-container">
       <input
         placeholder=""
         class="form-control"
@@ -68,24 +69,24 @@
   </div>
 
   <div class="form-group d-inline-flex justify-content-between">
-    <label for="input-address">{{addressText}}</label>
-    <div>
+    <label for="input-city">{{cityText}}</label>
+    <div class="input-container">
       <input
         placeholder=""
         class="form-control"
-        id="input-address"
+        id="input-city"
         type="text"
-        name="address"
+        name="city"
         ngModel
         required
-        #address="ngModel">
-      <span class="invalid-message" *ngIf="!address.valid && address.touched">{{invalidAddress}}</span>
+        #city="ngModel">
+      <span class="invalid-message" *ngIf="!city.valid && city.touched">{{invalidCity}}</span>
     </div>
   </div>
 
   <div class="form-group d-inline-flex justify-content-between">
     <label for="input-telNumber">{{telNumberText}}</label>
-    <div>
+    <div class="input-container">
       <input
         placeholder=""
         class="form-control"
@@ -100,14 +101,37 @@
     </div>
   </div>
 
-  <div class=" d-flex justify-content-end">
+  <div class=" d-flex justify-content-between">
+    <button
+      class="btn btn-outline-primary"
+      type="button"
+      (click)="open(logIn)">
+      <fa-icon [icon]="['fas', 'sign-in-alt']"></fa-icon>
+      {{goToLogIn}}
+    </button>
+
     <button
       class="btn btn-outline-success"
       type="submit"
       [disabled]="!f.valid">
-      <fa-icon class="fas user-check"></fa-icon>
+      <fa-icon [icon]="['fas', 'user-check']"></fa-icon>
       {{signUpButton}}
     </button>
   </div>
 
 </form>
+
+<ng-template #logIn let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{loginTitle}}</h4>
+    <button
+      class="button-close-modal"
+      (click)="modal.dismiss('Cross click')"
+      type="button">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-login></app-login>
+  </div>
+</ng-template>

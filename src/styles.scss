@@ -131,6 +131,10 @@ input[type="number"] {
   width: $input-input-range-width;
 }
 
+.input-container {
+  width: $login-sign-up-input-container-width;
+}
+
 
 // selects
 
@@ -165,5 +169,6 @@ input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
 .invalid-message {
   font-size: 75%;
   color: $red;
-  text-align: center;
+  white-space: pre-line;
+  display: block;
 }

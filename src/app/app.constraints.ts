@@ -58,7 +58,7 @@ export class Constrains {
     value: 'damaged'
   }];
   public static priceText = 'Cena';
-  public static addressText = 'Adres';
+  public static cityText = 'Miasto';
   public static pictureText = 'Dodaj zdjęcia';
   public static deliveryOptions = 'Opcje dostawy:';
   public static personalText = 'Odbiór osobisty';
@@ -78,43 +78,45 @@ export class Constrains {
   public static text = 'Designed by ';
   public static author = 'Robert Kopeć';
 
-  // login
+  // login, register
+
+  public static logInButton = 'Zaloguj się!';
+  public static signUpButton = 'Zarejestruj się!';
+  public static goToSignUp = 'Rejestracja';
+  public static signUpTitle = 'Rejestracja użytkownika';
+  public static loginTitle = 'Logowanie';
+  public static goToLogIn = 'Logowanie';
+
   public static loginText = 'Login';
   public static passwordText = 'Hasło';
-  public static logIn = 'Zaloguj się!';
-  public static signUpButton = 'Zarejestruj się!';
-  public static signUpText = 'Rejestracja';
-  public static signUpTitle = 'Rejestracja użytkownika';
-
-  // signUp
   public static emailText = 'E-mail';
   public static usernameText = 'Imię';
 
   // Navbar
-  public static loginTitle = 'Logowanie';
   public static createAdvertTitle = 'Dodaj nowe ogłoszenie';
 
 
   // validation messages
-  public static invalidLogin = 'Login nie może być pusty\n';
-  public static invalidPassword = 'Hasło nie może być puste\n';
-  public static invalidEmail = 'Podaj prawidłowy adres e-mail';
-  public static invalidUserName = 'Imię powinno zawierać tylko litery';
-  public static invalidAddress = 'Adres nie może być pusty';
-  public static invalidTelNumber = 'Nieprawidłowy numer telefonu';
-  public static invalidCredentials = 'Niepoprawne dane logowania';
-  public static invalidTitle = 'Nagłówek nie może być pusty';
-  public static invalidDescription = 'Opis ogłoszenia nie może być pusty';
-  public static invalidPrice = 'Cena powinna zawierać tylko cyfry';
-  public static invalidCategory = 'Prosze wybrać kategorię przedmiotu';
-  public static invalidState = 'Prosze wybrać stan przedmiotu';
-  public static invalidPhoto = 'Prosze dodać zdjęcie';
+  public static invalidLogin = 'Login nie może być pusty i musi zawierać wielka literę oraz minimum 5 znaków.';
+  public static invalidPassword = 'Hasło nie może być puste i musi zawierać cyfrę oraz wielka literę.';
+  public static invalidEmail = 'Podaj prawidłowy adres e-mail.';
+  public static invalidUserName = 'Imię powinno zawierać tylko litery.';
+  public static invalidCity = 'Miasto nie może być pusty.';
+  public static invalidTelNumber = 'Nieprawidłowy numer telefonu.';
+  public static invalidCredentials = 'Niepoprawne dane logowania, pole nie może być puste.';
+  public static invalidTitle = 'Nagłówek nie może być pusty.';
+  public static invalidDescription = 'Opis ogłoszenia nie może być pusty.';
+  public static invalidPrice = 'Cena powinna zawierać tylko cyfry.';
+  public static invalidCategory = 'Prosze wybrać kategorię przedmiotu.';
+  public static invalidState = 'Prosze wybrać stan przedmiotu.';
+  public static invalidPhoto = 'Prosze dodać zdjęcie.';
 
   // validator patterns
   public static onlyLetters = '^[a-zA-Z]+$';
   public static onlyDigits = '^[0-9\\.]+$';
   public static phoneNumber = '^[0-9\\+\\(\\)]+$';
   public static passwordValidation = '^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[^\' \']{7,}$';
+  public static loginValidation = '^(?=.*[A-Z])(?=.*[a-z])[^\' \']{5,}$';
 
 }
 

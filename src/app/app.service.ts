@@ -34,7 +34,7 @@ export class AppService {
         }
         this.advertsChanged.next(this.adverts);
       },
-      err => {
+      () => {
         this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
         this.messageChanged.next(this.message);
       }
@@ -48,7 +48,7 @@ export class AppService {
           this.getAdverts();
         }
       },
-      err => {
+      () => {
         this.message = {text: 'Błąd podczas dodawania ogłoszenia, spróbuj później!', type: 'ERROR'};
         this.messageChanged.next(this.message);
       }
@@ -57,7 +57,7 @@ export class AppService {
 
   signUp(user) {
     this.http.post('http://localhost:8080/api/user/add', user).subscribe(
-      (response: Response) => {
+      () => {
         this.message = {text: 'Zarejestrowano!', type: 'SUCCESS'};
       },
       err => {
@@ -74,13 +74,14 @@ export class AppService {
   }
 
   signIn(login, pass) {
-    this.http.post('http://localhost:8080/api/user/', {
-      name: login,
+    this.http.post('http://localhost:8080/api/user/login', {
+      login,
       password: pass
     }).subscribe(
       data => {
         this.user = data as UserModel;
         this.userChanged.next(this.user);
+        this.loggedUser = this.user.userName;
       },
       err => {
         if (err.status === 403) {

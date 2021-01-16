@@ -13,7 +13,7 @@ export class AdvertDetailsComponent implements OnInit {
   private categoryText = Constrains.categoryText + ':';
   private stateText = Constrains.stateText + ':';
   private priceText = Constrains.priceText + ':';
-  private addressText = Constrains.addressText + ':';
+  private cityText = Constrains.cityText + ':';
   private telNumberText = Constrains.telNumberText + ':';
   private deliveryOptions = Constrains.deliveryOptions;
 
@@ -28,10 +28,8 @@ export class AdvertDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   delivery() {
-
   }
 }

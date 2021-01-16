@@ -21,7 +21,7 @@ export class CreateAdvertComponent {
   private stateText = Constrains.stateText;
   private states = Constrains.states;
   private priceText = Constrains.priceText;
-  private addressText = Constrains.addressText;
+  private cityText = Constrains.cityText;
   private pictureText = Constrains.pictureText;
   private deliveryOptions = Constrains.deliveryOptions;
   private personalText = Constrains.personalText;
@@ -32,7 +32,7 @@ export class CreateAdvertComponent {
   private onlyDigits = Constrains.onlyDigits;
   private phoneNumber = Constrains.phoneNumber;
 
-  private invalidAddress = Constrains.invalidAddress;
+  private invalidCity = Constrains.invalidCity;
   private invalidTelNumber = Constrains.invalidTelNumber;
   private invalidTitle = Constrains.invalidTitle;
   private invalidDescription = Constrains.invalidDescription;

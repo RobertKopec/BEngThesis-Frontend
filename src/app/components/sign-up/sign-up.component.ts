@@ -16,24 +16,28 @@ export class SignUpComponent {
   constructor(private appService: AppService, private modalService: NgbModal) {
   }
 
-  private loginText = Constrains.loginText;
-  private passwordText = Constrains.passwordText;
-  private emailText = Constrains.emailText;
-  private usernameText = Constrains.usernameText;
-  private addressText = Constrains.addressText;
-  private telNumberText = Constrains.telNumberText;
-  private signUpButton = Constrains.signUpButton;
+  public loginText = Constrains.loginText;
+  public passwordText = Constrains.passwordText;
+  public emailText = Constrains.emailText;
+  public usernameText = Constrains.usernameText;
+  public cityText = Constrains.cityText;
+  public telNumberText = Constrains.telNumberText;
+  public signUpButton = Constrains.signUpButton;
 
-  private invalidLogin = Constrains.invalidLogin;
-  private invalidPassword = Constrains.invalidPassword;
-  private invalidEmail = Constrains.invalidEmail;
-  private invalidUserName = Constrains.invalidUserName;
-  private invalidAddress = Constrains.invalidAddress;
-  private invalidTelNumber = Constrains.invalidTelNumber;
+  public invalidLogin = Constrains.invalidLogin;
+  public invalidPassword = Constrains.invalidPassword;
+  public invalidEmail = Constrains.invalidEmail;
+  public invalidUserName = Constrains.invalidUserName;
+  public invalidCity = Constrains.invalidCity;
+  public invalidTelNumber = Constrains.invalidTelNumber;
 
-  private onlyLetters = Constrains.onlyLetters;
-  private phoneNumber = Constrains.phoneNumber;
-  private passwordValidation = Constrains.passwordValidation;
+  public onlyLetters = Constrains.onlyLetters;
+  public phoneNumber = Constrains.phoneNumber;
+  public passwordValidation = Constrains.passwordValidation;
+  public loginValidation = Constrains.loginValidation;
+
+  public loginTitle = Constrains.loginTitle;
+  public goToLogIn = Constrains.goToLogIn;
 
   private user: UserModel;
 
@@ -49,7 +53,12 @@ export class SignUpComponent {
       this.singUpForm.value.password,
       this.singUpForm.value.email,
       this.singUpForm.value.userName,
-      this.singUpForm.value.address,
+      this.singUpForm.value.city,
       this.singUpForm.value.telNumber);
+  }
+
+  open(logIn) {
+    this.modalService.dismissAll();
+    this.modalService.open(logIn, {centered: true});
   }
 }

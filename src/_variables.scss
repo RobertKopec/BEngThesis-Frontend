@@ -128,24 +128,27 @@ $filter-hr-margin: auto 0.5vw;
   //.input-shop (nav)
   $input-input-shop-border-color: $yellow;
 
-  //.input-wider (nav)
-  $input-input-wider-width: 20vw;
+//.input-wider (nav)
+$input-input-wider-width: 20vw;
 
-  //.input-narrow (filter)
-  $input-input-narrow-width: 3vw;
+//.input-narrow (filter)
+$input-input-narrow-width: 3vw;
 
-  //.input-wide
-  $input-input-range-width: 15vw;
-  $input-input-wider-margin: 0 0.5vw 0 0;
+//.input-wide
+$input-input-range-width: 15vw;
+$input-input-wider-margin: 0 0.5vw 0 0;
+
+//input-container
+$login-sign-up-input-container-width: 11.8vw;
 
 //navbar
 
-  //.nav-bar
-  $navbar-nav-bar-padding: 3vh 7vw;;
-  $navbar-nav-bar-bg: $white;
+//.nav-bar
+$navbar-nav-bar-padding: 3vh 7vw;
+$navbar-nav-bar-bg: $white;
 
-  //.nav-row
-  $navbar-nav-row-width: 100%;
+//.nav-row
+$navbar-nav-row-width: 100%;
 
   //hr
   $navbar-hr-width: 100;
@@ -175,11 +178,11 @@ $filter-hr-margin: auto 0.5vw;
 
 //select
 
-  //.select-nav
-  $select-select-nav-margin: 0 0.5vw;
+//.select-nav
+$select-select-nav-margin: 0 0.5vw;
 
-  //.select-shop (nav)
-  $select-select-shop-border-color: $yellow;
+//.select-shop (nav)
+$select-select-shop-border-color: $yellow;
 
 //select-narrow
 $select-narrow: 11.85vw;
