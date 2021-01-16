@@ -57,16 +57,16 @@ export class CreateAdvertComponent {
     this.advert = new AdvertModel(
       this.createAdvertForm.value.title,
       this.createAdvertForm.value.description,
-      this.createAdvertForm.value.category,
-      this.createAdvertForm.value.state,
       this.createAdvertForm.value.price,
+      new Date(),
+      this.createAdvertForm.value.category,
+      this.createAdvertForm.value.telNumber,
       this.createAdvertForm.value.city,
-      this.createAdvertForm.value.photo,
+      this.createAdvertForm.value.state,
+      this.createAdvertForm.value.picture,
       this.createAdvertForm.value.personal,
       this.createAdvertForm.value.shipment,
-      this.createAdvertForm.value.telNumber,
       this.appService.user,
-      new Date()
     );
   }
 }

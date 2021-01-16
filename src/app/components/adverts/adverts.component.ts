@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AppService} from '../../app.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {Constrains} from '../../app.constraints';
+import {AdvertModel} from '../../models/advert.model';
 
 @Component({
   selector: 'app-adverts',
@@ -9,7 +10,7 @@ import {Constrains} from '../../app.constraints';
   styleUrls: ['./adverts.component.scss']
 })
 export class AdvertsComponent implements OnInit {
-  private details = Constrains.details;
+  public details = Constrains.details;
 
   constructor(private appService: AppService, private modalService: NgbModal) {
   }
@@ -18,11 +19,11 @@ export class AdvertsComponent implements OnInit {
     this.appService.getAdverts();
   }
 
-  getAdverts() {
+  getFilteredAdverts(): AdvertModel[] {
     return this.appService.filteredAdverts;
   }
 
-  open(advertDetails) {
+  open(advertDetails): void {
     this.modalService.open(advertDetails, {centered: true, size: 'lg'});
   }
 }

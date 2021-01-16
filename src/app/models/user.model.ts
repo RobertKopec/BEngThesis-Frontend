@@ -4,7 +4,7 @@ export class UserModel {
     public password: string,
     public email: string,
     public userName: string,
-    public address: string,
+    public city: string,
     public telNumber: string) {
   }
 }

@@ -1,5 +1,5 @@
 <div class="advrets-container d-flex flex-wrap ">
-  <div class="card advert-card " *ngFor="let advert of getAdverts(), index as idx">
+  <div class="card" *ngFor="let advert of getFilteredAdverts(), index as idx">
     <img class="card-img-top" src="{{advert.picture}}." alt="Card image cap">
     <div class="card-header d-inline-flex justify-content-between">
       <h5 class="card-title">{{advert.title}}</h5>
@@ -32,7 +32,7 @@
         <p>{{advert.state}}</p>
       </li>
       <li class="list-group-item d-inline-flex justify-content-between">
-        <p>{{advert.address}}</p>
+        <p>{{advert.city}}</p>
         <p>{{advert.price}}zł</p>
       </li>
     </ul>

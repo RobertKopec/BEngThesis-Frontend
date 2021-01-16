@@ -34,14 +34,14 @@ export class LoginComponent {
       this.login = this.loginForm.value.login;
       this.password = this.loginForm.value.password;
 
-      this.appService.signIn(this.login);
+      this.appService.signIn(this.login, this.password);
       setTimeout(() => {
         // tslint:disable-next-line:max-line-length
         if (this.appService.user !== undefined && this.appService.user.login === this.login && this.appService.user.password === this.password) {
           this.appService.loggedUser = this.appService.user.login;
           this.modalService.dismissAll();
         } else {
-          this.appService.setAlert(this.invalidCredentials);
+          // this.appService.setAlert(this.invalidCredentials);
         }
       }, 500);
     }
@@ -54,12 +54,12 @@ export class LoginComponent {
 
   checkValidation(): boolean {
     if (this.loginForm.controls.login.status !== 'VALID') {
-      this.appService.setAlert(this.invalidLogin);
+      // this.appService.setAlert(this.invalidLogin);
       return this.isValid = false;
     }
 
     if (this.loginForm.controls.password.status !== 'VALID') {
-      this.appService.setAlert(this.invalidPassword);
+      // this.appService.setAlert(this.invalidPassword);
       return this.isValid = false;
     } else {
       return this.isValid = true;
