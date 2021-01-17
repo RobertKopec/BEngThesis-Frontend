@@ -47,7 +47,6 @@
         </select>
         <span class="invalid-message" *ngIf="!category.valid && category.touched">{{invalidCategory}}</span>
       </div>
-
     </div>
 
     <div class="form-group select-form-control-fix">
@@ -98,8 +97,9 @@
           name="city"
           ngModel
           required
-          #city="ngModel">
-        <span class="invalid-message" *ngIf="!city.valid && city.touched">{{invalidCity}}</span>
+          #city="ngModel"
+          [(ngModel)]="cityFromUser">
+        <span class="invalid-message" *ngIf="!city.valid">{{invalidCity}}</span>
       </div>
     </div>
 
@@ -107,19 +107,19 @@
 
   <div class="form-group">
 
-    <label for="photo">{{pictureText}}</label>
+    <label for="picture">{{pictureText}}</label>
       <div class="custom-file">
         <div>
           <input
             placeholder=""
             class="input-shop form-control"
-            id="photo"
+            id="picture"
             type="text"
-            name="photo"
+            name="picture"
             ngModel
             required
-            #photo="ngModel">
-          <span class="invalid-message" *ngIf="!photo.valid && photo.touched">{{invalidPhoto}}</span>
+            #picture="ngModel">
+          <span class="invalid-message" *ngIf="!picture.valid && picture.touched">{{invalidPicture}}</span>
         </div>
       </div>
 

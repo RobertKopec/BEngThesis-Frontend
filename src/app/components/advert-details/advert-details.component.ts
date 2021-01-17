@@ -15,7 +15,7 @@ export class AdvertDetailsComponent implements OnInit {
   private priceText = Constrains.priceText + ':';
   private cityText = Constrains.cityText + ':';
   private telNumberText = Constrains.telNumberText + ':';
-  private deliveryOptions = Constrains.deliveryOptions;
+  private deliveryOptions = Constrains.deliveryOptionsText;
 
   advert: object;
 

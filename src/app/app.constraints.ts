@@ -1,13 +1,9 @@
-// create-advert
-// tslint:disable:max-line-length
-
 export class Constrains {
 
-  // create-advert
-  // advert-details
+  // create-advert, advert-details
 
-  public static title = 'Podaj nagówek ogłoszenia';
-  public static descriptionText = 'Uzupełnij opis ogłoszenia';
+  public static advertTitleText = 'Nagówek ogłoszenia';
+  public static descriptionText = 'Opis ogłoszenia';
   public static categoryText = 'Kategoria';
   public static categories = [{
     text: 'Wybierz kategorię',
@@ -44,7 +40,7 @@ export class Constrains {
     value: 'Motorization'
   }];
   public static stateText = 'Stan';
-  public static states = [{
+  public static statesText = [{
     text: 'Wybierz stan',
     value: ''
   }, {
@@ -60,11 +56,11 @@ export class Constrains {
   public static priceText = 'Cena';
   public static cityText = 'Miasto';
   public static pictureText = 'Dodaj zdjęcia';
-  public static deliveryOptions = 'Opcje dostawy:';
+  public static deliveryOptionsText = 'Opcje dostawy:';
   public static personalText = 'Odbiór osobisty';
   public static shipmentText = 'Możliwa wysyłka';
   public static telNumberText = 'Telefon';
-  public static submit = 'Zatwierdź';
+  public static submitText = 'Zatwierdź';
 
 
   // advert
@@ -93,7 +89,7 @@ export class Constrains {
   public static usernameText = 'Imię';
 
   // Navbar
-  public static createAdvertTitle = 'Dodaj nowe ogłoszenie';
+  public static createAdvert = 'Dodaj nowe ogłoszenie';
 
 
   // validation messages
@@ -109,7 +105,7 @@ export class Constrains {
   public static invalidPrice = 'Cena powinna zawierać tylko cyfry.';
   public static invalidCategory = 'Prosze wybrać kategorię przedmiotu.';
   public static invalidState = 'Prosze wybrać stan przedmiotu.';
-  public static invalidPhoto = 'Prosze dodać zdjęcie.';
+  public static invalidPicture = 'Prosze dodać zdjęcie.';
 
   // validator patterns
   public static onlyLetters = '^[a-zA-Z]+$';

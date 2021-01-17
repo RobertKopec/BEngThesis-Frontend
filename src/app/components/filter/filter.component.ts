@@ -9,9 +9,9 @@ import {Constrains} from '../../app.constraints';
 export class FilterComponent implements OnInit {
 
   private stateText = Constrains.stateText;
-  private states = Constrains.states;
+  private states = Constrains.statesText;
   private priceText = Constrains.priceText;
-  private deliveryOptions = Constrains.deliveryOptions;
+  private deliveryOptions = Constrains.deliveryOptionsText;
   private personalText = Constrains.personalText;
   private shipmentText = Constrains.shipmentText;
   private localization = Constrains.localization;

@@ -8,7 +8,7 @@ import {MessageModel} from './models/messageModel';
 @Injectable()
 export class AppService {
   public filteredAdverts: AdvertModel[];
-  public loggedUser: string;
+  public loggedUserName: string;
 
   public user: UserModel;
   public userChanged = new Subject<UserModel>();
@@ -61,9 +61,7 @@ export class AppService {
         this.message = {text: 'Zarejestrowano!', type: 'SUCCESS'};
       },
       err => {
-        if (err.status === 400) {
-          this.message = {text: 'Proszę podać login i hasło!', type: 'ERROR'};
-        } else if (err.status === 409) {
+        if (err.status === 409) {
           this.message = {text: 'Taki użytkownik już istnieje!', type: 'ERROR'};
         } else {
           this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
@@ -81,7 +79,7 @@ export class AppService {
       data => {
         this.user = data as UserModel;
         this.userChanged.next(this.user);
-        this.loggedUser = this.user.userName;
+        this.loggedUserName = this.user.userName;
       },
       err => {
         if (err.status === 403) {

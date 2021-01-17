@@ -11,7 +11,7 @@ import {Constrains} from '../../app.constraints';
 export class NavbarComponent {
 
   private loginTitle = Constrains.loginTitle;
-  private createAdvertTitle = Constrains.createAdvertTitle;
+  private createAdvertTitle = Constrains.createAdvert;
   private categories = Constrains.categories;
 
   isCollapsed = true;
@@ -34,11 +34,11 @@ export class NavbarComponent {
   }
 
   getLogin(): string {
-    return this.appService.loggedUser;
+    return this.appService.loggedUserName;
   }
 
   signOut() {
-    delete(this.appService.loggedUser);
+    delete (this.appService.loggedUserName);
   }
 
   assignCategory(category: string) {
