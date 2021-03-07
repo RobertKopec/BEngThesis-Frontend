@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AppService} from '../../app.service';
 import {Constrains} from '../../app.constraints';
 
@@ -7,16 +7,12 @@ import {Constrains} from '../../app.constraints';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent {
 
-  private categories = Constrains.categories;
+  public categories = Constrains.categories;
 
   constructor(private appService: AppService) {
   }
-
-  ngOnInit() {
-  }
-
 
   filter(buttonText: string) {
     this.appService.filteredAdverts = [];

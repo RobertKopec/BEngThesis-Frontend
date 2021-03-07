@@ -4,11 +4,14 @@ import {Subject} from 'rxjs';
 import {AdvertModel} from './models/advert.model';
 import {UserModel} from './models/user.model';
 import {MessageModel} from './models/messageModel';
+import {FilterModel} from './models/filter.model';
 
 @Injectable()
 export class AppService {
-  public filteredAdverts: AdvertModel[];
+
   public loggedUserName: string;
+
+  public filter: FilterModel = new FilterModel('', '', [], [], false, false, '', []);
 
   public user: UserModel;
   public userChanged = new Subject<UserModel>();
@@ -19,6 +22,9 @@ export class AppService {
   public adverts: AdvertModel[];
   public advertsChanged = new Subject<AdvertModel[]>();
 
+  public filteredAdverts: AdvertModel[];
+  public filteredAdvertsChanged = new Subject<AdvertModel[]>();
+
   constructor(private http: HttpClient) {
   }
 
@@ -27,12 +33,13 @@ export class AppService {
       data => {
         if (data.status === 200) {
           this.adverts = data.body as AdvertModel[];
-          this.filteredAdverts = this.adverts;
           console.log(this.adverts);
         } else {
           this.adverts = [] as AdvertModel[];
         }
+        this.filteredAdverts = this.adverts;
         this.advertsChanged.next(this.adverts);
+        this.filteredAdvertsChanged.next(this.filteredAdverts);
       },
       () => {
         this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
@@ -59,6 +66,7 @@ export class AppService {
     this.http.post('http://localhost:8080/api/user/add', user).subscribe(
       () => {
         this.message = {text: 'Zarejestrowano!', type: 'SUCCESS'};
+        this.signIn(user.login, user.password);
       },
       err => {
         if (err.status === 409) {
@@ -92,18 +100,100 @@ export class AppService {
     );
   }
 
-  // removeAdvert
+  filterReset() {
+    this.filter = new FilterModel('', '', [], [], false, false, '', []);
+    this.filteredAdverts = this.adverts;
+    this.filteredAdvertsChanged.next(this.filteredAdverts);
+  }
 
-  // filtrowanie
-  // usówanie ogłoszen
+  filterAdverts() {
+    this.filteredAdverts = [];
+    const regexSearch = new RegExp(this.filter.search, 'i');
+    const regexCategory = new RegExp(this.filter.category, 'i');
+    const regexCity = new RegExp(this.filter.city, 'i');
+
+    for (const tag of this.filter.tags) {
+      if (tag === undefined || tag === '') {
+        this.filter.tags.splice(this.filter.tags.indexOf(tag), 1);
+      }
+    }
+
+    for (const advert of this.adverts) {
+      if (regexSearch.test(advert.title) && regexCategory.test(advert.category) && regexCity.test(advert.city) &&
+        this.filterByState(advert.state) && this.filterByDelivery(advert.shipment, advert.personal) &&
+        this.filterByPrice(advert.price) && this.filterByTags(advert.tags)
+      ) {
+        this.filteredAdverts.push(advert);
+      }
+    }
+    this.filteredAdvertsChanged.next(this.filteredAdverts);
+  }
+
+  private filterByState(advertState: string): boolean {
+    if (this.filter.states !== undefined && this.filter.states.length > 0) {
+      let isAdvertValid = false;
+      for (const state of this.filter.states) {
+        if (state === advertState)
+          isAdvertValid = true;
+      }
+      return isAdvertValid;
+    } else {
+      return true;
+    }
+  }
+
+  private filterByPrice(advertPrice: number): boolean {
+    if (this.filter.price !== undefined && this.filter.price.length > 0) {
+      if (this.filter.price[0] === this.filter.price[1]) {
+        return this.filter.price[0] != null && this.filter.price[1] != null ? this.filter.price[0] === advertPrice : true;
+      } else {
+        if (this.filter.price[0] == null)
+          return advertPrice <= this.filter.price[1];
+        else if (this.filter.price[1] == null)
+          return advertPrice >= this.filter.price[0];
+        else {
+          const min = Math.min(this.filter.price[0], this.filter.price[1]);
+          const max = Math.max(this.filter.price[0], this.filter.price[1]);
+          return min <= advertPrice && advertPrice <= max;
+        }
+      }
+    } else {
+      return true;
+    }
+  }
+
+  private filterByDelivery(advertShipment, advertPersonal): boolean {
+    if (this.filter.shipment === this.filter.personal) {
+      return true;
+    } else {
+      return (this.filter.shipment === advertShipment && this.filter.shipment === true) ||
+        (this.filter.personal === advertPersonal && this.filter.personal === true);
+    }
+  }
+
+  private filterByTags(advertTags: string): boolean {
+    if (this.filter.tags !== undefined && this.filter.tags.length > 0) {
+      let isAdvertValid = false;
+      for (const tag of this.filter.tags) {
+        if (advertTags.includes(tag))
+          isAdvertValid = true;
+      }
+      return isAdvertValid;
+    } else {
+      return true;
+    }
+  }
+
   // dodanie do ulubionych
   // usuniecie do ulubionych
-  // admin usówanie userow
+
+  // widoki kafelek i list
+  // removeAdvert
+  // user usówanie ogłoszen, edycja usera, edycja ogłoszenia
+  // admin usówanie i edycja userow i ogłoszeń
 
   // setAlert(alertMessage: string) {
   //   this.alertMessage += alertMessage;
   //   this.alertMessageChanged.next(this.alertMessage);
   // }
-
-  // this.filteredAdverts = data as AdvertModel[];
 }

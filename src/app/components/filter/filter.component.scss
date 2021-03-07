@@ -1,11 +1,19 @@
 @import "../../../variables";
 
-.filter-form{
+.filter-form {
   width: $filter-filter-form-width;
 }
 
-hr{
+hr {
   width: $filter-hr-width;
   border-color: $filter-hr-border-color;
   margin: $filter-hr-margin;
+}
+
+.filter-tag {
+  margin: $filter-tag-margin;
+}
+
+.filter-button {
+  margin: $filter-button-margin;
 }

@@ -70,19 +70,19 @@
   <div class="d-inline-flex justify-content-between">
 
     <div class="form-group">
-      <label for="price">{{priceText}}</label>
+      <label for="telNumber">{{telNumberText}}</label>
       <div>
         <input
-          placeholder="zł"
           class="input-shop form-control"
-          id="price"
-          type="number"
-          name="price"
+          id="telNumber"
+          type="tel"
+          name="telNumber"
           ngModel
           required
-          pattern="{{onlyDigits}}"
-          #price="ngModel">
-        <span class="invalid-message" *ngIf="!price.valid && price.touched">{{invalidPrice}}</span>
+          pattern="{{phoneNumber}}"
+          #telNumber="ngModel"
+          [(ngModel)]="telNumberFromUser">
+        <span class="invalid-message" *ngIf="!telNumber.valid">{{invalidTelNumber}}</span>
       </div>
     </div>
 
@@ -108,25 +108,24 @@
   <div class="form-group">
 
     <label for="picture">{{pictureText}}</label>
-      <div class="custom-file">
-        <div>
-          <input
-            placeholder=""
-            class="input-shop form-control"
-            id="picture"
-            type="text"
-            name="picture"
-            ngModel
-            required
-            #picture="ngModel">
-          <span class="invalid-message" *ngIf="!picture.valid && picture.touched">{{invalidPicture}}</span>
-        </div>
+    <div class="custom-file">
+      <div>
+        <input
+          placeholder=""
+          class="input-shop form-control"
+          id="picture"
+          type="text"
+          name="picture"
+          ngModel
+          required
+          #picture="ngModel">
+        <span class="invalid-message" *ngIf="!picture.valid && picture.touched">{{invalidPicture}}</span>
       </div>
+    </div>
 
   </div>
 
-  <div class="d-inline-flex">
-
+  <div class="d-inline-flex justify-content-between form-group">
     <label>{{deliveryOptions}}</label>
 
     <div class="form-check form-check-inline">
@@ -148,37 +147,67 @@
         ngModel>
       <label class="form-check-label" for="shipment">{{shipmentText}}</label>
     </div>
+  </div>
 
+  <div class="form-group d-flex flex-column">
+    <label>{{tagText}}</label>
+
+    <div class="d-inline-flex justify-content-between flex-wrap">
+      <div class="input-group create-advert-tag" *ngFor="let tag of advertTagsCounts; let i = index">
+        <div class="input-group-prepend">
+          <span class="input-group-text">#</span>
+        </div>
+        <input
+          class="input-shop form-control"
+          type="text"
+          name="tag{{i}}"
+          [(ngModel)]="advertTags[i]">
+      </div>
+    </div>
+
+    <!--    TODO: add validation to exclude ','-->
   </div>
 
   <div class="d-inline-flex justify-content-between">
 
-    <div class="form-group">
-      <label for="telNumber">{{telNumberText}}</label>
-      <div>
+    <button
+      class="button-shop create-advert-shop-button"
+      id="addTag"
+      type="button"
+      (click)="addNewTag()">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      {{addTagText}}
+    </button>
+
+    <div class="d-flex form-group flex-column">
+      <label for="price">{{priceText}}</label>
+      <div class="input-group">
         <input
+          placeholder="zł"
           class="input-shop form-control"
-          id="telNumber"
-          type="tel"
-          name="telNumber"
+          id="price"
+          type="number"
+          name="price"
           ngModel
           required
-          pattern="{{phoneNumber}}"
-          #telNumber="ngModel">
-        <span class="invalid-message" *ngIf="!telNumber.valid && telNumber.touched">{{invalidTelNumber}}</span>
+          pattern="{{onlyDigits}}"
+          #price="ngModel">
+        <div class="input-group-append">
+          <span class="input-group-text">zł</span>
+        </div>
       </div>
+      <span class="invalid-message" *ngIf="!price.valid && price.touched">{{invalidPrice}}</span>
     </div>
 
-    <div class="form-group">
-      <button
-        class="btn btn-outline-success button-create-advert"
-        id="button"
-        type="submit"
-        [disabled]="!f.valid">
-        <fa-icon [icon]="['fas', 'check']"></fa-icon>
-        {{submit}}
-      </button>
-    </div>
+
+    <button
+      class="btn btn-outline-success create-advert-button"
+      id="button"
+      type="submit"
+      [disabled]="!f.valid">
+      <fa-icon [icon]="['fas', 'check']"></fa-icon>
+      {{submit}}
+    </button>
 
   </div>
 

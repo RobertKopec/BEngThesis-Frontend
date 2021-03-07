@@ -1,27 +1,47 @@
 @import "../../../variables";
 
-.adverts-container{
+.adverts-container {
   width: $adverts-adverts-container-width;
 }
 
-.advert-card{
+.advert-cd {
   width: $adverts-adverts-card-width;
   margin: $adverts-adverts-card-margin;
-  border-color: $adverts-card-header-border-color;
 }
 
-.card-header{
-  border-color: $adverts-card-header-border-color;
+.card-header {
+  border-top: $adverts-card-header-border;
+  flex-grow: 1
 }
 
-li{
-  border-color: $adverts-li-border-color;
+.modal-header {
+  background-color: $adverts-modal-header-background;
+  color: $adverts-modal-header-color;
+}
+
+.modal-body {
+  padding: $adverts-modal-body-padding;
+}
+
+.button-close-modal {
+  color: $adverts-modal-close-color;
 }
 
 p {
   margin: $adverts-p-margin;
+  padding: $adverts-p-padding;
 }
 
 img {
-  height: 30vh;
+  height: $adverts-img-height;
+}
+
+button {
+  margin: unset;
+}
+
+.no-adverts {
+  width: $no-adverts-width;
+  padding: $no-adverts-padding;
+  font-weight: $no-adverts-font-weight;
 }

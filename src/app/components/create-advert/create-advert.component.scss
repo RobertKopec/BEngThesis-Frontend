@@ -10,10 +10,26 @@ label{
   margin: $create-advert-label-margin;
 }
 
-.custom-file-label{
+.custom-file-label {
   margin: 0;
 }
 
 .select-form-control-fix {
   width: $create-advert-form-control-width;
+}
+
+.create-advert-tag {
+  width: $create-advert-tag-width;
+  margin: $create-advert-tag-margin;
+}
+
+.create-advert-button {
+  margin: $create-advert-button-margin;
+}
+
+.create-advert-shop-button {
+  @extend .create-advert-button;
+
+  padding: $create-advert-shop-button-padding;
+  border: $create-advert-shop-button-border;
 }

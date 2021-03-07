@@ -3,31 +3,15 @@
   <div class="form-check">
     <p>{{stateText}}</p>
 
-    <div class="form-grup">
+    <div class="form-grup" *ngFor="let state of states; let i = index">
       <input
         class="form-check-input input-checkbox"
         type="checkbox"
-        value="new"
-        id="stateNew">
-      <label class="form-check-label" for="stateNew">{{states[1].text}}</label>
-    </div>
-
-    <div class="form-grup">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value="used"
-        id="stateUsed">
-      <label class="form-check-label" for="stateUsed">{{states[2].text}}</label>
-    </div>
-
-    <div class="form-grup">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value="broken"
-        id="stateBroken">
-      <label class="form-check-label" for="stateBroken">{{states[3].text}}</label>
+        id="state-{{i}}"
+        name="state-{{i}}"
+        ngModel
+        (ngModelChange)="setStateFilterValue($event, state.value)">
+      <label class="form-check-label" for="state-{{i}}">{{state.text}}</label>
     </div>
   </div>
 
@@ -38,14 +22,18 @@
       <input
         type="number"
         class="input-shop form-control input-narrow"
-        placeholder="Od">
+        placeholder="Od..."
+        name="priceMin"
+        [(ngModel)]="appService.filter.price[0]">
 
       <hr>
 
       <input
         type="number"
         class="input-shop form-control input-narrow"
-        placeholder="Do">
+        placeholder="Do..."
+        name="priceMax"
+        [(ngModel)]="appService.filter.price[1]">
     </div>
 
   </div>
@@ -58,16 +46,20 @@
         class="form-check-input"
         type="checkbox"
         value="deliveryYes"
-        id="shipment">
+        id="shipment"
+        name="shipment"
+        [(ngModel)]="appService.filter.shipment">
       <label class="form-check-label" for="shipment">{{shipmentText}}</label>
     </div>
 
-    <div class="form-group">
+    <div class="">
       <input
         class="form-check-input"
         type="checkbox"
         value="deliveryNo"
-        id="personal">
+        id="personal"
+        name="personal"
+        [(ngModel)]="appService.filter.personal">
       <label class="form-check-label" for="personal">{{personalText}}</label>
     </div>
   </div>
@@ -76,19 +68,49 @@
     <p>{{localization}}</p>
 
     <input
-      type="input"
+      type="text"
       class="input-shop form-control input-wide"
-      placeholder="Wpisz miasto . . .">
+      placeholder="Wpisz miasto . . ."
+      name="city"
+      [(ngModel)]="appService.filter.city">
   </div>
 
   <div class="flex-column">
-    <label for="cityRange">{{rangeText}}</label>
-    <input
-      type="range"
-      class="form-control-range input-wide"
-      placeholder="Wpisz miasto . . ."
-      value="range"
-      id="cityRange">
+    <div class="form-group">
+      <label>{{tagText}}</label>
+
+      <div class="input-group filter-tag" *ngFor="let tag of filterTagsCounts; let i = index">
+        <div class="input-group-prepend">
+          <span class="input-group-text">#</span>
+        </div>
+        <input
+          class="input-shop form-control"
+          type="text"
+          name="tag{{i}}"
+          [(ngModel)]="appService.filter.tags[i]">
+      </div>
+    </div>
+
+    <button
+      class="button-shop filter-button"
+      id="addTag"
+      type="button"
+      (click)="addNewTag()">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      {{addTagText}}
+    </button>
+
   </div>
+
+  <!--        TODO: Implement Map-->
+  <!--  <div class="flex-column">-->
+  <!--    <label for="cityRange">{{rangeText}}</label>-->
+  <!--    <input-->
+  <!--      type="range"-->
+  <!--      class="form-control-range input-wide"-->
+  <!--      placeholder="Wpisz miasto . . ."-->
+  <!--      value="range"-->
+  <!--      id="cityRange">-->
+  <!--  </div>-->
 
 </form>

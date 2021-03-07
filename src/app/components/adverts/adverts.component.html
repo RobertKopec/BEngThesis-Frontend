@@ -1,14 +1,13 @@
-<div class="advrets-container d-flex flex-wrap ">
-  <div class="card" *ngFor="let advert of getFilteredAdverts(), index as idx">
-    <img class="card-img-top" src="{{advert.picture}}." alt="Card image cap">
-    <div class="card-header d-inline-flex justify-content-between">
+<div class="adverts-container d-flex flex-wrap ">
+
+  <div class="d-flex justify-content-around no-adverts" *ngIf="allAdverts.length === 0">
+    <p>{{noAdverts}}</p>
+  </div>
+
+  <div class="card advert-cd" *ngFor="let advert of allAdverts, index as idx">
+    <img class="card-img-top" src="{{advert.picture}}" alt="Card image cap">
+    <div class="card-header">
       <h5 class="card-title">{{advert.title}}</h5>
-      <button
-        class="button-shop"
-        (click)="open(advertDetails)"
-        type="button">
-        {{details}}
-      </button>
     </div>
     <ng-template #advertDetails let-modal>
       <div class="modal-header">
@@ -23,17 +22,24 @@
       <div class="modal-body">
         <app-advert-details
           [index]="idx"
+          [advert]="advert"
         ></app-advert-details>
       </div>
     </ng-template>
+
     <ul class="list-group list-group-flush">
       <li class="list-group-item d-inline-flex justify-content-between">
-        <p>{{advert.category}}</p>
-        <p>{{advert.state}}</p>
+        <p style="align-self: center">{{advert.price}} zł</p>
+        <button
+          class="button-shop"
+          (click)="open(advertDetails)"
+          type="button">
+          {{details}}
+        </button>
       </li>
       <li class="list-group-item d-inline-flex justify-content-between">
         <p>{{advert.city}}</p>
-        <p>{{advert.price}}zł</p>
+        <p>{{advert.state}}</p>
       </li>
     </ul>
   </div>

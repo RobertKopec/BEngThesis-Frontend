@@ -1,0 +1,39 @@
+@import "../../../variables";
+
+li {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+p {
+  margin: unset;
+}
+
+p:first-child {
+  font-weight: bold;
+}
+
+.advert-details-image {
+  border-bottom: $advert-details-image-border-bottom;
+  border-top: $advert-details-image-border-top;
+}
+
+.advert-details-content-container {
+  padding: $advert-details-content-container-padding;
+}
+
+.advert-details-description {
+  text-align: $advert-details-description-text-align;
+  padding: $advert-details-description-padding;
+}
+
+.advert-details-details-container {
+  display: inline-flex;
+  justify-content: space-between;
+  width: $advert-details-details-container-width;
+}
+
+.modal-footer {
+  background-color: $advert-details-modal-footer-background;
+  width: 100%;
+}

@@ -1,15 +1,51 @@
-<div class="d-flex justify-content-center"><img src="{{advert[index].picture}}" alt="Advert image"></div>
-<ul class="list-group col-12 my-2">
-  <li class="list-group-item"><b>{{stateText}}</b>{{advert[index].state}}</li>
-  <li class="list-group-item"><b>{{categoryText}}</b>{{advert[index].category}}</li>
-  <li class="list-group-item"><b>{{cityText}} </b>{{advert[index].address}}</li>
-  <li class="list-group-item"><b>{{deliveryOptions}}</b> {{advert[index].personal}}, {{advert[index].shipment}}</li>
-</ul>
-<div class="container-fluid my-2">
-  <h4>{{descriptionText}}</h4>
-  <p class="lead">{{advert[index].description}}</p>
+<div class="d-flex advert-details-image">
+  <img class="card-img" src="{{advert.picture}}" alt="Advert image">
 </div>
-<div class="modal-footer d-flex justify-content-between">
-  <p class=""><b>{{telNumberText}}</b>{{advert[index].number}}</p>
-  <p class=""><b>{{priceText}}</b>{{advert[index].price}} zł</p>
+
+<div class="advert-details-content-container">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <div class="advert-details-details-container">
+        <p>{{categoryText}}</p>
+        <p>{{advert.category}}</p>
+      </div>
+      <div class="advert-details-details-container">
+        <p>{{priceText}}</p>
+        <p>{{advert.price}} zł</p>
+      </div>
+    </li>
+    <li class="list-group-item ">
+      <div class="advert-details-details-container">
+        <p>{{cityText}}</p>
+        <p>{{advert.city}}</p>
+      </div>
+      <div class="advert-details-details-container">
+        <p>{{stateText}}</p>
+        <p>{{advert.state}}</p>
+      </div>
+    </li>
+    <li class="list-group-item">
+      <div class="advert-details-details-container">
+        <p>{{deliveryOptions}}</p>
+        <p *ngIf="advert.shipment">Dostawa</p>
+        <p *ngIf="advert.personal">Odbiór</p>
+      </div>
+      <div class="advert-details-details-container">
+        <p>{{telNumberText}}</p>
+        <p>{{advert.telNumber}}</p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="advert-details-description">
+    <h4>{{descriptionText}}</h4>
+    <p class="lead">{{advert.description}}</p>
+  </div>
+</div>
+
+
+<div class="modal-footer d-inline-flex justify-content-around">
+  <div *ngFor="let tag of advertTags">
+    <p *ngIf="tag !== ''">#{{tag}}</p>
+  </div>
 </div>

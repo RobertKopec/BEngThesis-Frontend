@@ -50,11 +50,11 @@ import {
   faUsers,
   faVolleyballBall
 } from '@fortawesome/free-solid-svg-icons';
-import {faAddressCard, faImages, faStar} from '@fortawesome/free-regular-svg-icons';
+import {faAddressCard, faImages, faStar, faTimesCircle} from '@fortawesome/free-regular-svg-icons';
 import {AlertComponent} from './components/alert/alert.component';
 
 // tslint:disable-next-line:max-line-length
-library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser, faCheck, faUserPlus, faUserCheck, faUsers, faInfoCircle);
+library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser, faCheck, faUserPlus, faUserCheck, faUsers, faInfoCircle, faTimesCircle);
 
 @NgModule({
   declarations: [

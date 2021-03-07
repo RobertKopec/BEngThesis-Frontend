@@ -2,6 +2,10 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "variables";
 
+body {
+  color: $general-font-color !important;
+}
+
 .input-shop, .textarea-shop, .select-shop {
   border-color: $input-input-shop-border-color;
 
@@ -40,9 +44,6 @@
   padding: $button-button-close-modal-padding;
 }
 
-.button-create-advert {
-  margin: 5.5vh 0;
-}
 
 .btn-outline-warning {
   margin: $button-button-shop-border-margin !important;

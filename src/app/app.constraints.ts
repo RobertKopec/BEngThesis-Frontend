@@ -10,34 +10,34 @@ export class Constrains {
     value: ''
   }, {
     text: 'Elektronika',
-    value: 'Electronic'
+    value: 'Elektronika'
   }, {
     text: 'Sztuka i zbiory',
-    value: 'Art'
+    value: 'Sztuka i zbiory'
   }, {
     text: 'Zwierzęta',
-    value: 'Animal'
+    value: 'Zwierzęta'
   }, {
     text: 'Dom i ogród',
-    value: 'Home'
+    value: 'Dom i ogród'
   }, {
     text: 'Moda',
-    value: 'Fashion'
+    value: 'Moda'
   }, {
     text: 'Dzieci',
-    value: 'Child'
+    value: 'Dzieci'
   }, {
     text: 'Zdrowie i uroda',
-    value: 'Health'
+    value: 'Zdrowie i uroda'
   }, {
     text: 'Kultura i rozrywka',
-    value: 'Culture'
+    value: 'Kultura i rozrywka'
   }, {
     text: 'Sport i hobby',
-    value: 'Sport'
+    value: 'Sport i hobby'
   }, {
     text: 'Motryzacja',
-    value: 'Motorization'
+    value: 'Motryzacja'
   }];
   public static stateText = 'Stan';
   public static statesText = [{
@@ -45,14 +45,16 @@ export class Constrains {
     value: ''
   }, {
     text: 'Nowe',
-    value: 'new'
+    value: 'Nowe'
   }, {
     text: 'Używane',
-    value: 'used'
+    value: 'Używane'
   }, {
     text: 'Uszkodzone',
-    value: 'damaged'
+    value: 'Uszkodzone'
   }];
+
+  public static noAdverts = 'Brak ogłoszeń spełniajacych kryteria!';
   public static priceText = 'Cena';
   public static cityText = 'Miasto';
   public static pictureText = 'Dodaj zdjęcia';
@@ -61,7 +63,8 @@ export class Constrains {
   public static shipmentText = 'Możliwa wysyłka';
   public static telNumberText = 'Telefon';
   public static submitText = 'Zatwierdź';
-
+  public static tagText = 'Tagi:';
+  public static addTagText = 'Dodaj tag';
 
   // advert
   public static details = 'Szczegóły';
@@ -94,7 +97,7 @@ export class Constrains {
 
   // validation messages
   public static invalidLogin = 'Login nie może być pusty i musi zawierać wielka literę oraz minimum 5 znaków.';
-  public static invalidPassword = 'Hasło nie może być puste i musi zawierać cyfrę oraz wielka literę.';
+  public static invalidPassword = 'Hasło nie może być puste i musi zawierać cyfrę oraz wielka literę oraz minimum 7 znaków.';
   public static invalidEmail = 'Podaj prawidłowy adres e-mail.';
   public static invalidUserName = 'Imię powinno zawierać tylko litery.';
   public static invalidCity = 'Miasto nie może być pusty.';

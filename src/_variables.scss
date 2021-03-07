@@ -1,142 +1,199 @@
 @import "constants";
 
+$general-font-color: $gray-dark;
+
 //general (input, select, button)
-$but-inp-sel-hover-box-shadow: 0 0 0.3rem 0.2rem $orange;
-$but-inp-sel-hover-transition: 0.2s ease-in-out;
+$but-inp-sel-hover-box-shadow: 0 0 .3rem .2rem $orange;
+$but-inp-sel-hover-transition: .2s ease-in-out;
 
 //app component
 
-  //section
-  $app-content-section-padding: 0.5vh 0;
-  $app-content-section-bg: $gray-light;
+//section
+$app-content-section-padding: .5vh 0;
+$app-content-section-bg: $gray-light;
 
-  //.content
-  $app-content-content-padding: 0 7%;
-  $app-content-content-bg: $gray-light;
+//.content
+$app-content-content-padding: 0 7%;
+$app-content-content-bg: $gray-light;
 
-  //.img
-  $app-content-img-margin: 11.7vh 0 0.85vh 0;
-  $app-content-img-padding: 3vh 0.75vw;
-  $app-content-img-bg: $white;
-  $app-content-img-border-radius: 0.2rem;
+//.img
+$app-content-img-margin: 11.7vh 0 .85vh 0;
+$app-content-img-padding: 3vh .75vw;
+$app-content-img-bg: $white;
+$app-content-img-border-radius: .2rem;
 
-//advert
+//adverts
 
-  //.adverts-container
-  $adverts-adverts-container-width: 100%;
+//.adverts-container
+$adverts-adverts-container-width: 100%;
 
-  //.adverts-card
-  $adverts-adverts-card-width: 16.65vw;
-$adverts-adverts-card-margin: 0 0.45vw 1.65vh 0;
+//.adverts-card
+$adverts-adverts-card-width: 16.645vw;
+$adverts-adverts-card-margin: .5vh .20vw;
 
-  //.card-header
-  $adverts-card-header-border-color: $yellow;
+//.card-header
+$adverts-card-header-border: 1px solid rgba(0, 0, 0, .125);
 
-  //li
-  $adverts-li-border-color: $yellow;
+//.modal-body
+$adverts-modal-body-padding: 0;
+
+//.modal-header
+$adverts-modal-header-background: $yellow;
+$adverts-modal-header-color: $gray-dark;
+
+//.button-close-modal
+$adverts-modal-close-color: $gray-dark;
+
+//li
+$adverts-li-border-color: $yellow;
+
+//img
+$adverts-img-height: 30vh;
 
 //p
 $adverts-p-margin: 0;
+$adverts-p-padding: .5vh .3vw;
+
+//no-adverts
+$no-adverts-font-weight: bold;
+$no-adverts-padding: 3rem;
+$no-adverts-width: 100%;
+
+//advert details
+
+//advert-details-image
+$advert-details-image-border-bottom: 1px solid rgba(0, 0, 0, .125);
+$advert-details-image-border-top: 5px solid $white;
+
+//advert-details-content-container
+$advert-details-content-container-padding: 1.5em 2em;
+
+//advert-details-description
+$advert-details-description-text-align: justify;
+$advert-details-description-padding: 1.5em .5em 0 .5em;
+
+//advert-details-details-container
+$advert-details-details-container-width: 39%;
+
+//modal-footer
+$advert-details-modal-footer-background: $yellow;
 
 //button
 
-  //.button
-  $button-button-border-radius: 0.2rem;
-  $button-button-bg: transparent;
+//.button
+$button-button-border-radius: .2rem;
+$button-button-bg: transparent;
 
-  //.button-shop &:hover (nav)
-  $button-button-shop-color: $yellow;
-  $button-button-shop-border: transparent;
-  $button-button-shop-border-margin: 0 0.5vw 0 0;
-  $button-button-shop-border-padding: 0.5vh 0.3vw;
-  $button-button-shop-hover-color: $orange;
+//.button-shop &:hover (nav)
+$button-button-shop-color: $yellow;
+$button-button-shop-border: transparent;
+$button-button-shop-border-margin: 0 .5vw 0 0;
+$button-button-shop-border-padding: .5vh .3vw;
+$button-button-shop-hover-color: $orange;
 
-  //.button-category(categories)
-  $button-button-category-height: 100%;
-  $button-button-category-width: 8vw;
-  $button-button-category-padding: 0.5rem;
-  $button-button-category-bg: $white;
-  $button-button-category-border-style: solid none;
-  $button-button-category-border-width: 0.3rem;
-  $button-button-category-color: $gray-dark;
+//.button-category(categories)
+$button-button-category-height: 100%;
+$button-button-category-width: 8vw;
+$button-button-category-padding: .5rem;
+$button-button-category-bg: $white;
+$button-button-category-border-style: solid none;
+$button-button-category-border-width: .3rem;
+$button-button-category-color: $gray-dark;
 
-  //.button-category-(color) (categories)
-  $button-button-category-red: $red;
-  $button-button-category-orange: $orange;
-  $button-button-category-yellow: $yellow;
-  $button-button-category-green-light: $green-light;
-  $button-button-category-green: $green;
-  $button-button-category-blue-light: $blue-light;
-  $button-button-category-blue: $blue;
-  $button-button-category-violet: $violet;
-  $button-button-category-purple: $purple;
-  $button-button-category-magenta: $magenta;
+//.button-category-(color) (categories)
+$button-button-category-red: $red;
+$button-button-category-orange: $orange;
+$button-button-category-yellow: $yellow;
+$button-button-category-green-light: $green-light;
+$button-button-category-green: $green;
+$button-button-category-blue-light: $blue-light;
+$button-button-category-blue: $blue;
+$button-button-category-violet: $violet;
+$button-button-category-purple: $purple;
+$button-button-category-magenta: $magenta;
 
-  //.button-modal-close
-  $button-button-close-modal-border: transparent;
-  $button-button-close-modal-margin: 0 0.5vw 0 0;
-  $button-button-close-modal-padding: 0.5vh 0.3vw;
-  $button-button-close-modal-color: $gray;
+//.button-modal-close
+$button-button-close-modal-border: transparent;
+$button-button-close-modal-margin: 0 .5vw 0 0;
+$button-button-close-modal-padding: .5vh .3vw;
+$button-button-close-modal-color: $gray;
 
 //categories
 
-  //.panel-categories
-  $categories-panel-categories-width: 100%;
+//.panel-categories
+$categories-panel-categories-width: 100%;
 
 //create-advert
 
-  //label
-  $create-advert-label-padding: 1vh 0;
-  $create-advert-label-margin: 0 1vw 0 0;
+//label
+$create-advert-label-padding: 1vh 0;
+$create-advert-label-margin: 0 1vw 0 0;
 
-  //.create-advert-form
-  $create-create-advert-form-padding: 3.5vh 5vw 0 5vw;
+//.create-advert-form
+$create-create-advert-form-padding: 3.5vh 5vw 0 5vw;
 
 //.select-form-control-fix
 $create-advert-form-control-width: 11.795vw;
 
+//.create-advert-button
+$create-advert-button-margin: auto 0 1rem 0;
+
+//.create-advert-shop-button
+$create-advert-shop-button-padding: .375rem .75rem;
+$create-advert-shop-button-border: 1px solid $yellow;
+
+//.create-advert-tag
+$create-advert-tag-width: 40%;
+$create-advert-tag-margin: .2rem 0;
+
 //filter
 
-  //.filter-form
-  $filter-filter-form-width: 100%;
+//.filter-form
+$filter-filter-form-width: 100%;
 
-  //hr
-  $filter-hr-width: 0.5vw;
-  $filter-hr-border-color: $yellow;
-$filter-hr-margin: auto 0.5vw;
+//hr
+$filter-hr-width: .5vw;
+$filter-hr-border-color: $yellow;
+$filter-hr-margin: auto .5vw;
+
+//.filter-button
+$filter-button-margin: .2rem 0;
+
+//.filter-tag
+$filter-tag-margin: .2rem 0;
 
 //footer
 
-  //.footer-signature
-  $footer-footer-signature-padding: 3vh 7vw;
-  $footer-footer-signature-width: 100%;
-  $footer-footer-signature-color: $gray-dark;
+//.footer-signature
+$footer-footer-signature-padding: 3vh 7vw;
+$footer-footer-signature-width: 100%;
+$footer-footer-signature-color: $gray-dark;
 
-  //hr &.left &.right
-  $footer-hr-width: 36vw;
-  $footer-hr-border-color: $yellow;
-  $footer-hr-left-margin-left: 0;
-  $footer-hr-left-margin-right: auto;
-  $footer-hr-right-margin-right: 0;
-  $footer-hr-right-margin-left: auto;
+//hr &.left &.right
+$footer-hr-width: 36vw;
+$footer-hr-border-color: $yellow;
+$footer-hr-left-margin-left: 0;
+$footer-hr-left-margin-right: auto;
+$footer-hr-right-margin-right: 0;
+$footer-hr-right-margin-left: auto;
 
-  //p
-  $footer-p-margin: 0;
+//p
+$footer-p-margin: 0;
 
 //input
 
-  //.input-shop (nav)
-  $input-input-shop-border-color: $yellow;
+//.input-shop (nav)
+$input-input-shop-border-color: $yellow;
 
 //.input-wider (nav)
 $input-input-wider-width: 20vw;
 
 //.input-narrow (filter)
-$input-input-narrow-width: 3vw;
+$input-input-narrow-width: 5.5vw;
 
 //.input-wide
 $input-input-range-width: 15vw;
-$input-input-wider-margin: 0 0.5vw 0 0;
+$input-input-wider-margin: 0 .5vw 0 0;
 
 //input-container
 $login-sign-up-input-container-width: 11.8vw;
@@ -150,36 +207,36 @@ $navbar-nav-bar-bg: $white;
 //.nav-row
 $navbar-nav-row-width: 100%;
 
-  //hr
-  $navbar-hr-width: 100;
-  $navbar-hr-border-color: $yellow;
+//hr
+$navbar-hr-width: 100;
+$navbar-hr-border-color: $yellow;
 
 //photo
 
-  //.photo-ul
-  $photo-photo-ul-margin: 0 0 1.35vh 0;
-  $photo-photo-ul-padding: 0;
-  $photo-photo-ul-bg: $gray-light;
+//.photo-ul
+$photo-photo-ul-margin: 0 0 1.35vh 0;
+$photo-photo-ul-padding: 0;
+$photo-photo-ul-bg: $gray-light;
 
-  //li
-  $photo-li-width: 25%;
+//li
+$photo-li-width: 25%;
 
-  //photo
-  $photo-photo-margin: 0;
-  $photo-photo-bg: $black;
+//photo
+$photo-photo-margin: 0;
+$photo-photo-bg: $black;
 
-  //img
-  $photo-img-opacity: 0.7;
-  $photo-img-width: 100%;
-  $photo-img-transform: scale(1.15);
-  $photo-img-transition-time: 0.5s;
-  $photo-img-hover-transform: scale(1.03);
-  $photo-img-hover-opacity: 1;
+//img
+$photo-img-opacity: .7;
+$photo-img-width: 100%;
+$photo-img-transform: scale(1.15);
+$photo-img-transition-time: .5s;
+$photo-img-hover-transform: scale(1.03);
+$photo-img-hover-opacity: 1;
 
 //select
 
 //.select-nav
-$select-select-nav-margin: 0 0.5vw;
+$select-select-nav-margin: 0 .5vw;
 
 //.select-shop (nav)
 $select-select-shop-border-color: $yellow;

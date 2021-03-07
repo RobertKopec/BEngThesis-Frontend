@@ -1,66 +1,73 @@
 <nav class="navbar fixed-top navbar-expand-md nav-bar flex-column ">
 
-  <!--TO DO: change nav collapse button-->
+  <!--TODO: change nav collapse button-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-tagret="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false" aria-label="Toggler navigation bar content" (click)="toggleNavbar()">
+    <fa-icon [icon]="['fas', 'bars']" size="2x"></fa-icon>
+  </button>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-tagret="#navbarContent" aria-controls="navbarContent"
-            aria-expanded="false" aria-label="Toggler navigation bar content" (click)="toggleNavbar()">
-      <fa-icon [icon]="['fas', 'bars']" size="2x"></fa-icon>
-    </button>
+  <div class="collapse navbar-collapse justify-content-between nav-row" id="navbarContent"
+       [ngClass]="{ 'show': isNavbarOpen }">
 
-    <div class="collapse navbar-collapse justify-content-between nav-row" id="navbarContent" [ngClass]="{ 'show': navbarOpen }">
+    <div class="d-inline-flex">
 
-      <div class="d-inline-flex">
-        <!--        (click)="filterReset()"-->
-        <button
-          class="button-shop"
-          type="button">
-          <fa-icon [icon]="['fas', 'th']" size="2x"></fa-icon>
-        </button>
-
-        <button
-          class="button-shop"
-          type="button">
-          <fa-icon [icon]="['fas', 'th-list']" size="2x"></fa-icon>
-        </button>
-
-        <button
-          class="button-shop"
-          type="button">
-          <fa-icon [icon]="['fas', 'map-marked-alt']" size="2x"></fa-icon>
-        </button>
-
-      </div>
-      <!--      *ngIf="getLogin()"-->
       <button
         class="button-shop"
-        (click)="show(createAdvert)"
-        type="button">
-        <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+        type="button"
+        (click)="appService.filterReset()">
+        <fa-icon [icon]="['fas', 'th']" size="2x"></fa-icon>
       </button>
 
-      <form class="d-inline-flex">
+      <button
+        class="button-shop"
+        type="button">
+        <fa-icon [icon]="['fas', 'th-list']" size="2x"></fa-icon>
+      </button>
 
-        <input
-          placeholder="Wyszukaj przedmiot . . ."
-          type="search"
-          class="input-shop input-wider form-control">
-        <!--        (update)="assignSearch($event)"-->
+      <!--        TODO: Implement Map-->
+      <!--        <button-->
+      <!--          class="button-shop"-->
+      <!--          type="button">-->
+      <!--          <fa-icon [icon]="['fas', 'map-marked-alt']" size="2x"></fa-icon>-->
+      <!--        </button>-->
 
-        <select
-          class="custom-select select-shop select-nav select-narrow">
-          <option *ngFor="let category of categories" [value]="category.value">{{category.text}}</option>
-          <!--          (update)="assignCategory($event)"-->
-        </select>
+    </div>
 
-        <button
-          class="button-shop"
-          type="submit"
-          (click)="filter()">
-          <fa-icon [icon]="['fas', 'search']" size="2x"></fa-icon>
-        </button>
+    <button
+      *ngIf="getLogin()"
+      class="button-shop"
+      (click)="show(createAdvert)"
+      type="button">
+      <fa-icon [icon]="['fas', 'plus']" size="2x"></fa-icon>
+    </button>
+
+    <form class="d-inline-flex">
+
+      <input
+        placeholder="Wyszukaj przedmiot . . ."
+        type="search"
+        class="input-shop input-wider form-control"
+        name="search"
+        [(ngModel)]="appService.filter.search">
+
+      <select
+        class="custom-select select-shop select-nav select-narrow"
+        [(ngModel)]="appService.filter.category"
+        name="category">
+        <option *ngFor="let category of categories" [value]="category.value">{{category.text}}</option>
+      </select>
+
+      <button
+        class="button-shop"
+        type="submit"
+        (click)="appService.filterAdverts()">
+        <fa-icon [icon]="['fas', 'search']" size="2x"></fa-icon>
+      </button>
 
       </form>
 
+    <div class="d-inline-flex">
       <button
         class="button-shop"
         (click)="isCollapsed = !isCollapsed"
@@ -68,27 +75,35 @@
         <fa-icon [icon]="['fas', 'filter']" size="2x"></fa-icon>
       </button>
 
-      <div class="d-inline-flex">
+      <button
+        class="button-shop"
+        (click)="appService.filterReset()"
+        type="button">
+        <fa-icon [icon]="['far', 'times-circle']" size="2x"></fa-icon>
+      </button>
+    </div>
 
-        <button
-          *ngIf="getLogin()"
-          class="button-shop"
-          type="button">
-          <fa-icon [icon]="['far', 'star']" size="2x"></fa-icon>
-        </button>
+    <div class="d-inline-flex">
 
-        <button
-          *ngIf="!getLogin()"
-          class="button-shop"
-          (click)="open(login)"
-          type="button">
-          <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
-        </button>
+      <button
+        *ngIf="getLogin()"
+        class="button-shop"
+        type="button">
+        <fa-icon [icon]="['far', 'star']" size="2x"></fa-icon>
+      </button>
 
-        <button
-          *ngIf="getLogin()"
-          class="btn btn-outline-warning disabled"
-          type="button">
+      <button
+        *ngIf="!getLogin()"
+        class="button-shop"
+        (click)="open(login)"
+        type="button">
+        <fa-icon [icon]="['fas', 'users']" size="2x"></fa-icon>
+      </button>
+
+      <button
+        *ngIf="getLogin()"
+        class="btn btn-outline-warning disabled d-inline-flex"
+        type="button">
           <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
           <span class="loggedUser">{{appService.loggedUserName}}</span>
         </button>

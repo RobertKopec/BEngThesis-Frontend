@@ -4,7 +4,7 @@ export class AdvertModel {
   constructor(
     public title: string,
     public description: string,
-    public price: string,
+    public price: number,
     public createDate: Date,
     public category: string,
     public telNumber: string,
@@ -13,6 +13,7 @@ export class AdvertModel {
     public picture: string,
     public personal: boolean,
     public shipment: boolean,
+    public tags: string,
     public user: UserModel,
   ) {
   }

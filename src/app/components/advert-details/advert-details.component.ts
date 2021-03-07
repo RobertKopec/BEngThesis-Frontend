@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AppService} from '../../app.service';
 import {Constrains} from '../../app.constraints';
+import {AdvertModel} from '../../models/advert.model';
 
 @Component({
   selector: 'app-advert-details',
@@ -9,27 +9,20 @@ import {Constrains} from '../../app.constraints';
 })
 export class AdvertDetailsComponent implements OnInit {
 
-  private descriptionText = Constrains.descriptionText;
-  private categoryText = Constrains.categoryText + ':';
-  private stateText = Constrains.stateText + ':';
-  private priceText = Constrains.priceText + ':';
-  private cityText = Constrains.cityText + ':';
-  private telNumberText = Constrains.telNumberText + ':';
-  private deliveryOptions = Constrains.deliveryOptionsText;
-
-  advert: object;
+  public descriptionText = Constrains.descriptionText;
+  public categoryText = Constrains.categoryText + ':';
+  public stateText = Constrains.stateText + ':';
+  public priceText = Constrains.priceText + ':';
+  public cityText = Constrains.cityText + ':';
+  public telNumberText = Constrains.telNumberText + ':';
+  public deliveryOptions = Constrains.deliveryOptionsText;
 
   @Input() index: number;
+  @Input() advert: AdvertModel;
 
-  constructor(private appService: AppService) {
-    this.advert = this.appService.filteredAdverts;
-    console.log(this.index);
-    console.log(this.advert);
-  }
+  public advertTags: string[];
 
   ngOnInit() {
-  }
-
-  delivery() {
+    this.advertTags = this.advert.tags.split(',');
   }
 }
