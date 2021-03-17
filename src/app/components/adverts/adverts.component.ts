@@ -13,11 +13,12 @@ import {Subscription} from 'rxjs';
 export class AdvertsComponent implements OnInit {
   public details = Constrains.details;
   public noAdverts = Constrains.noAdverts;
+
   public allAdverts: AdvertModel[] = [];
 
   private advertsChanged: Subscription;
 
-  constructor(private appService: AppService, private modalService: NgbModal) {
+  constructor(public appService: AppService, private modalService: NgbModal) {
   }
 
   ngOnInit() {

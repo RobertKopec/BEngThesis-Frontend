@@ -1,0 +1,34 @@
+.favourite-cd {
+  width: 100%;
+  height: 7.25rem;
+  flex-direction: row;
+  margin: .5rem 0;
+}
+
+.favourite-data {
+  width: 100%;
+  height: 7.20rem;
+  border-left: solid 1px #d8d8d8;
+}
+
+.img-left {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.card-header, .list-group-item {
+  padding: .7rem 1rem;
+  align-content: center;
+  align-items: center;
+
+  .card-title, p {
+    margin: 0;
+    align-self: center;
+  }
+}
+
+.favourites-container {
+  height: 95%;
+  overflow: auto;
+}
+

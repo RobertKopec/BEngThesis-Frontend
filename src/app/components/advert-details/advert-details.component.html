@@ -38,7 +38,23 @@
   </ul>
 
   <div class="advert-details-description">
-    <h4>{{descriptionText}}</h4>
+    <div class="d-inline-flex">
+      <button
+        *ngIf="appService.loggedUserName && !favourite"
+        class="button-shop"
+        (click)="appService.addToFavourites(advert.tradeAdvertId)"
+        type="button">
+        <fa-icon [icon]="['fas', 'star']"></fa-icon>
+      </button>
+      <button
+        *ngIf="appService.loggedUserName && favourite"
+        class="button-shop"
+        (click)="appService.removeFavourites(advert.tradeAdvertId)"
+        type="button">
+        <fa-icon [icon]="['fas', 'star']"></fa-icon>
+      </button>
+      <h4>{{descriptionText}}</h4>
+    </div>
     <p class="lead">{{advert.description}}</p>
   </div>
 </div>

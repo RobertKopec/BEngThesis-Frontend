@@ -1,0 +1,63 @@
+<div class="favourites-container d-flex flex-wrap ">
+
+  <div class="d-flex justify-content-around no-adverts" *ngIf="favouriteAdverts.length < 1">
+    <p>{{noFavourites}}</p>
+  </div>
+
+  <div class="card favourite-cd d-inline-flex" *ngFor="let favourite of favouriteAdverts, index as idx">
+    <img class="" src="{{favourite.tradeAdvert.picture}}" alt="Card image cap">
+    <div class="flex-column d-flex favourite-data">
+      <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title">{{favourite.tradeAdvert.title}}</h5>
+        <button
+          *ngIf="appService.loggedUserName && !appService.isFavourite(favourite.tradeAdvert.tradeAdvertId)"
+          class="button-shop"
+          (click)="appService.addToFavourites(favourite.tradeAdvert.tradeAdvertId)"
+          type="button">
+          <fa-icon [icon]="['fas', 'star']"></fa-icon>
+        </button>
+        <button
+          *ngIf="appService.loggedUserName && appService.isFavourite(favourite.tradeAdvert.tradeAdvertId)"
+          class="button-shop"
+          (click)="appService.removeFavourites(favourite.tradeAdvert.tradeAdvertId)"
+          type="button">
+          <fa-icon [icon]="['fas', 'star']"></fa-icon>
+        </button>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-inline-flex justify-content-between">
+          <p style="align-self: center">{{favourite.tradeAdvert.price}} zł</p>
+          <p>{{favourite.tradeAdvert.city}}</p>
+          <p>{{favourite.tradeAdvert.state}}</p>
+          <button
+            class="button-shop"
+            (click)="open(advertDetails)"
+            type="button">
+            {{details}}
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #advertDetails let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">{{favourite.tradeAdvert.title}}</h4>
+        <button
+          class="button-close-modal"
+          (click)="modal.dismiss('Cross click')"
+          type="button">
+          <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-advert-details
+          [index]="idx"
+          [advert]="favourite.tradeAdvert"
+        ></app-advert-details>
+      </div>
+    </ng-template>
+
+  </div>
+</div>
+
+

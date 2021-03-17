@@ -2,6 +2,7 @@ import {UserModel} from './user.model';
 
 export class AdvertModel {
   constructor(
+    public tradeAdvertId: number,
     public title: string,
     public description: string,
     public price: number,

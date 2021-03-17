@@ -70,6 +70,7 @@ export class CreateAdvertComponent implements OnInit {
 
   createAdvertModelInstance(): void {
     this.advert = new AdvertModel(
+      0,
       this.createAdvertForm.value.title,
       this.createAdvertForm.value.description,
       this.createAdvertForm.value.price,

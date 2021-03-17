@@ -7,7 +7,23 @@
   <div class="card advert-cd" *ngFor="let advert of allAdverts, index as idx">
     <img class="card-img-top" src="{{advert.picture}}" alt="Card image cap">
     <div class="card-header">
-      <h5 class="card-title">{{advert.title}}</h5>
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title">{{advert.title}}</h5>
+        <button
+          *ngIf="appService.loggedUserName && !appService.isFavourite(advert.tradeAdvertId)"
+          class="button-shop"
+          (click)="appService.addToFavourites(advert.tradeAdvertId)"
+          type="button">
+          <fa-icon [icon]="['fas', 'star']"></fa-icon>
+        </button>
+        <button
+          *ngIf="appService.loggedUserName && appService.isFavourite(advert.tradeAdvertId)"
+          class="button-shop"
+          (click)="appService.removeFavourites(advert.tradeAdvertId)"
+          type="button">
+          <fa-icon [icon]="['fas', 'star']"></fa-icon>
+        </button>
+      </div>
     </div>
     <ng-template #advertDetails let-modal>
       <div class="modal-header">

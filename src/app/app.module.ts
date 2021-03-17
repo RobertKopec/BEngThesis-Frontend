@@ -40,6 +40,7 @@ import {
   faSignInAlt,
   faSignOutAlt,
   faSpa,
+  faStar,
   faTh,
   faThList,
   faTimes,
@@ -48,10 +49,12 @@ import {
   faUserCheck,
   faUserPlus,
   faUsers,
-  faVolleyballBall
+  faVolleyballBall,
 } from '@fortawesome/free-solid-svg-icons';
-import {faAddressCard, faImages, faStar, faTimesCircle} from '@fortawesome/free-regular-svg-icons';
+// @ts-ignore
+import {faAddressCard, faImages, faTimesCircle} from '@fortawesome/free-regular-svg-icons';
 import {AlertComponent} from './components/alert/alert.component';
+import {FavouriteComponent} from './components/favourite/favourite.component';
 
 // tslint:disable-next-line:max-line-length
 library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser, faCheck, faUserPlus, faUserCheck, faUsers, faInfoCircle, faTimesCircle);
@@ -69,7 +72,8 @@ library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAl
     AdvertsComponent,
     AdvertDetailsComponent,
     SignUpComponent,
-    AlertComponent
+    AlertComponent,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,

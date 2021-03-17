@@ -35,7 +35,7 @@
     </div>
 
     <button
-      *ngIf="getLogin()"
+      *ngIf="getLoggedUser()"
       class="button-shop"
       (click)="show(createAdvert)"
       type="button">
@@ -86,14 +86,15 @@
     <div class="d-inline-flex">
 
       <button
-        *ngIf="getLogin()"
+        *ngIf="getLoggedUser()"
         class="button-shop"
-        type="button">
-        <fa-icon [icon]="['far', 'star']" size="2x"></fa-icon>
+        type="button"
+        (click)="show(favourite)">
+        <fa-icon [icon]="['fas', 'star']" size="2x"></fa-icon>
       </button>
 
       <button
-        *ngIf="!getLogin()"
+        *ngIf="!getLoggedUser()"
         class="button-shop"
         (click)="open(login)"
         type="button">
@@ -101,7 +102,7 @@
       </button>
 
       <button
-        *ngIf="getLogin()"
+        *ngIf="getLoggedUser()"
         class="btn btn-outline-warning disabled d-inline-flex"
         type="button">
           <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
@@ -109,7 +110,7 @@
         </button>
 
         <button
-          *ngIf="getLogin()"
+          *ngIf="getLoggedUser()"
           class="button-shop"
           (click)="signOut()"
           type="button">
@@ -154,5 +155,20 @@
   </div>
   <div class="modal-body">
     <app-create-advert></app-create-advert>
+  </div>
+</ng-template>
+
+<ng-template #favourite let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{favouriteTitle}}</h4>
+    <button
+      class="button-close-modal"
+      (click)="modal.dismiss('Cross click')"
+      type="button">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-favourite></app-favourite>
   </div>
 </ng-template>

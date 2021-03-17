@@ -12,6 +12,7 @@ export class NavbarComponent {
 
   public loginTitle = Constrains.loginTitle;
   public createAdvertTitle = Constrains.createAdvert;
+  public favouriteTitle = Constrains.favourite;
   public categories = Constrains.categories;
 
   public isCollapsed = true;
@@ -34,7 +35,7 @@ export class NavbarComponent {
     this.modalService.open(crateAdvert, {centered: true, size: 'lg'});
   }
 
-  getLogin(): string {
+  getLoggedUser(): string {
     return this.appService.loggedUserName;
   }
 

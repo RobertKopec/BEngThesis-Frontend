@@ -55,6 +55,7 @@ export class Constrains {
   }];
 
   public static noAdverts = 'Brak ogłoszeń spełniajacych kryteria!';
+  public static noFavourites = 'Brak ulubionych ogłoszeń!';
   public static priceText = 'Cena';
   public static cityText = 'Miasto';
   public static pictureText = 'Dodaj zdjęcia';
@@ -93,6 +94,7 @@ export class Constrains {
 
   // Navbar
   public static createAdvert = 'Dodaj nowe ogłoszenie';
+  public static favourite = 'Ulubione';
 
 
   // validation messages

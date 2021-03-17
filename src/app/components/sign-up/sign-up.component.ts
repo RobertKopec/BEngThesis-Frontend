@@ -49,12 +49,15 @@ export class SignUpComponent {
 
   createUserModelInstance(): void {
     this.user = new UserModel(
+      0,
       this.singUpForm.value.login,
       this.singUpForm.value.password,
       this.singUpForm.value.email,
       this.singUpForm.value.userName,
       this.singUpForm.value.city,
-      this.singUpForm.value.telNumber);
+      this.singUpForm.value.telNumber,
+      []
+    );
   }
 
   open(logIn) {

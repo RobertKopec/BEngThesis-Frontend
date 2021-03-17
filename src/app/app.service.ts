@@ -5,6 +5,7 @@ import {AdvertModel} from './models/advert.model';
 import {UserModel} from './models/user.model';
 import {MessageModel} from './models/messageModel';
 import {FilterModel} from './models/filter.model';
+import {FavouriteModel} from './models/favourite.model';
 
 @Injectable()
 export class AppService {
@@ -88,16 +89,87 @@ export class AppService {
         this.user = data as UserModel;
         this.userChanged.next(this.user);
         this.loggedUserName = this.user.userName;
+        console.log(this.user);
       },
       err => {
         if (err.status === 403) {
-          this.message = {text: 'Niepoprawne dane użytkownika, zaloguj się ponownie!', type: 'ERROR'};
+
         } else {
           this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
         }
         this.messageChanged.next(this.message);
       }
     );
+  }
+
+  getFavouriteAdverts(userId) {
+    this.http.get('http://localhost:8080/api/favourite/' + userId, {observe: 'response'}).subscribe(
+      data => {
+        if (data.status === 200) {
+          this.user.favourites = data.body as FavouriteModel[];
+          console.log(this.user.favourites);
+        } else {
+          this.user.favourites = [] as FavouriteModel[];
+        }
+        this.userChanged.next(this.user);
+      },
+      err => {
+        if (err.status === 404) {
+          this.message = {text: 'Nie znaleziono żadnych ulubionych ogłoszeń!', type: 'ERROR'};
+        } else {
+          this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        }
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  addFavouriteAdvert(userId, advertId) {
+    this.http.post('http://localhost:8080/api/favourite/add/' + userId + '/' + advertId, {observe: 'response'}).subscribe(
+      () => {
+        this.getFavouriteAdverts(userId);
+      },
+      err => {
+        if (err.status === 409) {
+          this.message = {text: 'Taka pozycja znajuje sie już w ulubionych!', type: 'ERROR'};
+        } else {
+          this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        }
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  removeFavouriteAdvert(userId, advertId) {
+    this.http.request('delete', 'http://localhost:8080/api/favourite/remove/' + userId + '/' + advertId, {observe: 'response'}).subscribe(
+      () => {
+        this.getFavouriteAdverts(userId);
+      },
+      err => {
+        if (err.status === 404) {
+          this.message = {text: 'Nie znaleziono żądanej pozycji!', type: 'ERROR'};
+        } else {
+          this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        }
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  addToFavourites(advertId: number) {
+    this.addFavouriteAdvert(this.user.userId, advertId);
+  }
+
+  removeFavourites(advertId: number) {
+    this.removeFavouriteAdvert(this.user.userId, advertId);
+  }
+
+  isFavourite(advertId: number): boolean {
+    for (const favourites of this.user.favourites) {
+      if (favourites.tradeAdvert.tradeAdvertId === advertId)
+        return true;
+    }
+    return false;
   }
 
   filterReset() {
