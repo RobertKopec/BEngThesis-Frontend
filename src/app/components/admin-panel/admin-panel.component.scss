@@ -1,0 +1,46 @@
+@import "../../../variables";
+
+.users-cd {
+  width: 100%;
+  height: 7.25rem;
+  flex-direction: row;
+  margin: .5rem 0;
+}
+
+.users-data {
+  width: 100%;
+  height: 7.20rem;
+  border-left: solid 1px #d8d8d8;
+}
+
+.img-left {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.card-header, .list-group-item {
+  padding: .7rem 1rem;
+  align-content: center;
+  align-items: center;
+
+  .card-title, p {
+    margin: 0;
+    align-self: center;
+  }
+}
+
+.users-container {
+  height: 95%;
+  overflow: auto;
+}
+
+.user-edit-button {
+  width: 100%;
+  margin: 1rem .3rem;
+}
+
+.no-users {
+  width: $no-adverts-width;
+  padding: $no-adverts-padding;
+  font-weight: $no-adverts-font-weight;
+}

@@ -1,0 +1,80 @@
+<div class="users-container d-flex flex-wrap ">
+  <button
+    class="button-shop user-edit-button button-shop-border"
+    (click)="show(userEdit)"
+    type="button">
+    <fa-icon [icon]="['fas', 'user-edit']"></fa-icon>
+    <span class="button-shop-description">{{editUser}}</span>
+  </button>
+
+  <div class="d-flex justify-content-around no-users" *ngIf="users.length < 1">
+    <p>{{noUsers}}</p>
+  </div>
+
+  <div class="card users-cd d-inline-flex" *ngFor="let user of users, index as idx">
+    <img src="../../../assets/img/user icon.png" alt="User Icon">
+    <div class="flex-column d-flex users-data">
+      <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title">{{user.userName}}</h5>
+        <div>
+          <button
+            class="button-shop"
+            (click)="removeUser(user.userId)"
+            type="button">
+            <fa-icon [icon]="['fas', 'times']"></fa-icon>
+          </button>
+          <button
+            class="button-shop"
+            (click)="show(userEdit)"
+            type="button">
+            <fa-icon [icon]="['fas', 'user-edit']"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-inline-flex justify-content-between">
+          <p style="align-self: center">{{user.email}}</p>
+          <p>{{user.city}}</p>
+          <p>{{user.role}}</p>
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #userEdit let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">{{userEditTitle}}</h4>
+        <button
+          class="button-close-modal"
+          (click)="modal.dismiss('Cross click')"
+          type="button">
+          <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-sign-up
+          [editMode]="true"
+          [userToEdit]="user"
+        ></app-sign-up>
+      </div>
+    </ng-template>
+
+  </div>
+
+  <ng-template #userEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">{{userEditTitle}}</h4>
+      <button
+        class="button-close-modal"
+        (click)="modal.dismiss('Cross click')"
+        type="button">
+        <fa-icon [icon]="['fas', 'times']"></fa-icon>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-sign-up
+        [editMode]="true"
+      ></app-sign-up>
+    </div>
+  </ng-template>
+
+</div>
