@@ -10,10 +10,11 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './favourite.component.html',
   styleUrls: ['./favourite.component.scss']
 })
+
 export class FavouriteComponent implements OnInit {
   public details = Constrains.details;
   public noFavourites = Constrains.noFavourites;
-  public favouriteAdverts: FavouriteModel[];
+  public favouriteAdverts: FavouriteModel[] = [];
 
   private favouriteChanged: Subscription;
 
@@ -21,15 +22,13 @@ export class FavouriteComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.appService.getFavouriteAdverts(this.appService.user.userId);
 
-    console.log(this.appService.user.favourites);
-    // this.favouriteChanged = this.appService.userChanged.subscribe(
-    //   () => {
-    this.favouriteAdverts = this.appService.user.favourites;
-    //   }
-    // );
-
-    // this.appService.getFavouriteAdverts(this.appService.user.userId);
+    this.favouriteChanged = this.appService.favouritesChanged.subscribe(
+      () => {
+        this.favouriteAdverts = this.appService.favourites;
+      }
+    );
   }
 
   open(advertDetails): void {

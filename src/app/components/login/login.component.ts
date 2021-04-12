@@ -18,7 +18,7 @@ export class LoginComponent {
 
   private userChanged: Subscription;
 
-  public loginText = Constrains.loginText;
+  public emailText = Constrains.emailText;
   public passwordText = Constrains.passwordText;
   public logInButton = Constrains.logInButton;
   public goToSignUp = Constrains.goToSignUp;
@@ -26,7 +26,7 @@ export class LoginComponent {
   public invalidCredentials = Constrains.invalidCredentials;
 
   onSubmit() {
-    this.appService.signIn(this.loginForm.value.login, this.loginForm.value.password);
+    this.appService.signIn(this.loginForm.value.email, this.loginForm.value.password);
     this.userChanged = this.appService.userChanged.subscribe(
       () => this.modalService.dismissAll()
     );

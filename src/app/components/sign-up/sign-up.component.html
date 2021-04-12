@@ -1,19 +1,19 @@
 <form class="sign-up-form d-flex flex-column" (ngSubmit)="onSubmit()" #f="ngForm">
 
   <div class="form-group d-inline-flex justify-content-between">
-    <label for="input-login">{{loginText}}</label>
+    <label for="input-mail">{{emailText}}:</label>
     <div class="input-container">
       <input
         placeholder=""
         class="form-control"
-        id="input-login"
-        type="text"
-        name="login"
-        ngModel
+        id="input-mail"
+        type="email"
+        name="email"
+        [ngModel]="user.email"
         required
-        pattern="{{loginValidation}}"
-        #login="ngModel">
-      <span class="invalid-message" *ngIf="!login.valid && login.touched">{{invalidLogin}}</span>
+        email
+        #email="ngModel">
+      <span class="invalid-message" *ngIf="!email.valid && email.touched">{{invalidEmail}}</span>
     </div>
   </div>
 
@@ -26,28 +26,11 @@
         id="input-password"
         type="password"
         name="password"
-        ngModel
+        [ngModel]="user.password"
         required
         pattern="{{passwordValidation}}"
         #password="ngModel">
       <span class="invalid-message" *ngIf="!password.valid && password.touched">{{invalidPassword}}</span>
-    </div>
-  </div>
-
-  <div class="form-group d-inline-flex justify-content-between">
-    <label for="input-mail">{{emailText}}:</label>
-    <div class="input-container">
-      <input
-        placeholder=""
-        class="form-control"
-        id="input-mail"
-        type="email"
-        name="email"
-        ngModel
-        required
-        email
-        #email="ngModel">
-      <span class="invalid-message" *ngIf="!email.valid && email.touched">{{invalidEmail}}</span>
     </div>
   </div>
 
@@ -60,7 +43,7 @@
         id="input-username"
         type="text"
         name="userName"
-        ngModel
+        [ngModel]="user.userName"
         pattern="{{onlyLetters}}"
         required
         #userName="ngModel">
@@ -77,7 +60,7 @@
         id="input-city"
         type="text"
         name="city"
-        ngModel
+        [ngModel]="user.city"
         required
         #city="ngModel">
       <span class="invalid-message" *ngIf="!city.valid && city.touched">{{invalidCity}}</span>
@@ -93,7 +76,7 @@
         id="input-telNumber"
         type="tel"
         name="telNumber"
-        ngModel
+        [ngModel]="user.telNumber"
         pattern="{{phoneNumber}}"
         required
         #telNumber="ngModel">
@@ -101,7 +84,25 @@
     </div>
   </div>
 
-  <div class=" d-flex justify-content-between">
+  <div class="form-group d-inline-flex justify-content-between"
+       *ngIf="isEditMode && appService.user && appService.user.role === 'admin'">
+    <label for="input-role">{{roleText}}</label>
+    <div class="input-container">
+      <input
+        placeholder=""
+        class="form-control"
+        id="input-role"
+        type="text"
+        name="role"
+        [ngModel]="user.role"
+        pattern="{{roleValidation}}"
+        required
+        #role="ngModel">
+      <span class="invalid-message" *ngIf="!role.valid && role.touched">{{invalidRole}}</span>
+    </div>
+  </div>
+
+  <div class=" d-flex justify-content-between" *ngIf="!isEditMode">
     <button
       class="btn btn-outline-primary"
       type="button"
@@ -116,6 +117,16 @@
       [disabled]="!f.valid">
       <fa-icon [icon]="['fas', 'user-check']"></fa-icon>
       {{signUpButton}}
+    </button>
+  </div>
+
+  <div class=" d-flex justify-content-end" *ngIf="isEditMode">
+    <button
+      class="btn btn-outline-success"
+      type="submit"
+      [disabled]="!f.valid">
+      <fa-icon [icon]="['fas', 'user-check']"></fa-icon>
+      {{updateButton}}
     </button>
   </div>
 

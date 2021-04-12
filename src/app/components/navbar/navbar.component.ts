@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AppService} from '../../app.service';
 import {Constrains} from '../../app.constraints';
+import {UserModel} from '../../models/user.model';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ export class NavbarComponent {
   public loginTitle = Constrains.loginTitle;
   public createAdvertTitle = Constrains.createAdvert;
   public favouriteTitle = Constrains.favourite;
+  public userPanelTitle = Constrains.userPanel;
   public categories = Constrains.categories;
 
   public isCollapsed = true;
@@ -35,11 +37,11 @@ export class NavbarComponent {
     this.modalService.open(crateAdvert, {centered: true, size: 'lg'});
   }
 
-  getLoggedUser(): string {
-    return this.appService.loggedUserName;
+  getLoggedUser(): UserModel {
+    return this.appService.user;
   }
 
   signOut() {
-    delete (this.appService.loggedUserName);
+    delete (this.appService.user);
   }
 }

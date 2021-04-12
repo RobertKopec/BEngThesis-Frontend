@@ -1,6 +1,4 @@
 <nav class="navbar fixed-top navbar-expand-md nav-bar flex-column ">
-
-  <!--TODO: change nav collapse button-->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-tagret="#navbarContent"
           aria-controls="navbarContent"
           aria-expanded="false" aria-label="Toggler navigation bar content" (click)="toggleNavbar()">
@@ -18,19 +16,6 @@
         (click)="appService.filterReset()">
         <fa-icon [icon]="['fas', 'th']" size="2x"></fa-icon>
       </button>
-
-      <button
-        class="button-shop"
-        type="button">
-        <fa-icon [icon]="['fas', 'th-list']" size="2x"></fa-icon>
-      </button>
-
-      <!--        TODO: Implement Map-->
-      <!--        <button-->
-      <!--          class="button-shop"-->
-      <!--          type="button">-->
-      <!--          <fa-icon [icon]="['fas', 'map-marked-alt']" size="2x"></fa-icon>-->
-      <!--        </button>-->
 
     </div>
 
@@ -103,11 +88,12 @@
 
       <button
         *ngIf="getLoggedUser()"
-        class="btn btn-outline-warning disabled d-inline-flex"
+        (click)="show(userPanel)"
+        class="button-shop button-shop-border"
         type="button">
-          <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
-          <span class="loggedUser">{{appService.loggedUserName}}</span>
-        </button>
+        <fa-icon [icon]="['fas', 'user']" size="2x"></fa-icon>
+        <span class="button-shop-description">{{appService.user.userName}}</span>
+      </button>
 
         <button
           *ngIf="getLoggedUser()"
@@ -170,5 +156,20 @@
   </div>
   <div class="modal-body">
     <app-favourite></app-favourite>
+  </div>
+</ng-template>
+
+<ng-template #userPanel let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{userPanelTitle}}</h4>
+    <button
+      class="button-close-modal"
+      (click)="modal.dismiss('Cross click')"
+      type="button">
+      <fa-icon [icon]="['fas', 'times']"></fa-icon>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-user-panel></app-user-panel>
   </div>
 </ng-template>

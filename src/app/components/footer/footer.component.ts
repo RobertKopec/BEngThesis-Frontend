@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Constrains} from '../../app.constraints';
 
 @Component({
@@ -6,14 +6,11 @@ import {Constrains} from '../../app.constraints';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  private text = Constrains.text;
-  private author = Constrains.author;
+  public text = Constrains.text;
+  public author = Constrains.author;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
-
 }

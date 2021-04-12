@@ -9,13 +9,15 @@ import {FavouriteModel} from './models/favourite.model';
 
 @Injectable()
 export class AppService {
-
-  public loggedUserName: string;
+  backendAddress = 'http://localhost:8080/api/';
 
   public filter: FilterModel = new FilterModel('', '', [], [], false, false, '', []);
 
   public user: UserModel;
   public userChanged = new Subject<UserModel>();
+
+  public users: UserModel[];
+  public usersChanged = new Subject<UserModel[]>();
 
   public message: MessageModel = {text: '', type: ''};
   public messageChanged = new Subject<MessageModel>();
@@ -26,15 +28,20 @@ export class AppService {
   public filteredAdverts: AdvertModel[];
   public filteredAdvertsChanged = new Subject<AdvertModel[]>();
 
+  public favourites: FavouriteModel[];
+  public favouritesChanged = new Subject<FavouriteModel[]>();
+
+  public usersAdverts: AdvertModel[];
+  public usersAdvertsChanged = new Subject<AdvertModel[]>();
+
   constructor(private http: HttpClient) {
   }
 
   getAdverts() {
-    this.http.get('http://localhost:8080/api/tradeAdvert/all', {observe: 'response'}).subscribe(
+    this.http.get(this.backendAddress + 'tradeAdvert/all', {observe: 'response'}).subscribe(
       data => {
         if (data.status === 200) {
           this.adverts = data.body as AdvertModel[];
-          console.log(this.adverts);
         } else {
           this.adverts = [] as AdvertModel[];
         }
@@ -50,7 +57,7 @@ export class AppService {
   }
 
   createAdvert(advert) {
-    this.http.post('http://localhost:8080/api/tradeAdvert/add', advert, {observe: 'response'}).subscribe(
+    this.http.post(this.backendAddress + 'tradeAdvert/add', advert, {observe: 'response'}).subscribe(
       data => {
         if (data.status === 201) {
           this.getAdverts();
@@ -63,11 +70,41 @@ export class AppService {
     );
   }
 
+  updateAdvert(advert) {
+    this.http.put(this.backendAddress + 'tradeAdvert/update', advert).subscribe(
+      () => {
+        this.getAdverts();
+      },
+      err => {
+        this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  removeAdvert(advertId, userId) {
+    this.http.request('delete', this.backendAddress + 'tradeAdvert/remove/' + advertId, {observe: 'response'}).subscribe(
+      () => {
+        this.getAdverts();
+        if (userId)
+          this.getUsersAdverts(userId);
+      },
+      err => {
+        if (err.status === 404) {
+          this.message = {text: 'Nie znaleziono żądanej pozycji!', type: 'ERROR'};
+        } else {
+          this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        }
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
   signUp(user) {
-    this.http.post('http://localhost:8080/api/user/add', user).subscribe(
+    this.http.post(this.backendAddress + 'user/add', user).subscribe(
       () => {
         this.message = {text: 'Zarejestrowano!', type: 'SUCCESS'};
-        this.signIn(user.login, user.password);
+        this.signIn(user.email, user.password);
       },
       err => {
         if (err.status === 409) {
@@ -80,20 +117,86 @@ export class AppService {
     );
   }
 
-  signIn(login, pass) {
-    this.http.post('http://localhost:8080/api/user/login', {
-      login,
+  signIn(email, pass) {
+    this.http.post(this.backendAddress + 'user/login', {
+      email,
       password: pass
     }).subscribe(
       data => {
         this.user = data as UserModel;
         this.userChanged.next(this.user);
-        this.loggedUserName = this.user.userName;
-        console.log(this.user);
       },
       err => {
         if (err.status === 403) {
+          this.message = {text: 'Błedne dane logowania!', type: 'ERROR'};
+        } else {
+          this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        }
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
 
+  getUsers() {
+    this.http.get(this.backendAddress + 'user/all', {observe: 'response'}).subscribe(
+      data => {
+        if (data.status === 200) {
+          this.users = data.body as UserModel[];
+        } else {
+          this.users = [] as UserModel[];
+        }
+        this.usersChanged.next(this.users);
+        this.updateLoggedUser();
+      },
+      () => {
+        this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  updateUser(user) {
+    this.http.put(this.backendAddress + 'user/update', user).subscribe(
+      () => {
+        this.getUsers();
+      },
+      err => {
+        this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  removeUser(userId) {
+    this.http.request('delete', this.backendAddress + 'user/remove/' + userId, {observe: 'response'}).subscribe(
+      () => {
+        this.getUsers();
+        this.getAdverts();
+      },
+      err => {
+        if (err.status === 404) {
+          this.message = {text: 'Nie znaleziono żądanej pozycji!', type: 'ERROR'};
+        } else {
+          this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
+        }
+        this.messageChanged.next(this.message);
+      }
+    );
+  }
+
+  getUsersAdverts(userId) {
+    this.http.get(this.backendAddress + 'tradeAdvert/' + userId, {observe: 'response'}).subscribe(
+      data => {
+        if (data.status === 200) {
+          this.usersAdverts = data.body as AdvertModel[];
+        } else {
+          this.usersAdverts = [] as AdvertModel[];
+        }
+        this.usersAdvertsChanged.next(this.usersAdverts);
+      },
+      err => {
+        if (err.status === 404) {
+          this.message = {text: 'Nie znaleziono ogłoszeń użytkownika!', type: 'ERROR'};
         } else {
           this.message = {text: 'Błąd podczas łączenia z serwerem, spróbuj później!', type: 'ERROR'};
         }
@@ -103,15 +206,14 @@ export class AppService {
   }
 
   getFavouriteAdverts(userId) {
-    this.http.get('http://localhost:8080/api/favourite/' + userId, {observe: 'response'}).subscribe(
+    this.http.get(this.backendAddress + 'favourite/' + userId, {observe: 'response'}).subscribe(
       data => {
         if (data.status === 200) {
-          this.user.favourites = data.body as FavouriteModel[];
-          console.log(this.user.favourites);
+          this.favourites = data.body as FavouriteModel[];
         } else {
-          this.user.favourites = [] as FavouriteModel[];
+          this.favourites = [] as FavouriteModel[];
         }
-        this.userChanged.next(this.user);
+        this.favouritesChanged.next(this.favourites);
       },
       err => {
         if (err.status === 404) {
@@ -125,7 +227,7 @@ export class AppService {
   }
 
   addFavouriteAdvert(userId, advertId) {
-    this.http.post('http://localhost:8080/api/favourite/add/' + userId + '/' + advertId, {observe: 'response'}).subscribe(
+    this.http.post(this.backendAddress + 'favourite/add/' + userId + '/' + advertId, {observe: 'response'}).subscribe(
       () => {
         this.getFavouriteAdverts(userId);
       },
@@ -141,7 +243,7 @@ export class AppService {
   }
 
   removeFavouriteAdvert(userId, advertId) {
-    this.http.request('delete', 'http://localhost:8080/api/favourite/remove/' + userId + '/' + advertId, {observe: 'response'}).subscribe(
+    this.http.request('delete', this.backendAddress + 'favourite/remove/' + userId + '/' + advertId, {observe: 'response'}).subscribe(
       () => {
         this.getFavouriteAdverts(userId);
       },
@@ -256,16 +358,13 @@ export class AppService {
     }
   }
 
-  // dodanie do ulubionych
-  // usuniecie do ulubionych
+  private updateLoggedUser() {
+    for (const user of this.users) {
+      if (user.userId === this.user.userId) {
+        this.user = user;
+        break;
+      }
+    }
+  }
 
-  // widoki kafelek i list
-  // removeAdvert
-  // user usówanie ogłoszen, edycja usera, edycja ogłoszenia
-  // admin usówanie i edycja userow i ogłoszeń
-
-  // setAlert(alertMessage: string) {
-  //   this.alertMessage += alertMessage;
-  //   this.alertMessageChanged.next(this.alertMessage);
-  // }
 }

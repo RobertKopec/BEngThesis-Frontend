@@ -1,18 +1,18 @@
 <form class="login-form flex-column" (ngSubmit)="onSubmit()" #f="ngForm">
 
   <div class="form-group d-inline-flex justify-content-between">
-    <label for="input-login">{{loginText}}</label>
+    <label for="input-email">{{emailText}}</label>
     <div class="input-container">
       <input
         placeholder=""
         class="form-control"
-        id="input-login"
+        id="input-email"
         type="text"
-        name="login"
+        name="email"
         ngModel
         required
-        #login="ngModel">
-      <span class="invalid-message" *ngIf="!login.valid && login.touched">{{invalidCredentials}}</span>
+        #email="ngModel">
+      <span class="invalid-message" *ngIf="!email.valid && email.touched">{{invalidCredentials}}</span>
     </div>
   </div>
 

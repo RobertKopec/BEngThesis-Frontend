@@ -28,6 +28,7 @@ import {
   faCar,
   faCheck,
   faChild,
+  faEdit,
   faFilter,
   faGamepad,
   faHome,
@@ -47,17 +48,20 @@ import {
   faTshirt,
   faUser,
   faUserCheck,
+  faUserEdit,
   faUserPlus,
   faUsers,
   faVolleyballBall,
 } from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
-import {faAddressCard, faImages, faTimesCircle} from '@fortawesome/free-regular-svg-icons';
+import {faAddressCard, faIdCard, faImages, faTimesCircle} from '@fortawesome/free-regular-svg-icons';
 import {AlertComponent} from './components/alert/alert.component';
 import {FavouriteComponent} from './components/favourite/favourite.component';
+import {UserPanelComponent} from './components/user-panel/user-panel.component';
+import {AdminPanelComponent} from './components/admin-panel/admin-panel.component';
 
 // tslint:disable-next-line:max-line-length
-library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser, faCheck, faUserPlus, faUserCheck, faUsers, faInfoCircle, faTimesCircle);
+library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAlt, faSignOutAlt, faSearch, faGamepad, faCar, faHome, faTshirt, faSpa, faChild, faPaw, faImages, faLaptop, faVolleyballBall, faBars, faTimes, faAddressCard, faUser, faCheck, faUserPlus, faUserCheck, faUsers, faInfoCircle, faTimesCircle, faUserEdit, faEdit, faIdCard);
 
 @NgModule({
   declarations: [
@@ -73,7 +77,9 @@ library.add(faTh, faThList, faMapMarkedAlt, faPlus, faFilter, faStar, faSignInAl
     AdvertDetailsComponent,
     SignUpComponent,
     AlertComponent,
-    FavouriteComponent
+    FavouriteComponent,
+    UserPanelComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,

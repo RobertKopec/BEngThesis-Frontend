@@ -8,7 +8,7 @@
         id="title"
         type="text"
         name="title"
-        ngModel
+        [ngModel]="advert.title"
         required
         #title="ngModel">
       <span class="invalid-message" *ngIf="!title.valid && title.touched">{{invalidTitle}}</span>
@@ -23,7 +23,7 @@
         rows="3"
         id="description"
         name="description"
-        ngModel
+        [ngModel]="advert.description"
         required
         #description="ngModel">
       </textarea>
@@ -40,7 +40,7 @@
           class="custom-select select-shop select-narrow"
           id="category"
           name="category"
-          ngModel
+          [ngModel]="advert.category"
           required
           #category="ngModel">
           <option *ngFor="let category of categories" [value]="category.value">{{category.text}}</option>
@@ -56,7 +56,7 @@
           class="custom-select select-shop select-narrow"
           id="state"
           name="state"
-          ngModel
+          [ngModel]="advert.state"
           required
           #state="ngModel">
           <option *ngFor="let state of states" [value]="state.value">{{state.text}}</option>
@@ -77,11 +77,10 @@
           id="telNumber"
           type="tel"
           name="telNumber"
-          ngModel
+          [ngModel]="advert.telNumber"
           required
           pattern="{{phoneNumber}}"
-          #telNumber="ngModel"
-          [(ngModel)]="telNumberFromUser">
+          #telNumber="ngModel">
         <span class="invalid-message" *ngIf="!telNumber.valid">{{invalidTelNumber}}</span>
       </div>
     </div>
@@ -95,10 +94,9 @@
           id="city"
           type="text"
           name="city"
-          ngModel
+          [ngModel]="advert.city"
           required
-          #city="ngModel"
-          [(ngModel)]="cityFromUser">
+          #city="ngModel">
         <span class="invalid-message" *ngIf="!city.valid">{{invalidCity}}</span>
       </div>
     </div>
@@ -116,7 +114,7 @@
           id="picture"
           type="text"
           name="picture"
-          ngModel
+          [ngModel]="advert.picture"
           required
           #picture="ngModel">
         <span class="invalid-message" *ngIf="!picture.valid && picture.touched">{{invalidPicture}}</span>
@@ -134,7 +132,7 @@
         type="checkbox"
         id="personal"
         name="personal"
-        ngModel>
+        [ngModel]="advert.personal">
       <label class="form-check-label" for="personal">{{personalText}}</label>
     </div>
 
@@ -144,7 +142,7 @@
         type="checkbox"
         id="shipment"
         name="shipment"
-        ngModel>
+        [ngModel]="advert.shipment">
       <label class="form-check-label" for="shipment">{{shipmentText}}</label>
     </div>
   </div>
@@ -164,8 +162,6 @@
           [(ngModel)]="advertTags[i]">
       </div>
     </div>
-
-    <!--    TODO: add validation to exclude ','-->
   </div>
 
   <div class="d-inline-flex justify-content-between">
@@ -188,7 +184,7 @@
           id="price"
           type="number"
           name="price"
-          ngModel
+          [ngModel]="advert.price"
           required
           pattern="{{onlyDigits}}"
           #price="ngModel">

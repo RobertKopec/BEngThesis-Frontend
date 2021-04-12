@@ -10,14 +10,14 @@
       <div class="card-header d-flex justify-content-between">
         <h5 class="card-title">{{favourite.tradeAdvert.title}}</h5>
         <button
-          *ngIf="appService.loggedUserName && !appService.isFavourite(favourite.tradeAdvert.tradeAdvertId)"
+          *ngIf="appService.user && !appService.isFavourite(favourite.tradeAdvert.tradeAdvertId)"
           class="button-shop"
           (click)="appService.addToFavourites(favourite.tradeAdvert.tradeAdvertId)"
           type="button">
           <fa-icon [icon]="['fas', 'star']"></fa-icon>
         </button>
         <button
-          *ngIf="appService.loggedUserName && appService.isFavourite(favourite.tradeAdvert.tradeAdvertId)"
+          *ngIf="appService.user && appService.isFavourite(favourite.tradeAdvert.tradeAdvertId)"
           class="button-shop"
           (click)="appService.removeFavourites(favourite.tradeAdvert.tradeAdvertId)"
           type="button">
@@ -51,7 +51,6 @@
       </div>
       <div class="modal-body">
         <app-advert-details
-          [index]="idx"
           [advert]="favourite.tradeAdvert"
         ></app-advert-details>
       </div>

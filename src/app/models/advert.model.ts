@@ -6,7 +6,6 @@ export class AdvertModel {
     public title: string,
     public description: string,
     public price: number,
-    public createDate: Date,
     public category: string,
     public telNumber: string,
     public city: string,
@@ -15,6 +14,7 @@ export class AdvertModel {
     public personal: boolean,
     public shipment: boolean,
     public tags: string,
+    public userName: string,
     public user: UserModel,
   ) {
   }

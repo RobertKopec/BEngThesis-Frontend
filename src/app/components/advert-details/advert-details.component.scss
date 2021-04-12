@@ -25,12 +25,17 @@ p:first-child {
 .advert-details-description {
   text-align: $advert-details-description-text-align;
   padding: $advert-details-description-padding;
+  width: 100%
 }
 
 .advert-details-details-container {
   display: inline-flex;
   justify-content: space-between;
   width: $advert-details-details-container-width;
+}
+
+.advert-details-username {
+  align-self: center;
 }
 
 .modal-footer {

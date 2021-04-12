@@ -1,7 +1,6 @@
 export class Constrains {
 
   // create-advert, advert-details
-
   public static advertTitleText = 'Nagówek ogłoszenia';
   public static descriptionText = 'Opis ogłoszenia';
   public static categoryText = 'Kategoria';
@@ -55,7 +54,7 @@ export class Constrains {
   }];
 
   public static noAdverts = 'Brak ogłoszeń spełniajacych kryteria!';
-  public static noFavourites = 'Brak ulubionych ogłoszeń!';
+
   public static priceText = 'Cena';
   public static cityText = 'Miasto';
   public static pictureText = 'Dodaj zdjęcia';
@@ -63,6 +62,7 @@ export class Constrains {
   public static personalText = 'Odbiór osobisty';
   public static shipmentText = 'Możliwa wysyłka';
   public static telNumberText = 'Telefon';
+  public static roleText = 'Rola';
   public static submitText = 'Zatwierdź';
   public static tagText = 'Tagi:';
   public static addTagText = 'Dodaj tag';
@@ -79,31 +79,42 @@ export class Constrains {
   public static author = 'Robert Kopeć';
 
   // login, register
-
   public static logInButton = 'Zaloguj się!';
   public static signUpButton = 'Zarejestruj się!';
+  public static updateButton = 'Aktualizuj dane!';
   public static goToSignUp = 'Rejestracja';
   public static signUpTitle = 'Rejestracja użytkownika';
   public static loginTitle = 'Logowanie';
   public static goToLogIn = 'Logowanie';
 
-  public static loginText = 'Login';
   public static passwordText = 'Hasło';
   public static emailText = 'E-mail';
-  public static usernameText = 'Imię';
+  public static usernameText = 'Nazwa';
+
+  // user-panel, admin-panel
+  public static editUser = 'Edycja informacji użytkownika';
+  public static menageUsers = 'Zarządzanie użytkownikami';
+  public static noUsers = 'Brak innych użytkowników!';
+  public static userEditTitle = 'Edycja użytkownika';
+  public static advertEditTitle = 'Edycja ogłoszenia';
+  public static adminPanelTitle = 'Panel administratora';
+
+  // favourites
+  public static noFavourites = 'Brak ulubionych ogłoszeń!';
 
   // Navbar
   public static createAdvert = 'Dodaj nowe ogłoszenie';
   public static favourite = 'Ulubione';
+  public static userPanel = 'Panel Użytkownika ';
 
 
   // validation messages
-  public static invalidLogin = 'Login nie może być pusty i musi zawierać wielka literę oraz minimum 5 znaków.';
   public static invalidPassword = 'Hasło nie może być puste i musi zawierać cyfrę oraz wielka literę oraz minimum 7 znaków.';
   public static invalidEmail = 'Podaj prawidłowy adres e-mail.';
   public static invalidUserName = 'Imię powinno zawierać tylko litery.';
   public static invalidCity = 'Miasto nie może być pusty.';
   public static invalidTelNumber = 'Nieprawidłowy numer telefonu.';
+  public static invalidRole = 'Niepoprawna rola, pole przymuje wartosć \'user\' lub \'admin\'';
   public static invalidCredentials = 'Niepoprawne dane logowania, pole nie może być puste.';
   public static invalidTitle = 'Nagłówek nie może być pusty.';
   public static invalidDescription = 'Opis ogłoszenia nie może być pusty.';
@@ -117,8 +128,8 @@ export class Constrains {
   public static onlyDigits = '^[0-9\\.]+$';
   public static phoneNumber = '^[0-9\\+\\(\\)]+$';
   public static passwordValidation = '^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[^\' \']{7,}$';
-  public static loginValidation = '^(?=.*[A-Z])(?=.*[a-z])[^\' \']{5,}$';
-
+  public static roleValidation = '^(?:user|admin)$';
+  // public static emailValidation = '^[\\w\\.\\-\\_]+\\@([\\w\\-\\_]+\\.)+[\\w]+$'
 }
 
 

@@ -1,0 +1,139 @@
+<div class="users-adverts-container d-flex flex-wrap ">
+  <button
+    class="button-shop user-edit-button button-shop-border"
+    (click)="show(userEdit)"
+    type="button">
+    <fa-icon [icon]="['fas', 'user-edit']"></fa-icon>
+    <span class="button-shop-description">{{editUser}}</span>
+  </button>
+  <button
+    *ngIf="appService.user && appService.user.role === 'admin'"
+    class="button-shop user-edit-button button-shop-border"
+    (click)="show(adminPanel)"
+    type="button">
+    <fa-icon [icon]="['far', 'id-card']"></fa-icon>
+    <span class="button-shop-description">{{menageUsers}}</span>
+  </button>
+
+  <div class="d-flex justify-content-around no-adverts" *ngIf="usersAdverts.length < 1">
+    <p>{{noAdverts}}</p>
+  </div>
+
+  <div class="card users-advert-cd d-inline-flex" *ngFor="let userAdvert of usersAdverts, index as idx">
+    <img class="" src="{{userAdvert.picture}}" alt="Card image cap">
+    <div class="flex-column d-flex users-advert-data">
+      <div class="card-header d-flex justify-content-between">
+        <h5 class="card-title">{{userAdvert.title}}</h5>
+        <div>
+          <button
+            *ngIf="appService.user && !appService.isFavourite(userAdvert.tradeAdvertId)"
+            class="button-shop"
+            (click)="appService.addToFavourites(userAdvert.tradeAdvertId)"
+            type="button">
+            <fa-icon [icon]="['fas', 'star']"></fa-icon>
+          </button>
+          <button
+            *ngIf="appService.user && appService.isFavourite(userAdvert.tradeAdvertId)"
+            class="button-shop"
+            (click)="appService.removeFavourites(userAdvert.tradeAdvertId)"
+            type="button">
+            <fa-icon [icon]="['fas', 'star']"></fa-icon>
+          </button>
+          <button
+            class="button-shop"
+            (click)="open(editAdvert)"
+            type="button">
+            <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+          </button>
+          <button
+            class="button-shop"
+            (click)="removeAdvert(userAdvert.tradeAdvertId)"
+            type="button">
+            <fa-icon [icon]="['fas', 'times']"></fa-icon>
+          </button>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-inline-flex justify-content-between">
+          <p style="align-self: center">{{userAdvert.price}} zł</p>
+          <p>{{userAdvert.city}}</p>
+          <p>{{userAdvert.state}}</p>
+          <button
+            class="button-shop"
+            (click)="open(advertDetails)"
+            type="button">
+            {{details}}
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <ng-template #editAdvert let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">{{advertEditTitle}}</h4>
+        <button
+          class="button-close-modal"
+          (click)="modal.dismiss('Cross click')"
+          type="button">
+          <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-create-advert
+          [advertToEdit]="userAdvert"
+          [editMode]="true"
+        ></app-create-advert>
+      </div>
+    </ng-template>
+
+    <ng-template #advertDetails let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">{{userAdvert.title}}</h4>
+        <button
+          class="button-close-modal"
+          (click)="modal.dismiss('Cross click')"
+          type="button">
+          <fa-icon [icon]="['fas', 'times']"></fa-icon>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-advert-details
+          [advert]="userAdvert"
+        ></app-advert-details>
+      </div>
+    </ng-template>
+  </div>
+
+  <ng-template #userEdit let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">{{userEditTitle}}</h4>
+      <button
+        class="button-close-modal"
+        (click)="modal.dismiss('Cross click')"
+        type="button">
+        <fa-icon [icon]="['fas', 'times']"></fa-icon>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-sign-up
+        [editMode]="true"
+      ></app-sign-up>
+    </div>
+  </ng-template>
+
+  <ng-template #adminPanel let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">{{adminPanelTitle}}</h4>
+      <button
+        class="button-close-modal"
+        (click)="modal.dismiss('Cross click')"
+        type="button">
+        <fa-icon [icon]="['fas', 'times']"></fa-icon>
+      </button>
+    </div>
+    <div class="modal-body">
+      <app-admin-panel></app-admin-panel>
+    </div>
+  </ng-template>
+
+</div>

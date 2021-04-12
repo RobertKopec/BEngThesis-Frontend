@@ -11,7 +11,6 @@ import {Subscription} from 'rxjs';
 })
 export class AdvertDetailsComponent implements OnInit {
 
-  @Input() index: number;
   @Input() advert: AdvertModel;
 
   public descriptionText = Constrains.descriptionText;
@@ -22,7 +21,7 @@ export class AdvertDetailsComponent implements OnInit {
   public telNumberText = Constrains.telNumberText + ':';
   public deliveryOptions = Constrains.deliveryOptionsText;
 
-  private userChanged: Subscription;
+  private favouritesChanged: Subscription;
   public advertTags: string[];
   public favourite: boolean;
 
@@ -32,10 +31,14 @@ export class AdvertDetailsComponent implements OnInit {
   ngOnInit() {
     this.advertTags = this.advert.tags.split(',');
 
-    this.userChanged = this.appService.userChanged.subscribe(
+    this.favouritesChanged = this.appService.favouritesChanged.subscribe(
       () => {
         this.favourite = this.appService.isFavourite(this.advert.tradeAdvertId);
       }
     );
+  }
+
+  removeAdvert(advertId): void {
+    this.appService.removeAdvert(advertId, null);
   }
 }
